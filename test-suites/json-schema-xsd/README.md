@@ -44,7 +44,17 @@ go run ./tools/jsonschema-testrunner
 Options: `-filter draft2020-12/ref` runs only tests whose path contains the
 text, `-v` prints every failed test, `-failures file` writes them to a file,
 `-xml` and `-xsd` point to other directories. The exit status is 1 if a test
-fails, which is the case for the known failures below.
+fails; with `-known test-suites/known-failures.json` the failures listed
+there (the known failures below) are expected, and the exit status is 1 only
+for other failures or for a listed test that passes.
+
+The workflow [`.github/workflows/conformance.yml`](../../.github/workflows/conformance.yml)
+runs daily (and on pushes to main and pull requests): it regenerates all
+generated files with the go-xslt version of `go.mod` and checks that the
+committed ones are up to date, runs the test suite in both XML
+representations with that version and with the latest go-xslt release, and,
+on the daily run, also with the current main branch of the upstream test
+suite.
 
 The same test suite in the JSON elements format, with XSDs that describe
 objects as element declarations, is in

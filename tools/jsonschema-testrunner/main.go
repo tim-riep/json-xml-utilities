@@ -19,10 +19,16 @@
 //	go run ./tools/jsonschema-testrunner -format elements
 //	go run ./tools/jsonschema-testrunner -filter draft2020-12/ref -v
 //	go run ./tools/jsonschema-testrunner -failures failures.txt
+//	go run ./tools/jsonschema-testrunner -known test-suites/known-failures.json
+//
+// With -known, failures listed in the JSON file are expected: the exit status
+// is 1 only for a failure that is not listed, or for a listed test that
+// passes (so that the list stays accurate).
 package main
 
 import (
 	"cmp"
+	"encoding/json"
 	"flag"
 	"fmt"
 	"io/fs"
@@ -77,6 +83,7 @@ func main() {
 	failures := flag.String("failures", "", "write the failed tests to this file")
 	verbose := flag.Bool("v", false, "print every failed test")
 	workers := flag.Int("j", runtime.NumCPU(), "number of tests run in parallel")
+	knownFile := flag.String("known", "", "JSON file with the expected failures ({\"failures\": [{\"test\": path, \"reason\": text}]})")
 	flag.Parse()
 	switch *format {
 	case "xpath":
@@ -127,9 +134,64 @@ func main() {
 			os.Exit(2)
 		}
 	}
-	if failed > 0 {
+	if *knownFile == "" {
+		if failed > 0 {
+			os.Exit(1)
+		}
+		return
+	}
+	known, err := readKnown(*knownFile)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "jsonschema-testrunner:", err)
+		os.Exit(2)
+	}
+	if !checkKnown(results, known) {
 		os.Exit(1)
 	}
+}
+
+// readKnown reads the expected failures: test path to reason.
+func readKnown(name string) (map[string]string, error) {
+	data, err := os.ReadFile(name)
+	if err != nil {
+		return nil, err
+	}
+	var file struct {
+		Failures []struct {
+			Test   string `json:"test"`
+			Reason string `json:"reason"`
+		} `json:"failures"`
+	}
+	if err := json.Unmarshal(data, &file); err != nil {
+		return nil, fmt.Errorf("%s: %w", name, err)
+	}
+	known := map[string]string{}
+	for _, f := range file.Failures {
+		known[f.Test] = f.Reason
+	}
+	return known, nil
+}
+
+// checkKnown compares the results with the expected failures and reports
+// unexpected failures and expected failures that pass. Expected failures of
+// tests that were not run (-filter) are ignored.
+func checkKnown(results []result, known map[string]string) bool {
+	ok := true
+	for _, r := range results {
+		reason, expected := known[r.path]
+		switch {
+		case !r.passed && !expected:
+			fmt.Printf("UNEXPECTED FAILURE %s: %s\n", r.path, r.detail)
+			ok = false
+		case r.passed && expected:
+			fmt.Printf("UNEXPECTED PASS %s (listed as a known failure: %s)\n", r.path, reason)
+			ok = false
+		}
+	}
+	if ok {
+		fmt.Println("all failures are known failures")
+	}
+	return ok
 }
 
 // findTests returns the paths of all test-NN.xml files below root/tests,

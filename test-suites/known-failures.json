@@ -1,0 +1,13 @@
+{
+  "description": "Tests of the JSON Schema Test Suite that the compiled XSDs are known to fail, in both XML representations. tools/jsonschema-testrunner -known fails on any other failure and on a listed test that passes.",
+  "failures": [
+    {
+      "test": "tests/draft7/optional/content/01/test-02.xml",
+      "reason": "contentMediaType application/json needs a JSON syntax check of the string, which XPath cannot do without failing (tim-riep/go-xslt#21)"
+    },
+    {
+      "test": "tests/draft7/optional/content/03/test-02.xml",
+      "reason": "contentMediaType application/json needs a JSON syntax check of the string, which XPath cannot do without failing (tim-riep/go-xslt#21)"
+    }
+  ]
+}

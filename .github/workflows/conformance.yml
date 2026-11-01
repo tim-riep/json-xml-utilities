@@ -1,0 +1,157 @@
+# Daily conformance check against the JSON Schema Test Suite.
+#
+# conformance: regenerates the tests as XML and the XSDs from the vendored
+#   suite (test-suites/json-schema), with the go-xslt version of go.mod
+#   ("pinned") and with the latest go-xslt release ("latest"), and runs the
+#   test runner for both XML representations. Fails on any failure not listed
+#   in test-suites/known-failures.json, on a listed test that passes, and
+#   (pinned only) if the committed generated files are out of date.
+# upstream: the same with the current main branch of the test suite, to see
+#   new upstream tests early (schedule and manual runs only).
+name: Conformance
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  conformance:
+    name: conformance (go-xslt ${{ matrix.go-xslt }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        go-xslt: [pinned, latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Choose the go-xslt version
+        run: |
+          if [ "${{ matrix.go-xslt }}" = pinned ]; then
+            version=$(go list -m -f '{{.Version}}' github.com/tim-riep/go-xslt)
+          else
+            version=$(go list -m -f '{{.Version}}' github.com/tim-riep/go-xslt@latest)
+            go get "github.com/tim-riep/go-xslt@$version"
+          fi
+          echo "GO_XSLT_VERSION=$version" >> "$GITHUB_ENV"
+          echo "go-xslt $version"
+
+      - name: Install the go-xslt command
+        run: go install "github.com/tim-riep/go-xslt/cmd/go-xslt@$GO_XSLT_VERSION"
+
+      - name: Regenerate the tests as XML and the XSDs
+        run: |
+          rm -rf test-suites/json-schema-xml/tests test-suites/json-schema-elements/tests \
+            test-suites/json-schema-xsd/tests test-suites/json-schema-elements-xsd/tests \
+            test-suites/json-schema-elements-xsd/remotes test-suites/json-schema-elements-xsd/json-elements.xsd
+          tests=$(cd test-suites/json-schema && find tests -name '*.json' | sort)
+          go-xslt transform -s xslt/json-schema-test-suite-to-xml.xslt -it xsl:initial-template \
+            -allow-dir test-suites/json-schema -d test-suites/json-schema-xml -p "files=$tests"
+          go-xslt transform -s xslt/json-schema-test-suite-to-xml.xslt -it xsl:initial-template \
+            -allow-dir test-suites/json-schema -d test-suites/json-schema-elements -p format=elements -p "files=$tests"
+          go-xslt transform -s xslt/json-schema-to-xsd.xslt -it xsl:initial-template \
+            -allow-dir test-suites -allow-network -d test-suites/json-schema-xsd \
+            -p "files=$(cd test-suites/json-schema-xml && find tests -name schema.xml | sort)"
+          go-xslt transform -s xslt/json-schema-to-xsd.xslt -it xsl:initial-template \
+            -allow-dir test-suites -allow-network -d test-suites/json-schema-elements-xsd \
+            -p instance-format=elements -p input-dir=../test-suites/json-schema-elements/ \
+            -p "files=$(cd test-suites/json-schema-elements && find tests -name schema.xml | sort)"
+
+      - name: Check that the committed files are up to date
+        if: matrix.go-xslt == 'pinned'
+        run: |
+          changes=$(git status --porcelain -- test-suites)
+          if [ -n "$changes" ]; then
+            echo "The generated files differ from the committed ones; regenerate them:"
+            echo "$changes" | head -50
+            exit 1
+          fi
+
+      - name: Run the test suite
+        run: |
+          set +e
+          status=0
+          for format in xpath elements; do
+            go run ./tools/jsonschema-testrunner -format "$format" -known test-suites/known-failures.json > "result-$format.txt"
+            code=$?
+            [ $code -ne 0 ] && status=$code
+            cat "result-$format.txt"
+            {
+              echo "### $format representation, go-xslt $GO_XSLT_VERSION"
+              echo '```'
+              cat "result-$format.txt"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          done
+          exit $status
+
+  upstream:
+    name: upstream test suite (main)
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Install the go-xslt command
+        run: go install "github.com/tim-riep/go-xslt/cmd/go-xslt@$(go list -m -f '{{.Version}}' github.com/tim-riep/go-xslt)"
+
+      - name: Replace the vendored test data with upstream main
+        run: |
+          git clone --depth 1 https://github.com/json-schema-org/JSON-Schema-Test-Suite "$RUNNER_TEMP/suite"
+          echo "UPSTREAM_COMMIT=$(git -C "$RUNNER_TEMP/suite" rev-parse HEAD)" >> "$GITHUB_ENV"
+          cd test-suites/json-schema
+          rm -rf tests remotes output-tests annotations test-schema.json output-test-schema.json
+          (cd "$RUNNER_TEMP/suite" && find tests remotes output-tests annotations \( -name '*.json' -o -type l \) -print0) \
+            | (cd "$RUNNER_TEMP/suite" && xargs -0 cp --parents -P -t "$GITHUB_WORKSPACE/test-suites/json-schema")
+          cp "$RUNNER_TEMP/suite/test-schema.json" "$RUNNER_TEMP/suite/output-test-schema.json" .
+
+      - name: Generate the tests as XML and the XSDs
+        run: |
+          rm -rf test-suites/json-schema-xml/tests test-suites/json-schema-elements/tests \
+            test-suites/json-schema-xsd/tests test-suites/json-schema-elements-xsd/tests \
+            test-suites/json-schema-elements-xsd/remotes test-suites/json-schema-elements-xsd/json-elements.xsd
+          tests=$(cd test-suites/json-schema && find tests -name '*.json' | sort)
+          go-xslt transform -s xslt/json-schema-test-suite-to-xml.xslt -it xsl:initial-template \
+            -allow-dir test-suites/json-schema -d test-suites/json-schema-xml -p "files=$tests"
+          go-xslt transform -s xslt/json-schema-test-suite-to-xml.xslt -it xsl:initial-template \
+            -allow-dir test-suites/json-schema -d test-suites/json-schema-elements -p format=elements -p "files=$tests"
+          go-xslt transform -s xslt/json-schema-to-xsd.xslt -it xsl:initial-template \
+            -allow-dir test-suites -allow-network -d test-suites/json-schema-xsd \
+            -p "files=$(cd test-suites/json-schema-xml && find tests -name schema.xml | sort)"
+          go-xslt transform -s xslt/json-schema-to-xsd.xslt -it xsl:initial-template \
+            -allow-dir test-suites -allow-network -d test-suites/json-schema-elements-xsd \
+            -p instance-format=elements -p input-dir=../test-suites/json-schema-elements/ \
+            -p "files=$(cd test-suites/json-schema-elements && find tests -name schema.xml | sort)"
+
+      - name: Run the test suite
+        run: |
+          set +e
+          status=0
+          for format in xpath elements; do
+            go run ./tools/jsonschema-testrunner -format "$format" -known test-suites/known-failures.json > "result-$format.txt"
+            code=$?
+            [ $code -ne 0 ] && status=$code
+            cat "result-$format.txt"
+            {
+              echo "### $format representation, upstream ${UPSTREAM_COMMIT:0:12}"
+              echo '```'
+              cat "result-$format.txt"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          done
+          exit $status
