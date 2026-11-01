@@ -32,8 +32,19 @@ go-xslt validate -xsd 1.1 -x tests/draft2020-12/ref/01/schema.xsd instance.xml
 
 ## Results
 
-Each test's `data` validated against its group's schema with go-xslt and
-compared with the expected `valid`:
+Each test's `data` validated against its group's schema with go-xslt v0.4.0
+and compared with the expected `valid`, by the test runner in
+[`tools/jsonschema-testrunner`](../../tools/jsonschema-testrunner). From the
+repository root:
+
+```bash
+go run ./tools/jsonschema-testrunner
+```
+
+Options: `-filter draft2020-12/ref` runs only tests whose path contains the
+text, `-v` prints every failed test, `-failures file` writes them to a file,
+`-xml` and `-xsd` point to other directories. The exit status is 1 if a test
+fails, which is the case for the known failures below.
 
 | Tests | Passed |
 |---|---|
