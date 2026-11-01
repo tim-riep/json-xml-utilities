@@ -1,0 +1,24 @@
+{
+  "id": 4711,
+  "name": "Beispiel \"Bestellung\"",
+  "active": true,
+  "discount": null,
+  "price": 19.99,
+  "tags": ["neu", "sale", 42, false, null],
+  "customer": {
+    "firstName": "Erika",
+    "lastName": "Mustermann",
+    "address": {
+      "street": "Hauptstraße 1",
+      "zip": "12345",
+      "city": "Köln"
+    }
+  },
+  "items": [
+    { "sku": "A-1", "qty": 2, "price": 5.5 },
+    { "sku": "B-2", "qty": 1, "price": 8.99 }
+  ],
+  "emptyObject": {},
+  "emptyArray": [],
+  "special chars & <xml>": "a < b & c > d"
+}
