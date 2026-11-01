@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/email.json, test group 01, test 65
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a domain label before the opening bracket is not valid</string>
+  <string key="data">test@a[255.255.255.255]</string>
+  <boolean key="valid">false</boolean>
+</map>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/id.json, test group 03
+     Description: non-schema object containing an $id property
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <map key="definitions">
+    <map key="const_not_id">
+      <map key="const">
+        <string key="$id">not_a_real_id</string>
+      </map>
+    </map>
+  </map>
+  <array key="oneOf">
+    <map>
+      <string key="const">skip not_a_real_id</string>
+    </map>
+    <map>
+      <array key="allOf">
+        <map>
+          <map key="not">
+            <string key="const">skip not_a_real_id</string>
+          </map>
+        </map>
+        <map>
+          <string key="$ref">#/definitions/const_not_id</string>
+        </map>
+      </array>
+    </map>
+  </array>
+</map>

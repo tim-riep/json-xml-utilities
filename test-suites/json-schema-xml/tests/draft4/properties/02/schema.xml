@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/properties.json, test group 02
+     Description: properties, patternProperties, additionalProperties interaction
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <map key="properties">
+    <map key="foo">
+      <string key="type">array</string>
+      <number key="maxItems">3</number>
+    </map>
+    <map key="bar">
+      <string key="type">array</string>
+    </map>
+  </map>
+  <map key="patternProperties">
+    <map key="f.o">
+      <number key="minItems">2</number>
+    </map>
+  </map>
+  <map key="additionalProperties">
+    <string key="type">integer</string>
+  </map>
+</map>

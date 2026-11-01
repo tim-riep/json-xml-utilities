@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date.json, test group 01, test 76
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">valid: date inside the Julian to Gregorian reform gap</string>
+  <string key="data">1582-10-10</string>
+  <boolean key="valid">true</boolean>
+</map>

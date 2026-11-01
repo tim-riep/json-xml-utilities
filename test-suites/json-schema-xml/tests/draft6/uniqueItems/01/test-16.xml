@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/uniqueItems.json, test group 01, test 16
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">non-unique array of more than two arrays is invalid</string>
+  <array key="data">
+    <array>
+      <string>foo</string>
+    </array>
+    <array>
+      <string>bar</string>
+    </array>
+    <array>
+      <string>foo</string>
+    </array>
+  </array>
+  <boolean key="valid">false</boolean>
+</map>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/extends.json, test group 01
+     Description: extends
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <map key="properties">
+    <map key="bar">
+      <string key="type">integer</string>
+      <boolean key="required">true</boolean>
+    </map>
+  </map>
+  <map key="extends">
+    <map key="properties">
+      <map key="foo">
+        <string key="type">string</string>
+        <boolean key="required">true</boolean>
+      </map>
+    </map>
+  </map>
+</map>

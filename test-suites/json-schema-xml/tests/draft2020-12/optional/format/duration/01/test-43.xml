@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/duration.json, test group 01, test 43
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a number before the time separator has no unit</string>
+  <string key="data">P1D2T3H</string>
+  <boolean key="valid">false</boolean>
+</map>

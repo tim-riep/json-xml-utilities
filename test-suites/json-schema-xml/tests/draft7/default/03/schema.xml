@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/default.json, test group 03
+     Description: the default keyword does not do anything if the property is missing
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="type">object</string>
+  <map key="properties">
+    <map key="alpha">
+      <string key="type">number</string>
+      <number key="maximum">3</number>
+      <number key="default">5</number>
+    </map>
+  </map>
+</map>

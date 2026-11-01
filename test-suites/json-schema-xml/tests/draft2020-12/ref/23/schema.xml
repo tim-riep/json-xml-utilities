@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/ref.json, test group 23
+     Description: simple URN base URI with JSON pointer
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$comment">URIs do not have to have HTTP(s) schemes</string>
+  <string key="$schema">https://json-schema.org/draft/2020-12/schema</string>
+  <string key="$id">urn:uuid:deadbeef-1234-00ff-ff00-4321feebdaed</string>
+  <map key="properties">
+    <map key="foo">
+      <string key="$ref">#/$defs/bar</string>
+    </map>
+  </map>
+  <map key="$defs">
+    <map key="bar">
+      <string key="type">string</string>
+    </map>
+  </map>
+</map>

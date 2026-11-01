@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/idn-hostname.json, test group 01, test 80
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">A-label that decodes to only ASCII is invalid</string>
+  <string key="comment">https://www.rfc-editor.org/rfc/rfc5890#section-2.3.2.1 a U-label must have at least one non-ASCII character</string>
+  <string key="data">xn--example-</string>
+  <boolean key="valid">false</boolean>
+</map>

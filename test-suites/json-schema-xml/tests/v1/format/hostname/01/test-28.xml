@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/hostname.json, test group 01, test 28
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">consecutive hyphens inside a label</string>
+  <string key="data">a--b.com</string>
+  <boolean key="valid">true</boolean>
+</map>

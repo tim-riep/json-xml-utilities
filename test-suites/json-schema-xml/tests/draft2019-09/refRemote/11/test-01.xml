@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/refRemote.json, test group 11, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">number is invalid</string>
+  <map key="data">
+    <map key="name">
+      <number key="foo">1</number>
+    </map>
+  </map>
+  <boolean key="valid">false</boolean>
+</map>

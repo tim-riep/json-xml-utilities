@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/ref.json, test group 18
+     Description: $id must be resolved against nearest parent, not just immediate parent
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <string key="$id">http://example.com/a.json</string>
+  <map key="$defs">
+    <map key="x">
+      <string key="$id">http://example.com/b/c.json</string>
+      <map key="not">
+        <map key="$defs">
+          <map key="y">
+            <string key="$id">d.json</string>
+            <string key="type">number</string>
+          </map>
+        </map>
+      </map>
+    </map>
+  </map>
+  <array key="allOf">
+    <map>
+      <string key="$ref">http://example.com/b/d.json</string>
+    </map>
+  </array>
+</map>

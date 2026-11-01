@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/infinite-loop-detection.json, test group 01
+     Description: evaluating the same schema location against the same data location twice is not a sign of an infinite loop
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <map key="definitions">
+    <map key="int">
+      <string key="type">integer</string>
+    </map>
+  </map>
+  <array key="allOf">
+    <map>
+      <map key="properties">
+        <map key="foo">
+          <string key="$ref">#/definitions/int</string>
+        </map>
+      </map>
+    </map>
+    <map>
+      <map key="additionalProperties">
+        <string key="$ref">#/definitions/int</string>
+      </map>
+    </map>
+  </array>
+</map>

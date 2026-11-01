@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/minContains.json, test group 03, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">some elements match, invalid minContains</string>
+  <array key="data">
+    <number>1</number>
+    <number>2</number>
+  </array>
+  <boolean key="valid">false</boolean>
+</map>

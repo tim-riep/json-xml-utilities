@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/dynamicRef.json, test group 02
+     Description: A $dynamicRef to an $anchor in the same schema resource behaves like a normal $ref to an $anchor
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2020-12/schema</string>
+  <string key="$id">https://test.json-schema.org/dynamicRef-anchor-same-schema/root</string>
+  <string key="type">array</string>
+  <map key="items">
+    <string key="$dynamicRef">#items</string>
+  </map>
+  <map key="$defs">
+    <map key="foo">
+      <string key="$anchor">items</string>
+      <string key="type">string</string>
+    </map>
+  </map>
+</map>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/ecmascript-regex.json, test group 19, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">non-ascii digits (BENGALI DIGIT FOUR, BENGALI DIGIT TWO)</string>
+  <map key="data">
+    <string key="৪২">khajit has wares if you have coin</string>
+  </map>
+  <boolean key="valid">false</boolean>
+</map>

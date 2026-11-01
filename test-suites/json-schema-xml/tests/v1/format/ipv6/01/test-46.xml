@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/ipv6.json, test group 01, test 46
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">eight groups alongside '::' is invalid</string>
+  <string key="data">1:2:3:4:5:6:7:8::</string>
+  <boolean key="valid">false</boolean>
+</map>

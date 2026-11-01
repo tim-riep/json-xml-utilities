@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/proposals/propertyDependencies/additionalProperties.json, test group 01
+     Description: propertyDependencies with additionalProperties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <map key="properties">
+    <map key="foo2"/>
+  </map>
+  <map key="propertyDependencies">
+    <map key="foo"/>
+    <map key="foo2">
+      <map key="bar">
+        <map key="properties">
+          <map key="buz"/>
+        </map>
+      </map>
+    </map>
+  </map>
+  <boolean key="additionalProperties">false</boolean>
+</map>

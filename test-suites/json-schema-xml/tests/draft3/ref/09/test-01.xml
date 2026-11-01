@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/ref.json, test group 09, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">remote ref valid</string>
+  <map key="data">
+    <map key="items">
+      <string key="type">integer</string>
+    </map>
+  </map>
+  <boolean key="valid">true</boolean>
+</map>

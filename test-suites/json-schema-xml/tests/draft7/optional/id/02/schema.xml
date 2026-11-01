@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/id.json, test group 02
+     Description: non-schema object containing a plain-name $id property
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <map key="definitions">
+    <map key="const_not_anchor">
+      <map key="const">
+        <string key="$id">#not_a_real_anchor</string>
+      </map>
+    </map>
+  </map>
+  <map key="if">
+    <string key="const">skip not_a_real_anchor</string>
+  </map>
+  <boolean key="then">true</boolean>
+  <map key="else">
+    <string key="$ref">#/definitions/const_not_anchor</string>
+  </map>
+</map>

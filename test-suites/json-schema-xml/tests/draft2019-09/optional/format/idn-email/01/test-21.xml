@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/idn-email.json, test group 01, test 21
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a domain starting with a dot is not valid</string>
+  <string key="comment">https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Domain = sub-domain *("." sub-domain) admits no empty sub-domain</string>
+  <string key="data">δοκιμή@.example.com</string>
+  <boolean key="valid">false</boolean>
+</map>

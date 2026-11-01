@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/unevaluatedItems.json, test group 24, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a's, b's and c's are valid</string>
+  <array key="data">
+    <string>c</string>
+    <string>a</string>
+    <string>c</string>
+    <string>c</string>
+    <string>b</string>
+    <string>a</string>
+  </array>
+  <boolean key="valid">true</boolean>
+</map>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/properties.json, test group 02, test 06
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">additionalProperty ignores property</string>
+  <map key="data">
+    <array key="bar"/>
+  </map>
+  <boolean key="valid">true</boolean>
+</map>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/format/ipv6.json, test group 01, test 08
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a group with 5 hex digits is invalid</string>
+  <string key="data">12345::</string>
+  <boolean key="valid">false</boolean>
+</map>

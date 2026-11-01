@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/ref.json, test group 25
+     Description: URN base URI with r-component
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$comment">RFC 8141 §2.3.1</string>
+  <string key="$schema">https://json-schema.org/draft/2020-12/schema</string>
+  <string key="$id">urn:example:foo-bar-baz-qux?+CCResolve:cc=uk</string>
+  <map key="properties">
+    <map key="foo">
+      <string key="$ref">#/$defs/bar</string>
+    </map>
+  </map>
+  <map key="$defs">
+    <map key="bar">
+      <string key="type">string</string>
+    </map>
+  </map>
+</map>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/ref.json, test group 33
+     Description: $id with file URI still resolves pointers - *nix
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$id">file:///folder/file.json</string>
+  <map key="definitions">
+    <map key="foo">
+      <string key="type">number</string>
+    </map>
+  </map>
+  <array key="allOf">
+    <map>
+      <string key="$ref">#/definitions/foo</string>
+    </map>
+  </array>
+</map>

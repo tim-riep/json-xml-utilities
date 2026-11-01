@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/additionalProperties.json, test group 09, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">additionalProperties can't see bar even when foo2 is present</string>
+  <map key="data">
+    <string key="foo2"></string>
+    <string key="bar"></string>
+  </map>
+  <boolean key="valid">false</boolean>
+</map>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/dependencies.json, test group 07
+     Description: dependent subschema incompatible with root
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <map key="properties">
+    <map key="foo"/>
+  </map>
+  <map key="dependencies">
+    <map key="foo">
+      <map key="properties">
+        <map key="bar"/>
+      </map>
+      <boolean key="additionalProperties">false</boolean>
+    </map>
+  </map>
+</map>

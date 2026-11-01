@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/idn-email.json, test group 01, test 18
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a local part with a supplementary-plane character is valid</string>
+  <string key="comment">https://www.rfc-editor.org/rfc/rfc6531#section-3.3 atext =/ UTF8-non-ascii, and https://www.rfc-editor.org/rfc/rfc3629#section-4 UTF8-4 covers U+10000 and above</string>
+  <string key="data">𝕏@example.com</string>
+  <boolean key="valid">true</boolean>
+</map>

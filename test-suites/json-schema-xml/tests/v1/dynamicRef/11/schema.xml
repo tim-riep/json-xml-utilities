@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/dynamicRef.json, test group 11
+     Description: $dynamicRef skips over intermediate resources - direct reference
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <string key="$id">https://test.json-schema.org/dynamic-ref-skips-intermediate-resource/main</string>
+  <string key="type">object</string>
+  <map key="properties">
+    <map key="bar-item">
+      <string key="$ref">item</string>
+    </map>
+  </map>
+  <map key="$defs">
+    <map key="bar">
+      <string key="$id">bar</string>
+      <string key="type">array</string>
+      <map key="items">
+        <string key="$ref">item</string>
+      </map>
+      <map key="$defs">
+        <map key="item">
+          <string key="$id">item</string>
+          <string key="type">object</string>
+          <map key="properties">
+            <map key="content">
+              <string key="$dynamicRef">#content</string>
+            </map>
+          </map>
+          <map key="$defs">
+            <map key="defaultContent">
+              <string key="$dynamicAnchor">content</string>
+              <string key="type">integer</string>
+            </map>
+          </map>
+        </map>
+        <map key="content">
+          <string key="$dynamicAnchor">content</string>
+          <string key="type">string</string>
+        </map>
+      </map>
+    </map>
+  </map>
+</map>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/date.json, test group 01, test 79
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">invalid: non-ASCII digit leaving ten UTF-8 bytes but eight characters</string>
+  <string key="data">২0-01-01</string>
+  <boolean key="valid">false</boolean>
+</map>

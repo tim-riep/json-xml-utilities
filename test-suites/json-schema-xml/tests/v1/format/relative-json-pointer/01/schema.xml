@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/relative-json-pointer.json, test group 01
+     Description: validation of Relative JSON Pointers (RJP)
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <string key="format">relative-json-pointer</string>
+</map>

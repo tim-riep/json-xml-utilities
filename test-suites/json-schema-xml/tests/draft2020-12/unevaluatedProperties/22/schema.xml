@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedProperties.json, test group 22
+     Description: unevaluatedProperties with $dynamicRef
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2020-12/schema</string>
+  <string key="$id">https://example.com/unevaluated-properties-with-dynamic-ref/derived</string>
+  <string key="$ref">./baseSchema</string>
+  <map key="$defs">
+    <map key="derived">
+      <string key="$dynamicAnchor">addons</string>
+      <map key="properties">
+        <map key="bar">
+          <string key="type">string</string>
+        </map>
+      </map>
+    </map>
+    <map key="baseSchema">
+      <string key="$id">./baseSchema</string>
+      <string key="$comment">unevaluatedProperties comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering</string>
+      <boolean key="unevaluatedProperties">false</boolean>
+      <map key="properties">
+        <map key="foo">
+          <string key="type">string</string>
+        </map>
+      </map>
+      <string key="$dynamicRef">#addons</string>
+      <map key="$defs">
+        <map key="defaultAddons">
+          <string key="$comment">Needed to satisfy the bookending requirement</string>
+          <string key="$dynamicAnchor">addons</string>
+        </map>
+      </map>
+    </map>
+  </map>
+</map>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date-time.json, test group 01, test 57
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a valid date-time-ext with a 14 character time-zone-part</string>
+  <string key="comment">RFC 9557 section 4.1: time-zone-part = time-zone-initial *13time-zone-char, so a part can be up to 14 characters long. Syntactic validation only.</string>
+  <string key="data">2022-07-08T00:14:07Z[America/Argentina/ComodRivadavia]</string>
+  <boolean key="valid">true</boolean>
+</map>

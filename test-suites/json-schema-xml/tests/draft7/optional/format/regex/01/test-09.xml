@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/regex.json, test group 01, test 09
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a quantifier with nothing to repeat is invalid</string>
+  <string key="comment">https://tc39.es/ecma262/#sec-patterns a Quantifier follows something (Term :: Atom Quantifier), so a pattern cannot begin with one</string>
+  <string key="data">*a</string>
+  <boolean key="valid">false</boolean>
+</map>

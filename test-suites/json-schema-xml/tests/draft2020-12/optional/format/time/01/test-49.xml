@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/time.json, test group 01, test 49
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">hour 24 is invalid with a numeric time-offset</string>
+  <string key="comment">RFC 3339 section 5.6: time-hour = 2DIGIT ; 00-23, and section 5.7 only allows 00 to 23</string>
+  <string key="data">24:59:00+01:00</string>
+  <boolean key="valid">false</boolean>
+</map>

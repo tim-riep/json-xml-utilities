@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/required.json, test group 04, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">object with some properties missing is invalid</string>
+  <map key="data">
+    <string key="foo\nbar" escaped-key="true">1</string>
+    <string key="foo&#34;bar">1</string>
+  </map>
+  <boolean key="valid">false</boolean>
+</map>

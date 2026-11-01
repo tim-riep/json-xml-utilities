@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/contains.json, test group 05, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">matches both items and contains</string>
+  <array key="data">
+    <number>6</number>
+    <number>12</number>
+  </array>
+  <boolean key="valid">true</boolean>
+</map>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/allOf.json, test group 02
+     Description: allOf with base schema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2019-09/schema</string>
+  <map key="properties">
+    <map key="bar">
+      <string key="type">integer</string>
+    </map>
+  </map>
+  <array key="required">
+    <string>bar</string>
+  </array>
+  <array key="allOf">
+    <map>
+      <map key="properties">
+        <map key="foo">
+          <string key="type">string</string>
+        </map>
+      </map>
+      <array key="required">
+        <string>foo</string>
+      </array>
+    </map>
+    <map>
+      <map key="properties">
+        <map key="baz">
+          <string key="type">null</string>
+        </map>
+      </map>
+      <array key="required">
+        <string>baz</string>
+      </array>
+    </map>
+  </array>
+</map>

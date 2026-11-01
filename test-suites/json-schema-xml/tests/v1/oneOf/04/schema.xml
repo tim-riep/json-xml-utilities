@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/oneOf.json, test group 04
+     Description: oneOf with boolean schemas, one true
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <array key="oneOf">
+    <boolean>true</boolean>
+    <boolean>false</boolean>
+    <boolean>false</boolean>
+  </array>
+</map>

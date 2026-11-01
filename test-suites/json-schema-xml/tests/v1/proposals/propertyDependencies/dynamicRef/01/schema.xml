@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/proposals/propertyDependencies/dynamicRef.json, test group 01
+     Description: multiple dynamic paths to the $dynamicRef keyword
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <string key="$id">https://test.json-schema.org/dynamic-ref-with-multiple-paths/main</string>
+  <map key="propertyDependencies">
+    <map key="kindOfList">
+      <map key="numbers">
+        <string key="$ref">numberList</string>
+      </map>
+      <map key="strings">
+        <string key="$ref">stringList</string>
+      </map>
+    </map>
+  </map>
+  <map key="$defs">
+    <map key="genericList">
+      <string key="$id">genericList</string>
+      <map key="properties">
+        <map key="list">
+          <map key="items">
+            <string key="$dynamicRef">#itemType</string>
+          </map>
+        </map>
+      </map>
+    </map>
+    <map key="numberList">
+      <string key="$id">numberList</string>
+      <map key="$defs">
+        <map key="itemType">
+          <string key="$dynamicAnchor">itemType</string>
+          <string key="type">number</string>
+        </map>
+      </map>
+      <string key="$ref">genericList</string>
+    </map>
+    <map key="stringList">
+      <string key="$id">stringList</string>
+      <map key="$defs">
+        <map key="itemType">
+          <string key="$dynamicAnchor">itemType</string>
+          <string key="type">string</string>
+        </map>
+      </map>
+      <string key="$ref">genericList</string>
+    </map>
+  </map>
+</map>

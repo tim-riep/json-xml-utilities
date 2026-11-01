@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/id.json, test group 01
+     Description: id inside an enum is not a real identifier
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <map key="definitions">
+    <map key="id_in_enum">
+      <array key="enum">
+        <map>
+          <string key="$id">https://localhost:1234/id/my_identifier.json</string>
+          <string key="type">null</string>
+        </map>
+      </array>
+    </map>
+    <map key="real_id_in_schema">
+      <string key="$id">https://localhost:1234/id/my_identifier.json</string>
+      <string key="type">string</string>
+    </map>
+    <map key="zzz_id_in_const">
+      <map key="const">
+        <string key="$id">https://localhost:1234/id/my_identifier.json</string>
+        <string key="type">null</string>
+      </map>
+    </map>
+  </map>
+  <array key="anyOf">
+    <map>
+      <string key="$ref">#/definitions/id_in_enum</string>
+    </map>
+    <map>
+      <string key="$ref">https://localhost:1234/id/my_identifier.json</string>
+    </map>
+  </array>
+</map>

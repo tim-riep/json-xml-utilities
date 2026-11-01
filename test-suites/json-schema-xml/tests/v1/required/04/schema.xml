@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/required.json, test group 04
+     Description: required with escaped characters
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <array key="required">
+    <string escaped="true">foo\nbar</string>
+    <string>foo"bar</string>
+    <string escaped="true">foo\\bar</string>
+    <string escaped="true">foo\rbar</string>
+    <string escaped="true">foo\tbar</string>
+    <string escaped="true">foo\fbar</string>
+  </array>
+</map>

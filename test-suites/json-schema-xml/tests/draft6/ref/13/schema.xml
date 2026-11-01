@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/ref.json, test group 13
+     Description: Recursive references between schemas
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$id">http://localhost:1234/tree</string>
+  <string key="description">tree of nodes</string>
+  <string key="type">object</string>
+  <map key="properties">
+    <map key="meta">
+      <string key="type">string</string>
+    </map>
+    <map key="nodes">
+      <string key="type">array</string>
+      <map key="items">
+        <string key="$ref">node</string>
+      </map>
+    </map>
+  </map>
+  <array key="required">
+    <string>meta</string>
+    <string>nodes</string>
+  </array>
+  <map key="definitions">
+    <map key="node">
+      <string key="$id">http://localhost:1234/node</string>
+      <string key="description">node</string>
+      <string key="type">object</string>
+      <map key="properties">
+        <map key="value">
+          <string key="type">number</string>
+        </map>
+        <map key="subtree">
+          <string key="$ref">tree</string>
+        </map>
+      </map>
+      <array key="required">
+        <string>value</string>
+      </array>
+    </map>
+  </map>
+</map>

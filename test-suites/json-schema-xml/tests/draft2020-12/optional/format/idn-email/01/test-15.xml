@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/idn-email.json, test group 01, test 15
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a noncharacter in the local part is valid</string>
+  <string key="comment">https://www.rfc-editor.org/rfc/rfc6531#section-3.3 atext =/ UTF8-non-ascii; https://www.rfc-editor.org/rfc/rfc3629#section-4 UTF8-3 admits U+FFFF</string>
+  <string escaped="true" key="data">\uFFFF@example.com</string>
+  <boolean key="valid">true</boolean>
+</map>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/refRemote.json, test group 08
+     Description: remote ref with ref to definitions
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$id">http://localhost:1234/schema-remote-ref-ref-defs1.json</string>
+  <array key="allOf">
+    <map>
+      <string key="$ref">draft7/ref-and-definitions.json</string>
+    </map>
+  </array>
+</map>

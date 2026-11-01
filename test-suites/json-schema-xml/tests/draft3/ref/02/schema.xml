@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/ref.json, test group 02
+     Description: relative pointer ref to object
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <map key="properties">
+    <map key="foo">
+      <string key="type">integer</string>
+    </map>
+    <map key="bar">
+      <string key="$ref">#/properties/foo</string>
+    </map>
+  </map>
+</map>

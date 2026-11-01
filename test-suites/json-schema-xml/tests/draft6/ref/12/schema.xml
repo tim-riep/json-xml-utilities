@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/ref.json, test group 12
+     Description: $ref to boolean schema false
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <array key="allOf">
+    <map>
+      <string key="$ref">#/definitions/bool</string>
+    </map>
+  </array>
+  <map key="definitions">
+    <boolean key="bool">false</boolean>
+  </map>
+</map>

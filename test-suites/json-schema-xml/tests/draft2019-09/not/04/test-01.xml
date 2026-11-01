@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/not.json, test group 04, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">property present</string>
+  <map key="data">
+    <number key="foo">1</number>
+    <number key="bar">2</number>
+  </map>
+  <boolean key="valid">false</boolean>
+</map>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/dynamicRef.json, test group 16
+     Description: $ref and $dynamicAnchor are independent of order - $defs first
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2020-12/schema</string>
+  <string key="$id">http://localhost:1234/draft2020-12/strict-extendible-allof-defs-first.json</string>
+  <array key="allOf">
+    <map>
+      <string key="$ref">extendible-dynamic-ref.json</string>
+    </map>
+    <map>
+      <map key="$defs">
+        <map key="elements">
+          <string key="$dynamicAnchor">elements</string>
+          <map key="properties">
+            <boolean key="a">true</boolean>
+          </map>
+          <array key="required">
+            <string>a</string>
+          </array>
+          <boolean key="additionalProperties">false</boolean>
+        </map>
+      </map>
+    </map>
+  </array>
+</map>

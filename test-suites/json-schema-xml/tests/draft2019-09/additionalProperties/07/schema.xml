@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/additionalProperties.json, test group 07
+     Description: additionalProperties with null valued instance properties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2019-09/schema</string>
+  <map key="additionalProperties">
+    <string key="type">null</string>
+  </map>
+</map>

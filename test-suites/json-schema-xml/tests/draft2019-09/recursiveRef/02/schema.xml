@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/recursiveRef.json, test group 02
+     Description: $recursiveRef without using nesting
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2019-09/schema</string>
+  <string key="$id">http://localhost:4242/draft2019-09/recursiveRef2/schema.json</string>
+  <map key="$defs">
+    <map key="myobject">
+      <string key="$id">myobject.json</string>
+      <boolean key="$recursiveAnchor">true</boolean>
+      <array key="anyOf">
+        <map>
+          <string key="type">string</string>
+        </map>
+        <map>
+          <string key="type">object</string>
+          <map key="additionalProperties">
+            <string key="$recursiveRef">#</string>
+          </map>
+        </map>
+      </array>
+    </map>
+  </map>
+  <array key="anyOf">
+    <map>
+      <string key="type">integer</string>
+    </map>
+    <map>
+      <string key="$ref">#/$defs/myobject</string>
+    </map>
+  </array>
+</map>

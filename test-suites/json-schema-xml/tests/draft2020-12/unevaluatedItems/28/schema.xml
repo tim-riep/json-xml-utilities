@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedItems.json, test group 28
+     Description: unevaluatedItems can see annotations from if without then and else
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2020-12/schema</string>
+  <map key="if">
+    <array key="prefixItems">
+      <map>
+        <string key="const">a</string>
+      </map>
+    </array>
+  </map>
+  <boolean key="unevaluatedItems">false</boolean>
+</map>

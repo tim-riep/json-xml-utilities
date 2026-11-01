@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedItems.json, test group 24, test 07
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">only b's and c's are invalid</string>
+  <array key="data">
+    <string>c</string>
+    <string>b</string>
+    <string>c</string>
+    <string>b</string>
+    <string>c</string>
+  </array>
+  <boolean key="valid">false</boolean>
+</map>

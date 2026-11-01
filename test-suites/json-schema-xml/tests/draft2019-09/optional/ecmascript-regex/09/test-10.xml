@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/ecmascript-regex.json, test group 09, test 10
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">Non-whitespace control does not match</string>
+  <string escaped="true" key="data">\u0001</string>
+  <boolean key="valid">false</boolean>
+</map>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/optional/ecmascript-regex.json, test group 16
+     Description: patterns always use unicode semantics with patternProperties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="type">object</string>
+  <map key="patternProperties">
+    <map key="\\p{Letter}cole" escaped-key="true"/>
+  </map>
+  <boolean key="additionalProperties">false</boolean>
+</map>

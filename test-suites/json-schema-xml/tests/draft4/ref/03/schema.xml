@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/ref.json, test group 03
+     Description: relative pointer ref to array
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <array key="items">
+    <map>
+      <string key="type">integer</string>
+    </map>
+    <map>
+      <string key="$ref">#/items/0</string>
+    </map>
+  </array>
+</map>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/items.json, test group 04
+     Description: items and subitems
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <map key="$defs">
+    <map key="item">
+      <string key="type">array</string>
+      <boolean key="items">false</boolean>
+      <array key="prefixItems">
+        <map>
+          <string key="$ref">#/$defs/sub-item</string>
+        </map>
+        <map>
+          <string key="$ref">#/$defs/sub-item</string>
+        </map>
+      </array>
+    </map>
+    <map key="sub-item">
+      <string key="type">object</string>
+      <array key="required">
+        <string>foo</string>
+      </array>
+    </map>
+  </map>
+  <string key="type">array</string>
+  <boolean key="items">false</boolean>
+  <array key="prefixItems">
+    <map>
+      <string key="$ref">#/$defs/item</string>
+    </map>
+    <map>
+      <string key="$ref">#/$defs/item</string>
+    </map>
+    <map>
+      <string key="$ref">#/$defs/item</string>
+    </map>
+  </array>
+</map>

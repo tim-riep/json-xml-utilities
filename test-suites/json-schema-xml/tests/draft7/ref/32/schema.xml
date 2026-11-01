@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/ref.json, test group 32
+     Description: ref with absolute-path-reference
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$id">http://example.com/ref/absref.json</string>
+  <map key="definitions">
+    <map key="a">
+      <string key="$id">http://example.com/ref/absref/foobar.json</string>
+      <string key="type">number</string>
+    </map>
+    <map key="b">
+      <string key="$id">http://example.com/absref/foobar.json</string>
+      <string key="type">string</string>
+    </map>
+  </map>
+  <array key="allOf">
+    <map>
+      <string key="$ref">/absref/foobar.json</string>
+    </map>
+  </array>
+</map>

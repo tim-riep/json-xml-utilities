@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/items.json, test group 07, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">valid nested array</string>
+  <array key="data">
+    <array>
+      <array>
+        <array>
+          <number>1</number>
+        </array>
+      </array>
+      <array>
+        <array>
+          <number>2</number>
+        </array>
+        <array>
+          <number>3</number>
+        </array>
+      </array>
+    </array>
+    <array>
+      <array>
+        <array>
+          <number>4</number>
+        </array>
+        <array>
+          <number>5</number>
+        </array>
+        <array>
+          <number>6</number>
+        </array>
+      </array>
+    </array>
+  </array>
+  <boolean key="valid">true</boolean>
+</map>

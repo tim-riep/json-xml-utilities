@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/idn-hostname.json, test group 02, test 20
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">label too long if separator ignored (halfwidth ideographic full stop)</string>
+  <string key="data">παράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπαράδειγμαπα｡com</string>
+  <boolean key="valid">true</boolean>
+</map>

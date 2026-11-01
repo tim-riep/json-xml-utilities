@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/anchor.json, test group 02
+     Description: Location-independent identifier with absolute URI
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2019-09/schema</string>
+  <string key="$ref">http://localhost:1234/draft2019-09/bar#foo</string>
+  <map key="$defs">
+    <map key="A">
+      <string key="$id">http://localhost:1234/draft2019-09/bar</string>
+      <string key="$anchor">foo</string>
+      <string key="type">integer</string>
+    </map>
+  </map>
+</map>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/uuid.json, test group 01, test 18
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">shifted dashes</string>
+  <string key="data">2eb8aa0-8aa98-11e-ab4aa7-3b441d16380</string>
+  <boolean key="valid">false</boolean>
+</map>

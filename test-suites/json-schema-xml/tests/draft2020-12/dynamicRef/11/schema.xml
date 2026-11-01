@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/dynamicRef.json, test group 11
+     Description: A $dynamicRef that initially resolves to a schema without a matching $dynamicAnchor behaves like a normal $ref to $anchor
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2020-12/schema</string>
+  <string key="$id">https://test.json-schema.org/relative-dynamic-reference-without-bookend/root</string>
+  <string key="$dynamicAnchor">meta</string>
+  <string key="type">object</string>
+  <map key="properties">
+    <map key="foo">
+      <string key="const">pass</string>
+    </map>
+  </map>
+  <string key="$ref">extended</string>
+  <map key="$defs">
+    <map key="extended">
+      <string key="$id">extended</string>
+      <string key="$anchor">meta</string>
+      <string key="type">object</string>
+      <map key="properties">
+        <map key="bar">
+          <string key="$ref">bar</string>
+        </map>
+      </map>
+    </map>
+    <map key="bar">
+      <string key="$id">bar</string>
+      <string key="type">object</string>
+      <map key="properties">
+        <map key="baz">
+          <string key="$dynamicRef">extended#meta</string>
+        </map>
+      </map>
+    </map>
+  </map>
+</map>

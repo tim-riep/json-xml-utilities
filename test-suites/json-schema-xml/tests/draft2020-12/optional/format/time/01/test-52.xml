@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/time.json, test group 01, test 52
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a second fraction with no digits</string>
+  <string key="comment">RFC 3339 section 5.6: time-secfrac = "." 1*DIGIT requires at least one digit</string>
+  <string key="data">08:30:06.Z</string>
+  <boolean key="valid">false</boolean>
+</map>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/format/ipv6.json, test group 01, test 48
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">an out-of-range first octet in the embedded IPv4 is invalid</string>
+  <string key="data">::ffff:256.1.1.1</string>
+  <boolean key="valid">false</boolean>
+</map>

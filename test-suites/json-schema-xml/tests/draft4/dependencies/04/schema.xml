@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/dependencies.json, test group 04
+     Description: dependencies with escaped characters
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <map key="dependencies">
+    <array key="foo\nbar" escaped-key="true">
+      <string escaped="true">foo\rbar</string>
+    </array>
+    <map key="foo\tbar" escaped-key="true">
+      <number key="minProperties">4</number>
+    </map>
+    <map key="foo'bar">
+      <array key="required">
+        <string>foo"bar</string>
+      </array>
+    </map>
+    <array key="foo&#34;bar">
+      <string>foo'bar</string>
+    </array>
+  </map>
+</map>

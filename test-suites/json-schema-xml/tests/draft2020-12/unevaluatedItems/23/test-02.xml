@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedItems.json, test group 23, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">7 not evaluated, fails unevaluatedItems</string>
+  <array key="data">
+    <number>2</number>
+    <number>3</number>
+    <number>4</number>
+    <number>7</number>
+    <number>8</number>
+  </array>
+  <boolean key="valid">false</boolean>
+</map>

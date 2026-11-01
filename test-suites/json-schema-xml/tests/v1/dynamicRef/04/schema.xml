@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/dynamicRef.json, test group 04
+     Description: An $anchor with the same name as a $dynamicAnchor is not used for dynamic scope resolution
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <string key="$id">https://test.json-schema.org/dynamic-resolution-ignores-anchors/root</string>
+  <string key="$ref">list</string>
+  <map key="$defs">
+    <map key="foo">
+      <string key="$anchor">items</string>
+      <string key="type">string</string>
+    </map>
+    <map key="list">
+      <string key="$id">list</string>
+      <string key="type">array</string>
+      <map key="items">
+        <string key="$dynamicRef">#items</string>
+      </map>
+      <map key="$defs">
+        <map key="items">
+          <string key="$dynamicAnchor">items</string>
+        </map>
+      </map>
+    </map>
+  </map>
+</map>
