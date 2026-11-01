@@ -1,0 +1,21 @@
+{
+  "name": "Erika",
+  "age": 42,
+  "price": 1.0,
+  "big": 1e308,
+  "tags": ["a", 1, true, null, [], {}],
+  "address": {"city": "Köln", "zip": "50667"},
+  "ok": true,
+  "none": null,
+  "first name": "with space",
+  "1st": "leading digit",
+  "a:b": "colon",
+  "_x0041_": "looks like an escape",
+  "": "empty key",
+  "ünïcödé": "non-ASCII name",
+  "😀": "emoji key",
+  "item": "a key named item",
+  "type": "a key named type",
+  "ctrl": "tab\tnewline\nnul\u0000end",
+  "key\u0001with control": 1
+}
