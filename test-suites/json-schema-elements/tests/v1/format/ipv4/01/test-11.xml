@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/ipv4.json, test group 01, test 11
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a 2-part address resolving to a routable IP (inet_aton shorthand)</description>
+  <data>127.1</data>
+  <valid type="boolean">false</valid>
+</json>

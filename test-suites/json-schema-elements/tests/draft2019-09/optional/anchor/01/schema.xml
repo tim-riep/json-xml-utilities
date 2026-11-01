@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/anchor.json, test group 01
+     Description: $anchor inside an enum is not a real identifier
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <_x0024_defs type="object">
+    <anchor_in_enum type="object">
+      <enum type="array">
+        <item type="object">
+          <_x0024_anchor>my_anchor</_x0024_anchor>
+          <type>null</type>
+        </item>
+      </enum>
+    </anchor_in_enum>
+    <real_identifier_in_schema type="object">
+      <_x0024_anchor>my_anchor</_x0024_anchor>
+      <type>string</type>
+    </real_identifier_in_schema>
+    <zzz_anchor_in_const type="object">
+      <const type="object">
+        <_x0024_anchor>my_anchor</_x0024_anchor>
+        <type>null</type>
+      </const>
+    </zzz_anchor_in_const>
+  </_x0024_defs>
+  <anyOf type="array">
+    <item type="object">
+      <_x0024_ref>#/$defs/anchor_in_enum</_x0024_ref>
+    </item>
+    <item type="object">
+      <_x0024_ref>#my_anchor</_x0024_ref>
+    </item>
+  </anyOf>
+</json>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/oneOf.json, test group 07
+     Description: oneOf complex types
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <oneOf type="array">
+    <item type="object">
+      <properties type="object">
+        <bar type="object">
+          <type>integer</type>
+        </bar>
+      </properties>
+      <required type="array">
+        <item>bar</item>
+      </required>
+    </item>
+    <item type="object">
+      <properties type="object">
+        <foo type="object">
+          <type>string</type>
+        </foo>
+      </properties>
+      <required type="array">
+        <item>foo</item>
+      </required>
+    </item>
+  </oneOf>
+</json>

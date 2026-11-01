@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/id.json, test group 02
+     Description: non-schema object containing a plain-name $id property
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <definitions type="object">
+    <const_not_anchor type="object">
+      <const type="object">
+        <_x0024_id>#not_a_real_anchor</_x0024_id>
+      </const>
+    </const_not_anchor>
+  </definitions>
+  <oneOf type="array">
+    <item type="object">
+      <const>skip not_a_real_anchor</const>
+    </item>
+    <item type="object">
+      <allOf type="array">
+        <item type="object">
+          <not type="object">
+            <const>skip not_a_real_anchor</const>
+          </not>
+        </item>
+        <item type="object">
+          <_x0024_ref>#/definitions/const_not_anchor</_x0024_ref>
+        </item>
+      </allOf>
+    </item>
+  </oneOf>
+</json>

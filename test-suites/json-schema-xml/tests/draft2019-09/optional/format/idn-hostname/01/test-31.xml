@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/idn-hostname.json, test group 01, test 31
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">Greek KERAIA not followed by Greek</string>
+  <string key="comment">https://tools.ietf.org/html/rfc5891#section-4.2.3.3 https://tools.ietf.org/html/rfc5892#appendix-A.4</string>
+  <string key="data">α͵S</string>
+  <boolean key="valid">false</boolean>
+</map>

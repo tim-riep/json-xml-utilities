@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/ref.json, test group 26
+     Description: URN base URI with q-component
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <string key="$comment">RFC 8141 §2.3.2</string>
+  <string key="$id">urn:example:weather?=op=map&amp;lat=39.56&amp;lon=-104.85&amp;datetime=1969-07-21T02:56:15Z</string>
+  <map key="properties">
+    <map key="foo">
+      <string key="$ref">#/$defs/bar</string>
+    </map>
+  </map>
+  <map key="$defs">
+    <map key="bar">
+      <string key="type">string</string>
+    </map>
+  </map>
+</map>

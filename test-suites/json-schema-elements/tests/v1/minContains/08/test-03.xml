@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/minContains.json, test group 08, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>too many</description>
+  <data type="array">
+    <item type="number">1</item>
+    <item type="number">1</item>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

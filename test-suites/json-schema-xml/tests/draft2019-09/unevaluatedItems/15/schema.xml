@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/unevaluatedItems.json, test group 15
+     Description: unevaluatedItems with not
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2019-09/schema</string>
+  <array key="items">
+    <map>
+      <string key="const">foo</string>
+    </map>
+  </array>
+  <map key="not">
+    <map key="not">
+      <array key="items">
+        <boolean>true</boolean>
+        <map>
+          <string key="const">bar</string>
+        </map>
+      </array>
+    </map>
+  </map>
+  <boolean key="unevaluatedItems">false</boolean>
+</map>

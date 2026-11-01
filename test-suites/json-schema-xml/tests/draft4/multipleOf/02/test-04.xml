@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/multipleOf.json, test group 02, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">35 is not multiple of 1.5</string>
+  <number key="data">35</number>
+  <boolean key="valid">false</boolean>
+</map>

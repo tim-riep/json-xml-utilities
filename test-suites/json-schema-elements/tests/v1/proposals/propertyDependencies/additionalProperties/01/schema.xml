@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/proposals/propertyDependencies/additionalProperties.json, test group 01
+     Description: propertyDependencies with additionalProperties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <properties type="object">
+    <foo2 type="object"/>
+  </properties>
+  <propertyDependencies type="object">
+    <foo type="object"/>
+    <foo2 type="object">
+      <bar type="object">
+        <properties type="object">
+          <buz type="object"/>
+        </properties>
+      </bar>
+    </foo2>
+  </propertyDependencies>
+  <additionalProperties type="boolean">false</additionalProperties>
+</json>

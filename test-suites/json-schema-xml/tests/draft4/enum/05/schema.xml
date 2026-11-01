@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/enum.json, test group 05
+     Description: enum with escaped characters
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <array key="enum">
+    <string escaped="true">foo\nbar</string>
+    <string escaped="true">foo\rbar</string>
+  </array>
+</map>

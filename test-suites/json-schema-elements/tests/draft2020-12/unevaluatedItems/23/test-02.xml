@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedItems.json, test group 23, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>7 not evaluated, fails unevaluatedItems</description>
+  <data type="array">
+    <item type="number">2</item>
+    <item type="number">3</item>
+    <item type="number">4</item>
+    <item type="number">7</item>
+    <item type="number">8</item>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

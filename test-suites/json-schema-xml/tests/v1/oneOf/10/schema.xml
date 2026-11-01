@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/oneOf.json, test group 10
+     Description: oneOf with missing optional property
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <array key="oneOf">
+    <map>
+      <map key="properties">
+        <boolean key="bar">true</boolean>
+        <boolean key="baz">true</boolean>
+      </map>
+      <array key="required">
+        <string>bar</string>
+      </array>
+    </map>
+    <map>
+      <map key="properties">
+        <boolean key="foo">true</boolean>
+      </map>
+      <array key="required">
+        <string>foo</string>
+      </array>
+    </map>
+  </array>
+</map>

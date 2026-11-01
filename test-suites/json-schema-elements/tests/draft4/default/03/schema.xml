@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/default.json, test group 03
+     Description: the default keyword does not do anything if the property is missing
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type>object</type>
+  <properties type="object">
+    <alpha type="object">
+      <type>number</type>
+      <maximum type="number">3</maximum>
+      <default type="number">5</default>
+    </alpha>
+  </properties>
+</json>

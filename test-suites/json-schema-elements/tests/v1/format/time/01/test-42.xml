@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/time.json, test group 01, test 42
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid non-ASCII '২' (a Bengali 2)</description>
+  <data>1২:00:00Z</data>
+  <valid type="boolean">false</valid>
+</json>

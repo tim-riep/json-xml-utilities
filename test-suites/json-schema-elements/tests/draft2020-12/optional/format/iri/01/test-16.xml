@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/iri.json, test group 01, test 16
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an invalid relative IRI Reference</description>
+  <data>/abc</data>
+  <valid type="boolean">false</valid>
+</json>

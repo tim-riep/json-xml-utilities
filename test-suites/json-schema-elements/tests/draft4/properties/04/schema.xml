@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/properties.json, test group 04
+     Description: properties with null valued instance properties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <properties type="object">
+    <foo type="object">
+      <type>null</type>
+    </foo>
+  </properties>
+</json>

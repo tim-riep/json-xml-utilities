@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/format/uri-reference.json, test group 01, test 18
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an empty URI reference</description>
+  <comment>RFC 3986, Section 4.2: relative-part includes path-empty, which is zero characters.</comment>
+  <data/>
+  <valid type="boolean">true</valid>
+</json>

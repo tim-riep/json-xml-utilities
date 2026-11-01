@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/enum.json, test group 12
+     Description: enum with 1 does not match true
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <enum type="array">
+    <item type="number">1</item>
+  </enum>
+</json>

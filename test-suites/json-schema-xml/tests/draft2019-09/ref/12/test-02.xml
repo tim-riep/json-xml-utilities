@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/ref.json, test group 12, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">invalid tree</string>
+  <map key="data">
+    <string key="meta">root</string>
+    <array key="nodes">
+      <map>
+        <number key="value">1</number>
+        <map key="subtree">
+          <string key="meta">child</string>
+          <array key="nodes">
+            <map>
+              <string key="value">string is invalid</string>
+            </map>
+            <map>
+              <number key="value">1.2</number>
+            </map>
+          </array>
+        </map>
+      </map>
+      <map>
+        <number key="value">2</number>
+        <map key="subtree">
+          <string key="meta">child</string>
+          <array key="nodes">
+            <map>
+              <number key="value">2.1</number>
+            </map>
+            <map>
+              <number key="value">2.2</number>
+            </map>
+          </array>
+        </map>
+      </map>
+    </array>
+  </map>
+  <boolean key="valid">false</boolean>
+</map>

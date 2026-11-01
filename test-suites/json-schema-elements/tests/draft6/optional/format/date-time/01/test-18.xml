@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/format/date-time.json, test group 01, test 18
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an invalid offset minute in date-time string</description>
+  <data>1990-12-31T10:00:00+10:60</data>
+  <valid type="boolean">false</valid>
+</json>

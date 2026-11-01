@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/patternProperties.json, test group 03
+     Description: regexes are not anchored by default and are case sensitive
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <map key="patternProperties">
+    <map key="[0-9]{2,}">
+      <string key="type">boolean</string>
+    </map>
+    <map key="X_">
+      <string key="type">string</string>
+    </map>
+  </map>
+</map>

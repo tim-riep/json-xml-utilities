@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/dependencies-compatibility.json, test group 05
+     Description: single schema dependency
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <dependencies type="object">
+    <bar type="object">
+      <properties type="object">
+        <foo type="object">
+          <type>integer</type>
+        </foo>
+        <bar type="object">
+          <type>integer</type>
+        </bar>
+      </properties>
+    </bar>
+  </dependencies>
+</json>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/proposals/propertyDependencies/propertyDependencies.json, test group 03
+     Description: multiple options selects the right one
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <propertyDependencies type="object">
+    <foo type="object">
+      <bar type="object">
+        <minProperties type="number">2</minProperties>
+        <maxProperties type="number">2</maxProperties>
+      </bar>
+      <baz type="object">
+        <maxProperties type="number">1</maxProperties>
+      </baz>
+      <qux type="boolean">true</qux>
+      <quux type="boolean">false</quux>
+    </foo>
+  </propertyDependencies>
+</json>

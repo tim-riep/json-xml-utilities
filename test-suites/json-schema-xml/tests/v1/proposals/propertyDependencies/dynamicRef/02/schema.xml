@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/proposals/propertyDependencies/dynamicRef.json, test group 02
+     Description: $dynamicAnchor inside propertyDependencies
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <string key="$id">http://localhost:1234/v1/dynamicanchor-in-propertydependencies.json</string>
+  <map key="$defs">
+    <map key="inner">
+      <string key="$id">inner</string>
+      <string key="$dynamicAnchor">foo</string>
+      <string key="type">object</string>
+      <map key="properties">
+        <map key="expectedTypes">
+          <string key="type">string</string>
+        </map>
+      </map>
+      <map key="additionalProperties">
+        <string key="$dynamicRef">#foo</string>
+      </map>
+    </map>
+  </map>
+  <map key="propertyDependencies">
+    <map key="expectedTypes">
+      <map key="strings">
+        <string key="$id">east</string>
+        <string key="$ref">inner</string>
+        <map key="$defs">
+          <map key="foo">
+            <string key="$dynamicAnchor">foo</string>
+            <string key="type">string</string>
+          </map>
+        </map>
+      </map>
+      <map key="integers">
+        <string key="$id">west</string>
+        <string key="$ref">inner</string>
+        <map key="$defs">
+          <map key="foo">
+            <string key="$dynamicAnchor">foo</string>
+            <string key="type">integer</string>
+          </map>
+        </map>
+      </map>
+    </map>
+  </map>
+</map>

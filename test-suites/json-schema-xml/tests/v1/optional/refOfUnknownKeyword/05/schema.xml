@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/optional/refOfUnknownKeyword.json, test group 05
+     Description: reference of an arbitrary keyword of a sub-schema with encoded ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <map key="properties">
+    <map key="foo">
+      <map key="unknown/keyword">
+        <string key="type">integer</string>
+      </map>
+    </map>
+    <map key="bar">
+      <string key="$ref">#/properties/foo/unknown~1keyword</string>
+    </map>
+  </map>
+</map>

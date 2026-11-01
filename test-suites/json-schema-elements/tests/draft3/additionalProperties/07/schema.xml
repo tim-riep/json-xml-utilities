@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/additionalProperties.json, test group 07
+     Description: additionalProperties with null valued instance properties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <additionalProperties type="object">
+    <type>null</type>
+  </additionalProperties>
+</json>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/unevaluatedProperties.json, test group 12
+     Description: unevaluatedProperties with anyOf
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <type>object</type>
+  <properties type="object">
+    <foo type="object">
+      <type>string</type>
+    </foo>
+  </properties>
+  <anyOf type="array">
+    <item type="object">
+      <properties type="object">
+        <bar type="object">
+          <const>bar</const>
+        </bar>
+      </properties>
+      <required type="array">
+        <item>bar</item>
+      </required>
+    </item>
+    <item type="object">
+      <properties type="object">
+        <baz type="object">
+          <const>baz</const>
+        </baz>
+      </properties>
+      <required type="array">
+        <item>baz</item>
+      </required>
+    </item>
+    <item type="object">
+      <properties type="object">
+        <quux type="object">
+          <const>quux</const>
+        </quux>
+      </properties>
+      <required type="array">
+        <item>quux</item>
+      </required>
+    </item>
+  </anyOf>
+  <unevaluatedProperties type="boolean">false</unevaluatedProperties>
+</json>

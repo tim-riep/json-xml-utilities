@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/ecmascript-regex.json, test group 10, test 11
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>Non-whitespace matches</description>
+  <data>–</data>
+  <valid type="boolean">true</valid>
+</json>

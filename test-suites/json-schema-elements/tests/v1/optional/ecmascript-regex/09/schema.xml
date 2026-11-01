@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/optional/ecmascript-regex.json, test group 09
+     Description: ECMA 262 \\s matches whitespace
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <type>string</type>
+  <pattern>^\s$</pattern>
+</json>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/optional/format/ipv6.json, test group 01, test 31
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>ipv4 segment must have 4 octets</description>
+  <data>1:2:3:4:1.2.3</data>
+  <valid type="boolean">false</valid>
+</json>

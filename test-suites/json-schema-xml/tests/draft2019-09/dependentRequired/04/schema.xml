@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/dependentRequired.json, test group 04
+     Description: dependencies with escaped characters
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2019-09/schema</string>
+  <map key="dependentRequired">
+    <array key="foo\nbar" escaped-key="true">
+      <string escaped="true">foo\rbar</string>
+    </array>
+    <array key="foo&#34;bar">
+      <string>foo'bar</string>
+    </array>
+  </map>
+</map>

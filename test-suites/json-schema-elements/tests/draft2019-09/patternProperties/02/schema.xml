@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/patternProperties.json, test group 02
+     Description: multiple simultaneous patternProperties are validated
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <patternProperties type="object">
+    <a_x002A_ type="object">
+      <type>integer</type>
+    </a_x002A_>
+    <aaa_x002A_ type="object">
+      <maximum type="number">20</maximum>
+    </aaa_x002A_>
+  </patternProperties>
+</json>

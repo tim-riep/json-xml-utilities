@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/dynamicRef.json, test group 04, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>Any array is valid</description>
+  <data type="array">
+    <item>foo</item>
+    <item type="number">42</item>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

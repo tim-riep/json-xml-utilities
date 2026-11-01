@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/optional/refOfUnknownKeyword.json, test group 01
+     Description: reference of a root arbitrary keyword 
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <unknown-keyword type="object">
+    <type>integer</type>
+  </unknown-keyword>
+  <properties type="object">
+    <bar type="object">
+      <_x0024_ref>#/unknown-keyword</_x0024_ref>
+    </bar>
+  </properties>
+</json>

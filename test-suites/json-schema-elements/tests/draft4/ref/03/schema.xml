@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/ref.json, test group 03
+     Description: relative pointer ref to array
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <items type="array">
+    <item type="object">
+      <type>integer</type>
+    </item>
+    <item type="object">
+      <_x0024_ref>#/items/0</_x0024_ref>
+    </item>
+  </items>
+</json>

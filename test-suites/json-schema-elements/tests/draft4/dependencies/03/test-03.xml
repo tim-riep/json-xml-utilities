@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/dependencies.json, test group 03, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>wrong type</description>
+  <data type="object">
+    <foo>quux</foo>
+    <bar type="number">2</bar>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

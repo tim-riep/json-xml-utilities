@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/format/uri-reference.json, test group 01, test 23
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>lone percent sign is invalid</description>
+  <comment>RFC 3986, Section 2.1: pct-encoded = "%" HEXDIG HEXDIG.</comment>
+  <data>/%</data>
+  <valid type="boolean">false</valid>
+</json>

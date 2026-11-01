@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/multipleOf.json, test group 03, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>0.00751 is not multiple of 0.0001</description>
+  <data type="number">0.00751</data>
+  <valid type="boolean">false</valid>
+</json>

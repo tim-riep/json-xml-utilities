@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/oneOf.json, test group 09
+     Description: oneOf with required
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="type">object</string>
+  <array key="oneOf">
+    <map>
+      <array key="required">
+        <string>foo</string>
+        <string>bar</string>
+      </array>
+    </map>
+    <map>
+      <array key="required">
+        <string>foo</string>
+        <string>baz</string>
+      </array>
+    </map>
+  </array>
+</map>

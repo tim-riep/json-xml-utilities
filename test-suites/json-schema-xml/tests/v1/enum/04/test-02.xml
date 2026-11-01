@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/enum.json, test group 04, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">wrong foo value</string>
+  <map key="data">
+    <string key="foo">foot</string>
+    <string key="bar">bar</string>
+  </map>
+  <boolean key="valid">false</boolean>
+</map>

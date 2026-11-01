@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/duration.json, test group 01, test 40
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>hours and seconds cannot appear without minutes</description>
+  <data>PT1H2S</data>
+  <valid type="boolean">false</valid>
+</json>

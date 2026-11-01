@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/uri.json, test group 01, test 18
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a valid tel URI</description>
+  <data>tel:+1-816-555-1212</data>
+  <valid type="boolean">true</valid>
+</json>

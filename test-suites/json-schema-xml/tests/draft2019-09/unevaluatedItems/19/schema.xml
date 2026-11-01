@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/unevaluatedItems.json, test group 19
+     Description: unevaluatedItems before $ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2019-09/schema</string>
+  <boolean key="unevaluatedItems">false</boolean>
+  <array key="items">
+    <map>
+      <string key="type">string</string>
+    </map>
+  </array>
+  <string key="$ref">#/$defs/bar</string>
+  <map key="$defs">
+    <map key="bar">
+      <array key="items">
+        <boolean>true</boolean>
+        <map>
+          <string key="type">string</string>
+        </map>
+      </array>
+    </map>
+  </map>
+</map>

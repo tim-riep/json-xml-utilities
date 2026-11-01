@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/format.json, test group 07, test 07
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid hostname string is only an annotation by default</description>
+  <data>-a-host-name-that-starts-with--</data>
+  <valid type="boolean">true</valid>
+</json>

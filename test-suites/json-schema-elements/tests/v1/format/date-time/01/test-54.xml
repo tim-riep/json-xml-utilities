@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date-time.json, test group 01, test 54
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a valid date-time-ext with a numeric offset time-zone suffix</description>
+  <comment>RFC 9557 section 4.1: time-zone allows a time-numoffset in place of a time-zone-name. Syntactic validation only.</comment>
+  <data>2022-07-08T00:14:07+01:00[+01:00]</data>
+  <valid type="boolean">true</valid>
+</json>

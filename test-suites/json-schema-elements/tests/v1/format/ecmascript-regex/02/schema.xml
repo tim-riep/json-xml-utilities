@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/ecmascript-regex.json, test group 02
+     Description: Python-specific regular expression syntax is not valid ECMA 262
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <format>regex</format>
+</json>

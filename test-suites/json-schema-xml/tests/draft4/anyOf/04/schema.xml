@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/anyOf.json, test group 04
+     Description: anyOf with one empty schema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <array key="anyOf">
+    <map>
+      <string key="type">number</string>
+    </map>
+    <map/>
+  </array>
+</map>

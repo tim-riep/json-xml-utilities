@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/ref.json, test group 14, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>object with strings is invalid</description>
+  <data type="object">
+    <foo_x0022_bar>1</foo_x0022_bar>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/patternProperties.json, test group 04
+     Description: patternProperties with boolean schemas
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <patternProperties type="object">
+    <f._x002A_ type="boolean">true</f._x002A_>
+    <b._x002A_ type="boolean">false</b._x002A_>
+  </patternProperties>
+</json>

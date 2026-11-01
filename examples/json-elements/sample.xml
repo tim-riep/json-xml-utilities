@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><json type="object">
+  <name>Erika</name>
+  <age type="number">42</age>
+  <price type="number">1.0</price>
+  <big type="number">1e308</big>
+  <tags type="array">
+    <item>a</item>
+    <item type="number">1</item>
+    <item type="boolean">true</item>
+    <item type="null"/>
+    <item type="array"/>
+    <item type="object"/>
+  </tags>
+  <address type="object">
+    <city>Köln</city>
+    <zip>50667</zip>
+  </address>
+  <ok type="boolean">true</ok>
+  <none type="null"/>
+  <first_x0020_name>with space</first_x0020_name>
+  <_x0031_st>leading digit</_x0031_st>
+  <a_x003A_b>colon</a_x003A_b>
+  <_x005F_x0041_>looks like an escape</_x005F_x0041_>
+  <_x_>empty key</_x_>
+  <ünïcödé>non-ASCII name</ünïcödé>
+  <_x0001F600_>emoji key</_x0001F600_>
+  <item>a key named item</item>
+  <type>a key named type</type>
+  <ctrl escaped="true">tab\tnewline\nnul\u0000end</ctrl>
+  <key_x0001_with_x0020_control type="number">1</key_x0001_with_x0020_control>
+</json>

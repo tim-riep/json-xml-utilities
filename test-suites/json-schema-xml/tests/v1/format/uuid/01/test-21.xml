@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/uuid.json, test group 01, test 21
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">hypothetical version 6</string>
+  <string key="data">99c17cbb-656f-664a-940f-1a4568f03487</string>
+  <boolean key="valid">true</boolean>
+</map>

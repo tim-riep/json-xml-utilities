@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/unevaluatedProperties.json, test group 36
+     Description: dynamic evaluation inside nested refs
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <_x0024_defs type="object">
+    <one type="object">
+      <oneOf type="array">
+        <item type="object">
+          <_x0024_ref>#/$defs/two</_x0024_ref>
+        </item>
+        <item type="object">
+          <required type="array">
+            <item>b</item>
+          </required>
+          <properties type="object">
+            <b type="boolean">true</b>
+          </properties>
+        </item>
+        <item type="object">
+          <required type="array">
+            <item>xx</item>
+          </required>
+          <patternProperties type="object">
+            <x type="boolean">true</x>
+          </patternProperties>
+        </item>
+        <item type="object">
+          <required type="array">
+            <item>all</item>
+          </required>
+          <unevaluatedProperties type="boolean">true</unevaluatedProperties>
+        </item>
+      </oneOf>
+    </one>
+    <two type="object">
+      <oneOf type="array">
+        <item type="object">
+          <required type="array">
+            <item>c</item>
+          </required>
+          <properties type="object">
+            <c type="boolean">true</c>
+          </properties>
+        </item>
+        <item type="object">
+          <required type="array">
+            <item>d</item>
+          </required>
+          <properties type="object">
+            <d type="boolean">true</d>
+          </properties>
+        </item>
+      </oneOf>
+    </two>
+  </_x0024_defs>
+  <oneOf type="array">
+    <item type="object">
+      <_x0024_ref>#/$defs/one</_x0024_ref>
+    </item>
+    <item type="object">
+      <required type="array">
+        <item>a</item>
+      </required>
+      <properties type="object">
+        <a type="boolean">true</a>
+      </properties>
+    </item>
+  </oneOf>
+  <unevaluatedProperties type="boolean">false</unevaluatedProperties>
+</json>

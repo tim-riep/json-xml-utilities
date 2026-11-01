@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/ref.json, test group 06
+     Description: ref overrides any sibling keywords
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <definitions type="object">
+    <reffed type="object">
+      <type>array</type>
+    </reffed>
+  </definitions>
+  <properties type="object">
+    <foo type="object">
+      <_x0024_ref>#/definitions/reffed</_x0024_ref>
+      <maxItems type="number">2</maxItems>
+    </foo>
+  </properties>
+</json>

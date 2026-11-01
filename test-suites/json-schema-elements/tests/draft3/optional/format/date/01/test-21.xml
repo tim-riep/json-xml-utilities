@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/optional/format/date.json, test group 01, test 21
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a invalid date string with 31 days in September</description>
+  <data>2020-09-31</data>
+  <valid type="boolean">false</valid>
+</json>

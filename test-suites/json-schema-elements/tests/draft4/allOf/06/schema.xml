@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/allOf.json, test group 06
+     Description: allOf with the first empty schema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <allOf type="array">
+    <item type="object"/>
+    <item type="object">
+      <type>number</type>
+    </item>
+  </allOf>
+</json>

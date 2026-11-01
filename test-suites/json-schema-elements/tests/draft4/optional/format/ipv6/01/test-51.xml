@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/optional/format/ipv6.json, test group 01, test 51
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>leading '::' before five groups and an embedded IPv4 is valid</description>
+  <data>::1:2:3:4:5:1.2.3.4</data>
+  <valid type="boolean">true</valid>
+</json>

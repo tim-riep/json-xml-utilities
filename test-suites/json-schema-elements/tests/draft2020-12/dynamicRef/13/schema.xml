@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/dynamicRef.json, test group 13
+     Description: after leaving a dynamic scope, it is not used by a $dynamicRef
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_id>https://test.json-schema.org/dynamic-ref-leaving-dynamic-scope/main</_x0024_id>
+  <if type="object">
+    <_x0024_id>first_scope</_x0024_id>
+    <_x0024_defs type="object">
+      <thingy type="object">
+        <_x0024_comment>this is first_scope#thingy</_x0024_comment>
+        <_x0024_dynamicAnchor>thingy</_x0024_dynamicAnchor>
+        <type>number</type>
+      </thingy>
+    </_x0024_defs>
+  </if>
+  <then type="object">
+    <_x0024_id>second_scope</_x0024_id>
+    <_x0024_ref>start</_x0024_ref>
+    <_x0024_defs type="object">
+      <thingy type="object">
+        <_x0024_comment>this is second_scope#thingy, the final destination of the $dynamicRef</_x0024_comment>
+        <_x0024_dynamicAnchor>thingy</_x0024_dynamicAnchor>
+        <type>null</type>
+      </thingy>
+    </_x0024_defs>
+  </then>
+  <_x0024_defs type="object">
+    <start type="object">
+      <_x0024_comment>this is the landing spot from $ref</_x0024_comment>
+      <_x0024_id>start</_x0024_id>
+      <_x0024_dynamicRef>inner_scope#thingy</_x0024_dynamicRef>
+    </start>
+    <thingy type="object">
+      <_x0024_comment>this is the first stop for the $dynamicRef</_x0024_comment>
+      <_x0024_id>inner_scope</_x0024_id>
+      <_x0024_dynamicAnchor>thingy</_x0024_dynamicAnchor>
+      <type>string</type>
+    </thingy>
+  </_x0024_defs>
+</json>

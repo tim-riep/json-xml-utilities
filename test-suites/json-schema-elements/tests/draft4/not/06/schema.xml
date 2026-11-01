@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/not.json, test group 06
+     Description: double negation
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <not type="object">
+    <not type="object"/>
+  </not>
+</json>

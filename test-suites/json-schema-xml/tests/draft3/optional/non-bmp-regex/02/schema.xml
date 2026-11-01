@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/optional/non-bmp-regex.json, test group 02
+     Description: Proper UTF-16 surrogate pair handling: patternProperties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <map key="patternProperties">
+    <map key="^🐲*$">
+      <string key="type">integer</string>
+    </map>
+  </map>
+</map>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/uri.json, test group 01, test 38
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>URI with out-of-bounds IPv4 is structurally valid as a reg-name</description>
+  <comment>RFC 3986, Section 3.2.2: Fallback to reg-name allows digits and dots.</comment>
+  <data>http://999.999.999.999/</data>
+  <valid type="boolean">true</valid>
+</json>

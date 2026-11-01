@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/unevaluatedProperties.json, test group 35
+     Description: unevaluatedProperties + ref inside allOf / oneOf
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <_x0024_defs type="object">
+    <one type="object">
+      <properties type="object">
+        <a type="boolean">true</a>
+      </properties>
+    </one>
+    <two type="object">
+      <required type="array">
+        <item>x</item>
+      </required>
+      <properties type="object">
+        <x type="boolean">true</x>
+      </properties>
+    </two>
+  </_x0024_defs>
+  <allOf type="array">
+    <item type="object">
+      <_x0024_ref>#/$defs/one</_x0024_ref>
+    </item>
+    <item type="object">
+      <properties type="object">
+        <b type="boolean">true</b>
+      </properties>
+    </item>
+    <item type="object">
+      <oneOf type="array">
+        <item type="object">
+          <_x0024_ref>#/$defs/two</_x0024_ref>
+        </item>
+        <item type="object">
+          <required type="array">
+            <item>y</item>
+          </required>
+          <properties type="object">
+            <y type="boolean">true</y>
+          </properties>
+        </item>
+      </oneOf>
+    </item>
+  </allOf>
+  <unevaluatedProperties type="boolean">false</unevaluatedProperties>
+</json>

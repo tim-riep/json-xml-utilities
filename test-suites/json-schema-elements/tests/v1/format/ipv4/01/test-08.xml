@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/ipv4.json, test group 01, test 08
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an IP address with too many components</description>
+  <data>127.0.0.0.1</data>
+  <valid type="boolean">false</valid>
+</json>

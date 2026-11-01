@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/idn-hostname.json, test group 01, test 67
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a non-NFC U-label is valid after UTS 46 normalisation</description>
+  <comment>UTS 46 section 4 normalises to NFC before validating, so the decomposed form is accepted</comment>
+  <data>café.com</data>
+  <valid type="boolean">true</valid>
+</json>

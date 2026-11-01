@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/ipv4.json, test group 01, test 40
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">an IPv4-mapped IPv6 address is invalid</string>
+  <string key="data">::ffff:192.168.0.1</string>
+  <boolean key="valid">false</boolean>
+</map>

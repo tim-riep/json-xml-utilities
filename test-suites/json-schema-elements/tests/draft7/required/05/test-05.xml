@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/required.json, test group 05, test 05
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>toString present</description>
+  <data type="object">
+    <toString type="object">
+      <length type="number">37</length>
+    </toString>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

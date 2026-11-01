@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/patternProperties.json, test group 01
+     Description: patternProperties validates properties matching a regex
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <map key="patternProperties">
+    <map key="f.*o">
+      <string key="type">integer</string>
+    </map>
+  </map>
+</map>

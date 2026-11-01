@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/unevaluatedItems.json, test group 22
+     Description: item is evaluated in an uncle schema to unevaluatedItems
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <properties type="object">
+    <foo type="object">
+      <items type="array">
+        <item type="object">
+          <type>string</type>
+        </item>
+      </items>
+      <unevaluatedItems type="boolean">false</unevaluatedItems>
+    </foo>
+  </properties>
+  <anyOf type="array">
+    <item type="object">
+      <properties type="object">
+        <foo type="object">
+          <items type="array">
+            <item type="boolean">true</item>
+            <item type="object">
+              <type>string</type>
+            </item>
+          </items>
+        </foo>
+      </properties>
+    </item>
+  </anyOf>
+</json>

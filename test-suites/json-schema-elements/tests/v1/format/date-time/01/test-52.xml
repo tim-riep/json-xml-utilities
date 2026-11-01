@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date-time.json, test group 01, test 52
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an invalid date-time-ext with an empty suffix</description>
+  <comment>RFC 9557 section 4.1: time-zone requires a time-zone-name or time-numoffset, and suffix-tag requires suffix-key "=" suffix-values. "[]" matches neither production. Syntactic validation only.</comment>
+  <data>2022-07-08T00:14:07Z[]</data>
+  <valid type="boolean">false</valid>
+</json>

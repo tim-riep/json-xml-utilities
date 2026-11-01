@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/ecmascript-regex.json, test group 15, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>non-ascii digits (BENGALI DIGIT FOUR, BENGALI DIGIT TWO)</description>
+  <data>৪২</data>
+  <valid type="boolean">true</valid>
+</json>

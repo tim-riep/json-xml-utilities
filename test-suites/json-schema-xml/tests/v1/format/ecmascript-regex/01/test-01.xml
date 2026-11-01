@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/ecmascript-regex.json, test group 01, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">when used as a pattern</string>
+  <string escaped="true" key="data">\\a</string>
+  <boolean key="valid">false</boolean>
+</map>

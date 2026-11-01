@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/iri.json, test group 01, test 14
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a valid IRI based on IPv6</string>
+  <string key="data">http://[2001:0db8:85a3:0000:0000:8a2e:0370:7334]</string>
+  <boolean key="valid">true</boolean>
+</map>

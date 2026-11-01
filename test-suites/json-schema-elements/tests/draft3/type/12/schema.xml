@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/type.json, test group 12
+     Description: types from separate schemas are merged
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type type="array">
+    <item type="object">
+      <type type="array">
+        <item>string</item>
+      </type>
+    </item>
+    <item type="object">
+      <type type="array">
+        <item>array</item>
+        <item>null</item>
+      </type>
+    </item>
+  </type>
+</json>

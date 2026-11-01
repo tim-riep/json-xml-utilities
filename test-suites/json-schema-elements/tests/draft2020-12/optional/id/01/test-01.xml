@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/id.json, test group 01, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>exact match to enum, and type matches</description>
+  <data type="object">
+    <_x0024_id>https://localhost:1234/draft2020-12/id/my_identifier.json</_x0024_id>
+    <type>null</type>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

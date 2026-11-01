@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/ref.json, test group 14
+     Description: Location-independent identifier with base URI change in subschema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <id>http://localhost:1234/root</id>
+  <allOf type="array">
+    <item type="object">
+      <_x0024_ref>http://localhost:1234/nested.json#foo</_x0024_ref>
+    </item>
+  </allOf>
+  <definitions type="object">
+    <A type="object">
+      <id>nested.json</id>
+      <definitions type="object">
+        <B type="object">
+          <id>#foo</id>
+          <type>integer</type>
+        </B>
+      </definitions>
+    </A>
+  </definitions>
+</json>

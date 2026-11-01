@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/relative-json-pointer.json, test group 01, test 21
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>multi-digit prefix with a zero followed by another digit</description>
+  <data>100</data>
+  <valid type="boolean">true</valid>
+</json>

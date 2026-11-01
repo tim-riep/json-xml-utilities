@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/idn-hostname.json, test group 01, test 68
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a label of 63 fullwidth characters is valid after mapping</description>
+  <comment>UTS 46 maps each U+FF41 to an ASCII letter, so this label is 63 octets in its mapped form</comment>
+  <data>ａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａａ</data>
+  <valid type="boolean">true</valid>
+</json>

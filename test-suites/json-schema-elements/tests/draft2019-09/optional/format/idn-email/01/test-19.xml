@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/idn-email.json, test group 01, test 19
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a domain label starting with a hyphen is not valid</description>
+  <comment>https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 sub-domain = Let-dig [Ldh-str], so a label starts with a letter or digit; RFC 6531 section 3.3 only adds sub-domain =/ U-label</comment>
+  <data>δοκιμή@-example.com</data>
+  <valid type="boolean">false</valid>
+</json>

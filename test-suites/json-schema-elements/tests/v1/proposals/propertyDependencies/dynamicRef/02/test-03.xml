@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/proposals/propertyDependencies/dynamicRef.json, test group 02, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>expected integers - additional property as integer is valid</description>
+  <data type="object">
+    <expectedTypes>integers</expectedTypes>
+    <anotherProperty type="number">42</anotherProperty>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

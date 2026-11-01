@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/ecmascript-regex.json, test group 20
+     Description: patternProperties with non-ASCII digits
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <type>object</type>
+  <patternProperties type="object">
+    <_x005E__x005C_p_x007B_digit_x007D__x002B__x0024_ type="boolean">true</_x005E__x005C_p_x007B_digit_x007D__x002B__x0024_>
+  </patternProperties>
+  <additionalProperties type="boolean">false</additionalProperties>
+</json>

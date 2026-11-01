@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/ecmascript-regex.json, test group 19
+     Description: \\d in patternProperties matches [0-9], not unicode digits
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type>object</type>
+  <patternProperties type="object">
+    <_x005E__x005C_d_x002B__x0024_ type="boolean">true</_x005E__x005C_d_x002B__x0024_>
+  </patternProperties>
+  <additionalProperties type="boolean">false</additionalProperties>
+</json>

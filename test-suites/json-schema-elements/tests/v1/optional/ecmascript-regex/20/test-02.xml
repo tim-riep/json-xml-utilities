@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/optional/ecmascript-regex.json, test group 20, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>ascii non-digits</description>
+  <data type="object">
+    <_x002D__x0025__x0023_>spending the year dead for tax reasons</_x002D__x0025__x0023_>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

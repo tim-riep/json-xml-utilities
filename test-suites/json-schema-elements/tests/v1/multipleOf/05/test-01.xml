@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/multipleOf.json, test group 05, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>any integer is a multiple of 1e-8</description>
+  <data type="number">12391239123</data>
+  <valid type="boolean">true</valid>
+</json>

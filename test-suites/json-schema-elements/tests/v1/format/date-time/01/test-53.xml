@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date-time.json, test group 01, test 53
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an invalid date-time-ext with an unclosed time-zone suffix</description>
+  <comment>RFC 9557 section 4.1: time-zone is delimited by "[" and "]". A missing closing bracket is not a valid date-time-ext. Syntactic validation only.</comment>
+  <data>2022-07-08T00:14:07Z[Europe/London</data>
+  <valid type="boolean">false</valid>
+</json>

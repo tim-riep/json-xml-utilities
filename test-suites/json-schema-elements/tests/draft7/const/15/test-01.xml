@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/const.json, test group 15, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>match string with nul</description>
+  <data escaped="true">hello\u0000there</data>
+  <valid type="boolean">true</valid>
+</json>

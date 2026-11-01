@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/ref.json, test group 27
+     Description: URN base URI with URN and anchor ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_id>urn:uuid:deadbeef-1234-ff00-00ff-4321feebdaed</_x0024_id>
+  <properties type="object">
+    <foo type="object">
+      <_x0024_ref>urn:uuid:deadbeef-1234-ff00-00ff-4321feebdaed#something</_x0024_ref>
+    </foo>
+  </properties>
+  <definitions type="object">
+    <bar type="object">
+      <_x0024_id>#something</_x0024_id>
+      <type>string</type>
+    </bar>
+  </definitions>
+</json>

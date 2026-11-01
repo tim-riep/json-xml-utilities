@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/email.json, test group 01, test 70
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a parenthesis in an unquoted local part is not valid</description>
+  <comment>a comment is RFC 5322 syntax, which the RFC 5321 Mailbox grammar does not have</comment>
+  <data>test(comment)@iana.org</data>
+  <valid type="boolean">false</valid>
+</json>

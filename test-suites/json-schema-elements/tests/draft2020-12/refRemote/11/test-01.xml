@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/refRemote.json, test group 11, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>number is invalid</description>
+  <data type="object">
+    <name type="object">
+      <foo type="number">1</foo>
+    </name>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/required.json, test group 05
+     Description: required properties whose names are Javascript object property names
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <required type="array">
+    <item>__proto__</item>
+    <item>toString</item>
+    <item>constructor</item>
+  </required>
+</json>

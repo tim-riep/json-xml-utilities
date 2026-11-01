@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/duration.json, test group 01, test 27
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>all date and time components</description>
+  <data>P1Y2M3DT4H5M6S</data>
+  <valid type="boolean">true</valid>
+</json>

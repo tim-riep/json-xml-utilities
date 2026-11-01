@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/refRemote.json, test group 12
+     Description: remote HTTP ref with different $id
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_ref>http://localhost:1234/draft2020-12/different-id-ref-string.json</_x0024_ref>
+</json>

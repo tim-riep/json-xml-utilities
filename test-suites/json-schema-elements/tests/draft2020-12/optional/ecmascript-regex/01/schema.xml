@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/ecmascript-regex.json, test group 01
+     Description: ECMA 262 regex $ does not match trailing newline
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <type>string</type>
+  <pattern>^abc$</pattern>
+</json>

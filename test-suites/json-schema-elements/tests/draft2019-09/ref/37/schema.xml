@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/ref.json, test group 37
+     Description: $ref with $recursiveAnchor
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <_x0024_id>https://example.com/schemas/unevaluated-items-are-disallowed</_x0024_id>
+  <_x0024_ref>/schemas/unevaluated-items-are-allowed</_x0024_ref>
+  <_x0024_recursiveAnchor type="boolean">true</_x0024_recursiveAnchor>
+  <unevaluatedItems type="boolean">false</unevaluatedItems>
+  <_x0024_defs type="object">
+    <_x002F_schemas_x002F_unevaluated-items-are-allowed type="object">
+      <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+      <_x0024_id>/schemas/unevaluated-items-are-allowed</_x0024_id>
+      <_x0024_recursiveAnchor type="boolean">true</_x0024_recursiveAnchor>
+      <type>array</type>
+      <items type="array">
+        <item type="object">
+          <type>string</type>
+        </item>
+        <item type="object">
+          <_x0024_ref>#</_x0024_ref>
+        </item>
+      </items>
+    </_x002F_schemas_x002F_unevaluated-items-are-allowed>
+  </_x0024_defs>
+</json>

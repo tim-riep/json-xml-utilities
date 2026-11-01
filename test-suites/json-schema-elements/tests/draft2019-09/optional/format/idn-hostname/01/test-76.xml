@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/idn-hostname.json, test group 01, test 76
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>A-label that decodes to a Bidi rule violation is invalid</description>
+  <comment>https://www.rfc-editor.org/rfc/rfc5890#section-2.3.2.1 https://www.rfc-editor.org/rfc/rfc5893</comment>
+  <data>xn--0ca24w</data>
+  <valid type="boolean">false</valid>
+</json>

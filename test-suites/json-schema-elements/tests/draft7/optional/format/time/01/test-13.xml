@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/time.json, test group 01, test 13
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid leap second, Zulu (wrong minute)</description>
+  <data>23:58:60Z</data>
+  <valid type="boolean">false</valid>
+</json>

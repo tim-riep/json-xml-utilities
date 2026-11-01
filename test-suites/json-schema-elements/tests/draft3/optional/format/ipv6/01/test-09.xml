@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/optional/format/ipv6.json, test group 01, test 09
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>mixed format with the ipv4 section as decimal octets</description>
+  <data>1::d6:192.168.0.1</data>
+  <valid type="boolean">true</valid>
+</json>

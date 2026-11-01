@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedProperties.json, test group 35, test 05
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a and y are valid</description>
+  <data type="object">
+    <a type="number">1</a>
+    <y type="number">1</y>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/idn-hostname.json, test group 01, test 71
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>Bidi domain name with a digit-first label is invalid</description>
+  <comment>https://www.rfc-editor.org/rfc/rfc5893#section-2 a label in a Bidi domain name must start with an L, R or AL character</comment>
+  <data>0a.א</data>
+  <valid type="boolean">false</valid>
+</json>

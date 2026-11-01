@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/required.json, test group 04, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">object with all properties present is valid</string>
+  <map key="data">
+    <number key="foo\nbar" escaped-key="true">1</number>
+    <number key="foo&#34;bar">1</number>
+    <number key="foo\\bar" escaped-key="true">1</number>
+    <number key="foo\rbar" escaped-key="true">1</number>
+    <number key="foo\tbar" escaped-key="true">1</number>
+    <number key="foo\fbar" escaped-key="true">1</number>
+  </map>
+  <boolean key="valid">true</boolean>
+</map>

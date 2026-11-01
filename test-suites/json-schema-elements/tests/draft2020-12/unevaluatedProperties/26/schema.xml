@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedProperties.json, test group 26
+     Description: nested unevaluatedProperties, outer false, inner true, properties inside
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <allOf type="array">
+    <item type="object">
+      <properties type="object">
+        <foo type="object">
+          <type>string</type>
+        </foo>
+      </properties>
+      <unevaluatedProperties type="boolean">true</unevaluatedProperties>
+    </item>
+  </allOf>
+  <unevaluatedProperties type="boolean">false</unevaluatedProperties>
+</json>

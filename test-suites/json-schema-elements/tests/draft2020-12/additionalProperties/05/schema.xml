@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/additionalProperties.json, test group 05
+     Description: additionalProperties are allowed by default
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <properties type="object">
+    <foo type="object"/>
+    <bar type="object"/>
+  </properties>
+</json>

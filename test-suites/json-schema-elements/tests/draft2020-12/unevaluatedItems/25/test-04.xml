@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedItems.json, test group 25, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>all items evaluated by contains</description>
+  <data type="array">
+    <item>foo</item>
+    <item>bar</item>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

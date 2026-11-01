@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/uri-template.json, test group 01, test 12
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an empty varspec inside the variable list is invalid</description>
+  <data>{a,,b}</data>
+  <valid type="boolean">false</valid>
+</json>

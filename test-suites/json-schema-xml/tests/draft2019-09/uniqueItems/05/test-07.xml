@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/uniqueItems.json, test group 05, test 07
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">non-unique array extended from [false, true] is valid</string>
+  <array key="data">
+    <boolean>false</boolean>
+    <boolean>true</boolean>
+    <string>foo</string>
+    <string>foo</string>
+  </array>
+  <boolean key="valid">true</boolean>
+</map>

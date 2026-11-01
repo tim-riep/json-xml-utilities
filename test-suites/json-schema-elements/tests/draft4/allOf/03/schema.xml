@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/allOf.json, test group 03
+     Description: allOf simple types
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <allOf type="array">
+    <item type="object">
+      <maximum type="number">30</maximum>
+    </item>
+    <item type="object">
+      <minimum type="number">20</minimum>
+    </item>
+  </allOf>
+</json>

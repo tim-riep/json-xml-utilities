@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/ref.json, test group 27
+     Description: URN base URI with URN and JSON pointer ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_id>urn:uuid:deadbeef-1234-0000-0000-4321feebdaed</_x0024_id>
+  <properties type="object">
+    <foo type="object">
+      <_x0024_ref>urn:uuid:deadbeef-1234-0000-0000-4321feebdaed#/definitions/bar</_x0024_ref>
+    </foo>
+  </properties>
+  <definitions type="object">
+    <bar type="object">
+      <type>string</type>
+    </bar>
+  </definitions>
+</json>

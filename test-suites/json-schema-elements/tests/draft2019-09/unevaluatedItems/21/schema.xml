@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/unevaluatedItems.json, test group 21
+     Description: unevaluatedItems can't see inside cousins
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <allOf type="array">
+    <item type="object">
+      <items type="array">
+        <item type="boolean">true</item>
+      </items>
+    </item>
+    <item type="object">
+      <unevaluatedItems type="boolean">false</unevaluatedItems>
+    </item>
+  </allOf>
+</json>

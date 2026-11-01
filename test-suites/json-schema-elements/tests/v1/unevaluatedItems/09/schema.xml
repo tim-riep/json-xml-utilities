@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/unevaluatedItems.json, test group 09
+     Description: unevaluatedItems with nested items
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <unevaluatedItems type="object">
+    <type>boolean</type>
+  </unevaluatedItems>
+  <anyOf type="array">
+    <item type="object">
+      <items type="object">
+        <type>string</type>
+      </items>
+    </item>
+    <item type="boolean">true</item>
+  </anyOf>
+</json>

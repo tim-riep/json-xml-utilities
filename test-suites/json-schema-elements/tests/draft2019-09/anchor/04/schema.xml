@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/anchor.json, test group 04
+     Description: same $anchor with different base uri
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <_x0024_id>http://localhost:1234/draft2019-09/foobar</_x0024_id>
+  <_x0024_defs type="object">
+    <A type="object">
+      <_x0024_id>child1</_x0024_id>
+      <allOf type="array">
+        <item type="object">
+          <_x0024_id>child2</_x0024_id>
+          <_x0024_anchor>my_anchor</_x0024_anchor>
+          <type>number</type>
+        </item>
+        <item type="object">
+          <_x0024_anchor>my_anchor</_x0024_anchor>
+          <type>string</type>
+        </item>
+      </allOf>
+    </A>
+  </_x0024_defs>
+  <_x0024_ref>child1#my_anchor</_x0024_ref>
+</json>

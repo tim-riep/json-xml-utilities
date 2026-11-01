@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/if-then-else.json, test group 05
+     Description: if and else without then
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <if type="object">
+    <exclusiveMaximum type="number">0</exclusiveMaximum>
+  </if>
+  <else type="object">
+    <multipleOf type="number">2</multipleOf>
+  </else>
+</json>

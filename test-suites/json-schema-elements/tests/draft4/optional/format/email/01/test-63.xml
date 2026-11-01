@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/optional/format/email.json, test group 01, test 63
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an IPv4-address-literal with five octets is not valid</description>
+  <data>a@[1.2.3.4.5]</data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/cross-draft.json, test group 01
+     Description: refs to future drafts are processed as future drafts
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="type">object</string>
+  <array key="allOf">
+    <map>
+      <map key="properties">
+        <boolean key="foo">true</boolean>
+      </map>
+    </map>
+    <map>
+      <string key="$ref">http://localhost:1234/draft2019-09/dependentRequired.json</string>
+    </map>
+  </array>
+</map>

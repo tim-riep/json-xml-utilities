@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedProperties.json, test group 36
+     Description: dynamic evaluation inside nested refs
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2020-12/schema</string>
+  <map key="$defs">
+    <map key="one">
+      <array key="oneOf">
+        <map>
+          <string key="$ref">#/$defs/two</string>
+        </map>
+        <map>
+          <array key="required">
+            <string>b</string>
+          </array>
+          <map key="properties">
+            <boolean key="b">true</boolean>
+          </map>
+        </map>
+        <map>
+          <array key="required">
+            <string>xx</string>
+          </array>
+          <map key="patternProperties">
+            <boolean key="x">true</boolean>
+          </map>
+        </map>
+        <map>
+          <array key="required">
+            <string>all</string>
+          </array>
+          <boolean key="unevaluatedProperties">true</boolean>
+        </map>
+      </array>
+    </map>
+    <map key="two">
+      <array key="oneOf">
+        <map>
+          <array key="required">
+            <string>c</string>
+          </array>
+          <map key="properties">
+            <boolean key="c">true</boolean>
+          </map>
+        </map>
+        <map>
+          <array key="required">
+            <string>d</string>
+          </array>
+          <map key="properties">
+            <boolean key="d">true</boolean>
+          </map>
+        </map>
+      </array>
+    </map>
+  </map>
+  <array key="oneOf">
+    <map>
+      <string key="$ref">#/$defs/one</string>
+    </map>
+    <map>
+      <array key="required">
+        <string>a</string>
+      </array>
+      <map key="properties">
+        <boolean key="a">true</boolean>
+      </map>
+    </map>
+  </array>
+  <boolean key="unevaluatedProperties">false</boolean>
+</map>

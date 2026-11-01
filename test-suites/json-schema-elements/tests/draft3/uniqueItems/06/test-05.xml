@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/uniqueItems.json, test group 06, test 05
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>extra items are invalid even if unique</description>
+  <data type="array">
+    <item type="boolean">false</item>
+    <item type="boolean">true</item>
+    <item type="null"/>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

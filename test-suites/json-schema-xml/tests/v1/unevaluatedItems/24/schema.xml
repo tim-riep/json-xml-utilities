@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/unevaluatedItems.json, test group 24
+     Description: unevaluatedItems and contains interact to control item dependency relationship
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <map key="if">
+    <map key="contains">
+      <string key="const">a</string>
+    </map>
+  </map>
+  <map key="then">
+    <map key="if">
+      <map key="contains">
+        <string key="const">b</string>
+      </map>
+    </map>
+    <map key="then">
+      <map key="if">
+        <map key="contains">
+          <string key="const">c</string>
+        </map>
+      </map>
+    </map>
+  </map>
+  <boolean key="unevaluatedItems">false</boolean>
+</map>

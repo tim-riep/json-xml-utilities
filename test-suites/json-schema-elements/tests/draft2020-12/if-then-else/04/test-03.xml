@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/if-then-else.json, test group 04, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>valid when if test fails</description>
+  <data type="number">3</data>
+  <valid type="boolean">true</valid>
+</json>

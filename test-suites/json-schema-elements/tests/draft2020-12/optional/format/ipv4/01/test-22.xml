@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/ipv4.json, test group 01, test 22
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>hexadecimal notation is invalid</description>
+  <data>0x7f.0.0.1</data>
+  <valid type="boolean">false</valid>
+</json>

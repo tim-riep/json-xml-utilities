@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/unevaluatedItems.json, test group 19
+     Description: unevaluatedItems with $dynamicRef
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <string key="$id">https://example.com/unevaluated-items-with-dynamic-ref/derived</string>
+  <string key="$ref">./baseSchema</string>
+  <map key="$defs">
+    <map key="derived">
+      <string key="$dynamicAnchor">addons</string>
+      <array key="prefixItems">
+        <boolean>true</boolean>
+        <map>
+          <string key="type">string</string>
+        </map>
+      </array>
+    </map>
+    <map key="baseSchema">
+      <string key="$id">./baseSchema</string>
+      <string key="$comment">unevaluatedItems comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering</string>
+      <boolean key="unevaluatedItems">false</boolean>
+      <string key="type">array</string>
+      <array key="prefixItems">
+        <map>
+          <string key="type">string</string>
+        </map>
+      </array>
+      <string key="$dynamicRef">#addons</string>
+    </map>
+  </map>
+</map>

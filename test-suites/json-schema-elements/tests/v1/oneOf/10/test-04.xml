@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/oneOf.json, test group 10, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>neither oneOf valid</description>
+  <data type="object">
+    <baz>quux</baz>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

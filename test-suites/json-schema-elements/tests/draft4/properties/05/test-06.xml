@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/properties.json, test group 05, test 06
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>constructor not valid</description>
+  <data type="object">
+    <constructor type="object">
+      <length type="number">37</length>
+    </constructor>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

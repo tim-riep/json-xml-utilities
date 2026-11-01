@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/const.json, test group 10
+     Description: const with {"a": true} does not match {"a": 1}
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <const type="object">
+    <a type="boolean">true</a>
+  </const>
+</json>

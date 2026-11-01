@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/patternProperties.json, test group 01, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>multiple invalid matches is invalid</description>
+  <data type="object">
+    <foo>bar</foo>
+    <foooooo>baz</foooooo>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

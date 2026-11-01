@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/dynamicRef.json, test group 13
+     Description: after leaving a dynamic scope, it is not used by a $dynamicRef
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2020-12/schema</string>
+  <string key="$id">https://test.json-schema.org/dynamic-ref-leaving-dynamic-scope/main</string>
+  <map key="if">
+    <string key="$id">first_scope</string>
+    <map key="$defs">
+      <map key="thingy">
+        <string key="$comment">this is first_scope#thingy</string>
+        <string key="$dynamicAnchor">thingy</string>
+        <string key="type">number</string>
+      </map>
+    </map>
+  </map>
+  <map key="then">
+    <string key="$id">second_scope</string>
+    <string key="$ref">start</string>
+    <map key="$defs">
+      <map key="thingy">
+        <string key="$comment">this is second_scope#thingy, the final destination of the $dynamicRef</string>
+        <string key="$dynamicAnchor">thingy</string>
+        <string key="type">null</string>
+      </map>
+    </map>
+  </map>
+  <map key="$defs">
+    <map key="start">
+      <string key="$comment">this is the landing spot from $ref</string>
+      <string key="$id">start</string>
+      <string key="$dynamicRef">inner_scope#thingy</string>
+    </map>
+    <map key="thingy">
+      <string key="$comment">this is the first stop for the $dynamicRef</string>
+      <string key="$id">inner_scope</string>
+      <string key="$dynamicAnchor">thingy</string>
+      <string key="type">string</string>
+    </map>
+  </map>
+</map>

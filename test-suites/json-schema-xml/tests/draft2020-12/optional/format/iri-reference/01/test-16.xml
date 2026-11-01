@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/iri-reference.json, test group 01, test 16
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a valid relative IRI Reference with a supplementary-plane character</string>
+  <string key="data">/âππ/𐌀</string>
+  <boolean key="valid">true</boolean>
+</map>

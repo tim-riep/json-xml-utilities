@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/uri-template.json, test group 01, test 10
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a valid relative uri-template</description>
+  <data>dictionary/{term:1}/{term}</data>
+  <valid type="boolean">true</valid>
+</json>

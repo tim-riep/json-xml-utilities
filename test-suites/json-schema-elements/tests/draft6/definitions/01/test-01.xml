@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/definitions.json, test group 01, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>valid definition schema</description>
+  <data type="object">
+    <definitions type="object">
+      <foo type="object">
+        <type>integer</type>
+      </foo>
+    </definitions>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

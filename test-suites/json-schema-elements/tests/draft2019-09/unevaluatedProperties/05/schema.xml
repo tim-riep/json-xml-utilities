@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/unevaluatedProperties.json, test group 05
+     Description: unevaluatedProperties with adjacent patternProperties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <type>object</type>
+  <patternProperties type="object">
+    <_x005E_foo type="object">
+      <type>string</type>
+    </_x005E_foo>
+  </patternProperties>
+  <unevaluatedProperties type="boolean">false</unevaluatedProperties>
+</json>

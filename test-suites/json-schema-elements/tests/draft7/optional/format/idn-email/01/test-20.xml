@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/idn-email.json, test group 01, test 20
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a domain label ending with a hyphen is not valid</description>
+  <comment>https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Ldh-str = *( ALPHA / DIGIT / "-" ) Let-dig, so a label ends with a letter or digit</comment>
+  <data>δοκιμή@example-.com</data>
+  <valid type="boolean">false</valid>
+</json>

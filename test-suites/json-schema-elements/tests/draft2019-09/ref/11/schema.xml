@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/ref.json, test group 11
+     Description: $ref to boolean schema false
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <_x0024_ref>#/$defs/bool</_x0024_ref>
+  <_x0024_defs type="object">
+    <bool type="boolean">false</bool>
+  </_x0024_defs>
+</json>

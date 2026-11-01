@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/idn-email.json, test group 01, test 24
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">domain is required</string>
+  <string key="comment">https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Mailbox = Local-part "@" ( Domain / address-literal )</string>
+  <string key="data">δοκιμή@</string>
+  <boolean key="valid">false</boolean>
+</map>

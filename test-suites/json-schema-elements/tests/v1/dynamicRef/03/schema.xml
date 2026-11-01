@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/dynamicRef.json, test group 03
+     Description: A $dynamicRef with intermediate scopes that don't include a matching $dynamicAnchor does not affect dynamic scope resolution
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <_x0024_id>https://test.json-schema.org/dynamic-resolution-with-intermediate-scopes/root</_x0024_id>
+  <_x0024_ref>intermediate-scope</_x0024_ref>
+  <_x0024_defs type="object">
+    <foo type="object">
+      <_x0024_dynamicAnchor>items</_x0024_dynamicAnchor>
+      <type>string</type>
+    </foo>
+    <intermediate-scope type="object">
+      <_x0024_id>intermediate-scope</_x0024_id>
+      <_x0024_ref>list</_x0024_ref>
+    </intermediate-scope>
+    <list type="object">
+      <_x0024_id>list</_x0024_id>
+      <type>array</type>
+      <items type="object">
+        <_x0024_dynamicRef>#items</_x0024_dynamicRef>
+      </items>
+    </list>
+  </_x0024_defs>
+</json>

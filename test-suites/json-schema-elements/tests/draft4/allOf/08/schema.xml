@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/allOf.json, test group 08
+     Description: nested allOf, to check validation semantics
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <allOf type="array">
+    <item type="object">
+      <allOf type="array">
+        <item type="object">
+          <type>null</type>
+        </item>
+      </allOf>
+    </item>
+  </allOf>
+</json>

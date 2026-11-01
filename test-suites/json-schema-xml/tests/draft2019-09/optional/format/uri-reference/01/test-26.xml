@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/uri-reference.json, test group 01, test 26
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a non-numeric port in a network-path reference</string>
+  <string key="comment">RFC 3986, Section 3.2.3: port = *DIGIT. reg-name admits no colon, so the text after the colon can only be a port.</string>
+  <string key="data">//example.com:abc/p</string>
+  <boolean key="valid">false</boolean>
+</map>

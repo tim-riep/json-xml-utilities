@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/ecmascript-regex.json, test group 01
+     Description: \\a is not an ECMA 262 control escape
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <format>regex</format>
+</json>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/items.json, test group 03, test 06
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>fewer items is valid</description>
+  <data type="array">
+    <item type="array">
+      <item type="object">
+        <foo type="null"/>
+      </item>
+    </item>
+    <item type="array">
+      <item type="object">
+        <foo type="null"/>
+      </item>
+    </item>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

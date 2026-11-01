@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/ref.json, test group 16
+     Description: refs with relative uris and defs
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_id>http://example.com/schema-relative-uri-defs1.json</_x0024_id>
+  <properties type="object">
+    <foo type="object">
+      <_x0024_id>schema-relative-uri-defs2.json</_x0024_id>
+      <_x0024_defs type="object">
+        <inner type="object">
+          <properties type="object">
+            <bar type="object">
+              <type>string</type>
+            </bar>
+          </properties>
+        </inner>
+      </_x0024_defs>
+      <_x0024_ref>#/$defs/inner</_x0024_ref>
+    </foo>
+  </properties>
+  <_x0024_ref>schema-relative-uri-defs2.json</_x0024_ref>
+</json>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/if-then-else.json, test group 12
+     Description: else: false fails when condition does not match
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <if type="object">
+    <const type="number">1</const>
+  </if>
+  <else type="boolean">false</else>
+</json>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/time.json, test group 01, test 50
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">minute 60 is invalid with a numeric time-offset</string>
+  <string key="comment">RFC 3339 section 5.6: time-minute = 2DIGIT ; 00-59</string>
+  <string key="data">23:60:00+00:01</string>
+  <boolean key="valid">false</boolean>
+</map>

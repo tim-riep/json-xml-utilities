@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/additionalProperties.json, test group 08
+     Description: additionalProperties with propertyNames
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <propertyNames type="object">
+    <maxLength type="number">5</maxLength>
+  </propertyNames>
+  <additionalProperties type="object">
+    <type>number</type>
+  </additionalProperties>
+</json>

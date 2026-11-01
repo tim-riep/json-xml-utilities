@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/ecmascript-regex.json, test group 09, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">Form feed matches</string>
+  <string escaped="true" key="data">\f</string>
+  <boolean key="valid">true</boolean>
+</map>

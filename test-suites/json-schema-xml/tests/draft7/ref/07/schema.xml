@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/ref.json, test group 07
+     Description: $ref prevents a sibling $id from changing the base uri
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$id">http://localhost:1234/sibling_id/base/</string>
+  <map key="definitions">
+    <map key="foo">
+      <string key="$id">http://localhost:1234/sibling_id/foo.json</string>
+      <string key="type">string</string>
+    </map>
+    <map key="base_foo">
+      <string key="$comment">this canonical uri is http://localhost:1234/sibling_id/base/foo.json</string>
+      <string key="$id">foo.json</string>
+      <string key="type">number</string>
+    </map>
+  </map>
+  <array key="allOf">
+    <map>
+      <string key="$comment">$ref resolves to http://localhost:1234/sibling_id/base/foo.json, not http://localhost:1234/sibling_id/foo.json</string>
+      <string key="$id">http://localhost:1234/sibling_id/</string>
+      <string key="$ref">foo.json</string>
+    </map>
+  </array>
+</map>

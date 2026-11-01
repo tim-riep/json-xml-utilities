@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/proposals/propertyDependencies/unevaluatedProperties.json, test group 02, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>unevaluatedProperties sees buz when foo2 is present</description>
+  <data type="object">
+    <foo2>bar</foo2>
+    <buz/>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

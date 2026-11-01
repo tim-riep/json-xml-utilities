@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/multipleOf.json, test group 05
+     Description: small multiple of large integer
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type>integer</type>
+  <multipleOf type="number">1e-8</multipleOf>
+</json>

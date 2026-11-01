@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/non-bmp-regex.json, test group 01, test 06
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>doesn't match one ASCII</description>
+  <data>D</data>
+  <valid type="boolean">false</valid>
+</json>

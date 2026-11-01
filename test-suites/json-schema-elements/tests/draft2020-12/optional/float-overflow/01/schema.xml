@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/float-overflow.json, test group 01
+     Description: all integers are multiples of 0.5, if overflow is handled
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <type>integer</type>
+  <multipleOf type="number">0.5</multipleOf>
+</json>

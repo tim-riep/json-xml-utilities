@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/unevaluatedProperties.json, test group 22
+     Description: unevaluatedProperties with $recursiveRef
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2019-09/schema</string>
+  <string key="$id">https://example.com/unevaluated-properties-with-recursive-ref/extended-tree</string>
+  <boolean key="$recursiveAnchor">true</boolean>
+  <string key="$ref">./tree</string>
+  <map key="properties">
+    <map key="name">
+      <string key="type">string</string>
+    </map>
+  </map>
+  <map key="$defs">
+    <map key="tree">
+      <string key="$id">./tree</string>
+      <boolean key="$recursiveAnchor">true</boolean>
+      <string key="type">object</string>
+      <map key="properties">
+        <boolean key="node">true</boolean>
+        <map key="branches">
+          <string key="$comment">unevaluatedProperties comes first so it's more likely to bugs errors with implementations that are sensitive to keyword ordering</string>
+          <boolean key="unevaluatedProperties">false</boolean>
+          <string key="$recursiveRef">#</string>
+        </map>
+      </map>
+      <array key="required">
+        <string>node</string>
+      </array>
+    </map>
+  </map>
+</map>

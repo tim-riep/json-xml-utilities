@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/uniqueItems.json, test group 01, test 11
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">property order of array of objects is ignored</string>
+  <array key="data">
+    <map>
+      <string key="foo">bar</string>
+      <string key="bar">foo</string>
+    </map>
+    <map>
+      <string key="bar">foo</string>
+      <string key="foo">bar</string>
+    </map>
+  </array>
+  <boolean key="valid">false</boolean>
+</map>

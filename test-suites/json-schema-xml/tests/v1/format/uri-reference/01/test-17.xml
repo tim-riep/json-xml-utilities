@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/uri-reference.json, test group 01, test 17
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">URI with out-of-bounds IPv4 is structurally valid as a reg-name</string>
+  <string key="comment">RFC 3986, Section 3.2.2: Fallback to reg-name allows digits and dots.</string>
+  <string key="data">http://999.999.999.999/</string>
+  <boolean key="valid">true</boolean>
+</map>

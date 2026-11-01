@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/oneOf.json, test group 07
+     Description: nested oneOf, to check validation semantics
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <oneOf type="array">
+    <item type="object">
+      <oneOf type="array">
+        <item type="object">
+          <type>null</type>
+        </item>
+      </oneOf>
+    </item>
+  </oneOf>
+</json>

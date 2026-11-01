@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date.json, test group 01, test 52
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid: day 00 is not valid per date-mday minimum of 01</description>
+  <comment>https://www.rfc-editor.org/rfc/rfc3339#section-5.6 — date-mday = 2DIGIT ; 01-28/29/30/31</comment>
+  <data>2024-01-00</data>
+  <valid type="boolean">false</valid>
+</json>

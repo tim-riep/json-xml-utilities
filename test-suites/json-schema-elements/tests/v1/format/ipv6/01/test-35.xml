@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/ipv6.json, test group 01, test 35
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>zone id is not a part of ipv6 address</description>
+  <data>fe80::a%eth1</data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/dynamicRef.json, test group 12, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>string list with string values</description>
+  <data type="object">
+    <kindOfList>strings</kindOfList>
+    <list type="array">
+      <item>foo</item>
+    </list>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/uri-template.json, test group 01, test 38
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a variable name with a lone percent sign is invalid</description>
+  <data>{%}</data>
+  <valid type="boolean">false</valid>
+</json>

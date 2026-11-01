@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/ref.json, test group 23
+     Description: simple URN base URI with JSON pointer
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_comment>URIs do not have to have HTTP(s) schemes</_x0024_comment>
+  <_x0024_id>urn:uuid:deadbeef-1234-00ff-ff00-4321feebdaed</_x0024_id>
+  <properties type="object">
+    <foo type="object">
+      <_x0024_ref>#/definitions/bar</_x0024_ref>
+    </foo>
+  </properties>
+  <definitions type="object">
+    <bar type="object">
+      <type>string</type>
+    </bar>
+  </definitions>
+</json>

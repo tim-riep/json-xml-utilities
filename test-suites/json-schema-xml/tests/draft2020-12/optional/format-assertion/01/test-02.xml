@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format-assertion.json, test group 01, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">format-assertion: false: invalid string</string>
+  <string key="comment">valid: false is intentional — the false value in $vocabulary only affects unknown vocabulary handling, not validation behavior itself</string>
+  <string key="data">not-an-ipv4</string>
+  <boolean key="valid">false</boolean>
+</map>

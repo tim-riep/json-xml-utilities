@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/uniqueItems.json, test group 02
+     Description: uniqueItems with an array of items
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <items type="array">
+    <item type="object">
+      <type>boolean</type>
+    </item>
+    <item type="object">
+      <type>boolean</type>
+    </item>
+  </items>
+  <uniqueItems type="boolean">true</uniqueItems>
+</json>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/refRemote.json, test group 06
+     Description: base URI change - change folder in subschema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$id">http://localhost:1234/scope_change_defs2.json</string>
+  <string key="type">object</string>
+  <map key="properties">
+    <map key="list">
+      <string key="$ref">#/definitions/baz/definitions/bar</string>
+    </map>
+  </map>
+  <map key="definitions">
+    <map key="baz">
+      <string key="$id">baseUriChangeFolderInSubschema/</string>
+      <map key="definitions">
+        <map key="bar">
+          <string key="type">array</string>
+          <map key="items">
+            <string key="$ref">folderInteger.json</string>
+          </map>
+        </map>
+      </map>
+    </map>
+  </map>
+</map>

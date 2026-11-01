@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/enum.json, test group 04, test 05
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>missing required property is invalid</description>
+  <data type="object">
+    <foo>foo</foo>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

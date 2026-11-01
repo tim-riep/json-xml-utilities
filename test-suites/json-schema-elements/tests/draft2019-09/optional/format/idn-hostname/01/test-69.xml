@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/idn-hostname.json, test group 01, test 69
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an ACE prefix produced by the mapping step is decoded as an A-label</description>
+  <comment>UTS 46 maps U+FF58 U+FF4E to "xn", so the mapped label is the A-label xn--nxasmq6b</comment>
+  <data>ｘｎ--nxasmq6b</data>
+  <valid type="boolean">true</valid>
+</json>

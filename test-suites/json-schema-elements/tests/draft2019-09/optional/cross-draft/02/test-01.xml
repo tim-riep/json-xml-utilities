@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/cross-draft.json, test group 02, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>missing bar is valid</description>
+  <comment>if the implementation is not processing the $ref as a draft 7 schema, this test will fail</comment>
+  <data type="object">
+    <foo>any value</foo>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

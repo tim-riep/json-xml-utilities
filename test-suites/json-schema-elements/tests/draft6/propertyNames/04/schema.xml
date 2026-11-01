@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/propertyNames.json, test group 04
+     Description: propertyNames with boolean schema false
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <propertyNames type="boolean">false</propertyNames>
+</json>

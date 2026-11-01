@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date-time.json, test group 01, test 62
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an invalid date-time-ext with a suffix-tag before the time-zone</description>
+  <comment>RFC 9557 section 4.1: suffix = [time-zone] *suffix-tag, so the time-zone must come before any suffix-tag. Syntactic validation only.</comment>
+  <data>2022-07-08T00:14:07Z[u-ca=chinese][Europe/London]</data>
+  <valid type="boolean">false</valid>
+</json>

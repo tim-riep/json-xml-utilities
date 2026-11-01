@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/refRemote.json, test group 04
+     Description: base URI change
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <id>http://localhost:1234/</id>
+  <items type="object">
+    <id>baseUriChange/</id>
+    <items type="object">
+      <_x0024_ref>folderInteger.json</_x0024_ref>
+    </items>
+  </items>
+</json>

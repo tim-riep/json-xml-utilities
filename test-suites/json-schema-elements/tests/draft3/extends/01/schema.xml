@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/extends.json, test group 01
+     Description: extends
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <properties type="object">
+    <bar type="object">
+      <type>integer</type>
+      <required type="boolean">true</required>
+    </bar>
+  </properties>
+  <extends type="object">
+    <properties type="object">
+      <foo type="object">
+        <type>string</type>
+        <required type="boolean">true</required>
+      </foo>
+    </properties>
+  </extends>
+</json>

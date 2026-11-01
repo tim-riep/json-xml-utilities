@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/duration.json, test group 01, test 32
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">multi-digit values in all components</string>
+  <string key="data">P10Y10M10DT10H10M10S</string>
+  <boolean key="valid">true</boolean>
+</map>

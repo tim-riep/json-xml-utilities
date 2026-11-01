@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/patternProperties.json, test group 02, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">an invalid due to one is invalid</string>
+  <map key="data">
+    <string key="a">bar</string>
+  </map>
+  <boolean key="valid">false</boolean>
+</map>

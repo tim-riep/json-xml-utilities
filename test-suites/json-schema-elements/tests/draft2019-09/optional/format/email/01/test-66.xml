@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/email.json, test group 01, test 66
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a lowercase IPv6 tag in an address literal is valid</description>
+  <data>a@[ipv6:::1]</data>
+  <valid type="boolean">true</valid>
+</json>

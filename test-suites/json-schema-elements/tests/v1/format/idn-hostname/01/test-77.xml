@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/idn-hostname.json, test group 01, test 77
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a U-label whose A-label form is longer than 63 octets is invalid</description>
+  <comment>https://www.rfc-editor.org/rfc/rfc5891#section-4.2.4 the 63-octet limit is on the A-label form, not the code point count</comment>
+  <data>üüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüü</data>
+  <valid type="boolean">false</valid>
+</json>

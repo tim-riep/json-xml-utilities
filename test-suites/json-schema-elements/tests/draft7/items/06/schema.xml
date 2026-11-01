@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/items.json, test group 06
+     Description: items and subitems
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <definitions type="object">
+    <item type="object">
+      <type>array</type>
+      <additionalItems type="boolean">false</additionalItems>
+      <items type="array">
+        <item type="object">
+          <_x0024_ref>#/definitions/sub-item</_x0024_ref>
+        </item>
+        <item type="object">
+          <_x0024_ref>#/definitions/sub-item</_x0024_ref>
+        </item>
+      </items>
+    </item>
+    <sub-item type="object">
+      <type>object</type>
+      <required type="array">
+        <item>foo</item>
+      </required>
+    </sub-item>
+  </definitions>
+  <type>array</type>
+  <additionalItems type="boolean">false</additionalItems>
+  <items type="array">
+    <item type="object">
+      <_x0024_ref>#/definitions/item</_x0024_ref>
+    </item>
+    <item type="object">
+      <_x0024_ref>#/definitions/item</_x0024_ref>
+    </item>
+    <item type="object">
+      <_x0024_ref>#/definitions/item</_x0024_ref>
+    </item>
+  </items>
+</json>

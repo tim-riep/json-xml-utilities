@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/enum.json, test group 15, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>character looks the same but uses combining marks</description>
+  <data>ä</data>
+  <comment>a, U+0308</comment>
+  <valid type="boolean">false</valid>
+</json>

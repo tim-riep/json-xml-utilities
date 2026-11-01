@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedItems.json, test group 12, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>when one schema matches and has unevaluated items</description>
+  <data type="array">
+    <item>foo</item>
+    <item>bar</item>
+    <item type="number">42</item>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

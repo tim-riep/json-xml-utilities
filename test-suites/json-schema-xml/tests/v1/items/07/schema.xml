@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/items.json, test group 07
+     Description: items does not look in applicators, valid case
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <array key="allOf">
+    <map>
+      <array key="prefixItems">
+        <map>
+          <number key="minimum">3</number>
+        </map>
+      </array>
+    </map>
+  </array>
+  <map key="items">
+    <number key="minimum">5</number>
+  </map>
+</map>

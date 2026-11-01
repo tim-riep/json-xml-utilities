@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/email.json, test group 01, test 58
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>two subsequent dots inside the domain are not valid</description>
+  <data>test@iana..com</data>
+  <valid type="boolean">false</valid>
+</json>

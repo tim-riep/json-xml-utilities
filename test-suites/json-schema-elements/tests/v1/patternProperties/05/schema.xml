@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/patternProperties.json, test group 05
+     Description: patternProperties with null valued instance properties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <patternProperties type="object">
+    <_x005E_._x002A_bar_x0024_ type="object">
+      <type>null</type>
+    </_x005E_._x002A_bar_x0024_>
+  </patternProperties>
+</json>

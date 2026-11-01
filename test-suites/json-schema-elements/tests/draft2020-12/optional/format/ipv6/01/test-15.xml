@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/ipv6.json, test group 01, test 15
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>trailing colons is valid</description>
+  <data>d6::</data>
+  <valid type="boolean">true</valid>
+</json>

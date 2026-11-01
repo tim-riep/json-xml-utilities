@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/enum.json, test group 04
+     Description: enums in properties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <type>object</type>
+  <properties type="object">
+    <foo type="object">
+      <enum type="array">
+        <item>foo</item>
+      </enum>
+    </foo>
+    <bar type="object">
+      <enum type="array">
+        <item>bar</item>
+      </enum>
+    </bar>
+  </properties>
+  <required type="array">
+    <item>bar</item>
+  </required>
+</json>

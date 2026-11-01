@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/cross-draft.json, test group 02
+     Description: refs to historic drafts are processed as historic drafts
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <type>object</type>
+  <allOf type="array">
+    <item type="object">
+      <properties type="object">
+        <foo type="boolean">true</foo>
+      </properties>
+    </item>
+    <item type="object">
+      <_x0024_ref>http://localhost:1234/draft7/ignore-dependentRequired.json</_x0024_ref>
+    </item>
+  </allOf>
+</json>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/anyOf.json, test group 02
+     Description: anyOf with base schema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type>string</type>
+  <anyOf type="array">
+    <item type="object">
+      <maxLength type="number">2</maxLength>
+    </item>
+    <item type="object">
+      <minLength type="number">4</minLength>
+    </item>
+  </anyOf>
+</json>

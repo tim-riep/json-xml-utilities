@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/uri-template.json, test group 01, test 14
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a five-digit prefix max-length is invalid</description>
+  <data>{v:10000}</data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/ref.json, test group 10
+     Description: property named $ref, containing an actual $ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <map key="properties">
+    <map key="$ref">
+      <string key="$ref">#/definitions/is-string</string>
+    </map>
+  </map>
+  <map key="definitions">
+    <map key="is-string">
+      <string key="type">string</string>
+    </map>
+  </map>
+</map>

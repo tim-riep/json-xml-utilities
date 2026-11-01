@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/recursiveRef.json, test group 07
+     Description: $recursiveRef with no $recursiveAnchor in the outer schema resource
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2019-09/schema</string>
+  <string key="$id">http://localhost:4242/draft2019-09/recursiveRef7/base.json</string>
+  <array key="anyOf">
+    <map>
+      <string key="type">boolean</string>
+    </map>
+    <map>
+      <string key="type">object</string>
+      <map key="additionalProperties">
+        <string key="$id">http://localhost:4242/draft2019-09/recursiveRef7/inner.json</string>
+        <boolean key="$recursiveAnchor">true</boolean>
+        <array key="anyOf">
+          <map>
+            <string key="type">integer</string>
+          </map>
+          <map>
+            <string key="type">object</string>
+            <map key="additionalProperties">
+              <string key="$recursiveRef">#</string>
+            </map>
+          </map>
+        </array>
+      </map>
+    </map>
+  </array>
+</map>

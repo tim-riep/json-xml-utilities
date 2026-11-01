@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/proposals/propertyDependencies/propertyDependencies.json, test group 01
+     Description: propertyDependencies doesn't act on non-objects
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <propertyDependencies type="object">
+    <foo type="object">
+      <bar type="boolean">false</bar>
+    </foo>
+  </propertyDependencies>
+</json>

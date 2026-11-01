@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/ref.json, test group 05
+     Description: nested refs
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <map key="definitions">
+    <map key="a">
+      <string key="type">integer</string>
+    </map>
+    <map key="b">
+      <string key="$ref">#/definitions/a</string>
+    </map>
+    <map key="c">
+      <string key="$ref">#/definitions/b</string>
+    </map>
+  </map>
+  <array key="allOf">
+    <map>
+      <string key="$ref">#/definitions/c</string>
+    </map>
+  </array>
+</map>

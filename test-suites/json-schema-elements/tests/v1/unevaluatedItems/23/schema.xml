@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/unevaluatedItems.json, test group 23
+     Description: unevaluatedItems depends on multiple nested contains
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <allOf type="array">
+    <item type="object">
+      <contains type="object">
+        <multipleOf type="number">2</multipleOf>
+      </contains>
+    </item>
+    <item type="object">
+      <contains type="object">
+        <multipleOf type="number">3</multipleOf>
+      </contains>
+    </item>
+  </allOf>
+  <unevaluatedItems type="object">
+    <multipleOf type="number">5</multipleOf>
+  </unevaluatedItems>
+</json>

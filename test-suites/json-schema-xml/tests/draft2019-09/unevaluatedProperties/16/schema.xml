@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/unevaluatedProperties.json, test group 16
+     Description: unevaluatedProperties with if/then/else, then not defined
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2019-09/schema</string>
+  <string key="type">object</string>
+  <map key="if">
+    <map key="properties">
+      <map key="foo">
+        <string key="const">then</string>
+      </map>
+    </map>
+    <array key="required">
+      <string>foo</string>
+    </array>
+  </map>
+  <map key="else">
+    <map key="properties">
+      <map key="baz">
+        <string key="type">string</string>
+      </map>
+    </map>
+    <array key="required">
+      <string>baz</string>
+    </array>
+  </map>
+  <boolean key="unevaluatedProperties">false</boolean>
+</map>

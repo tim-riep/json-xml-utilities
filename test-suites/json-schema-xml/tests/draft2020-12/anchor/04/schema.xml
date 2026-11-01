@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/anchor.json, test group 04
+     Description: same $anchor with different base uri
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2020-12/schema</string>
+  <string key="$id">http://localhost:1234/draft2020-12/foobar</string>
+  <map key="$defs">
+    <map key="A">
+      <string key="$id">child1</string>
+      <array key="allOf">
+        <map>
+          <string key="$id">child2</string>
+          <string key="$anchor">my_anchor</string>
+          <string key="type">number</string>
+        </map>
+        <map>
+          <string key="$anchor">my_anchor</string>
+          <string key="type">string</string>
+        </map>
+      </array>
+    </map>
+  </map>
+  <string key="$ref">child1#my_anchor</string>
+</map>

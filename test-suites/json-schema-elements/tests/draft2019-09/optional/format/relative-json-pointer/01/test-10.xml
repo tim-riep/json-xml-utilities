@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/relative-json-pointer.json, test group 01, test 10
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a valid RJP taking the member or index name</description>
+  <data>0#</data>
+  <valid type="boolean">true</valid>
+</json>

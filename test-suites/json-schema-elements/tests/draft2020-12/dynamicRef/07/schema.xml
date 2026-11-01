@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/dynamicRef.json, test group 07
+     Description: An $anchor with the same name as a $dynamicAnchor is not used for dynamic scope resolution
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_id>https://test.json-schema.org/dynamic-resolution-ignores-anchors/root</_x0024_id>
+  <_x0024_ref>list</_x0024_ref>
+  <_x0024_defs type="object">
+    <foo type="object">
+      <_x0024_anchor>items</_x0024_anchor>
+      <type>string</type>
+    </foo>
+    <list type="object">
+      <_x0024_id>list</_x0024_id>
+      <type>array</type>
+      <items type="object">
+        <_x0024_dynamicRef>#items</_x0024_dynamicRef>
+      </items>
+      <_x0024_defs type="object">
+        <items type="object">
+          <_x0024_comment>This is only needed to satisfy the bookending requirement</_x0024_comment>
+          <_x0024_dynamicAnchor>items</_x0024_dynamicAnchor>
+        </items>
+      </_x0024_defs>
+    </list>
+  </_x0024_defs>
+</json>

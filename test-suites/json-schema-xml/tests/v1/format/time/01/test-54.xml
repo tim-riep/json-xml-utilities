@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/time.json, test group 01, test 54
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a comma decimal separator with a time-offset</string>
+  <string key="comment">RFC 3339 section 5.6: the decimal separator in time-secfrac is "." - the ISO 8601 comma is not part of this profile</string>
+  <string key="data">08:30:06,5Z</string>
+  <boolean key="valid">false</boolean>
+</map>

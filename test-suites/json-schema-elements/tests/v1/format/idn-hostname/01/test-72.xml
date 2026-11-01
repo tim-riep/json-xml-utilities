@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/idn-hostname.json, test group 01, test 72
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>label starting with a digit before a right-to-left letter is invalid</description>
+  <comment>https://www.rfc-editor.org/rfc/rfc5893#section-2</comment>
+  <data>0ا</data>
+  <valid type="boolean">false</valid>
+</json>

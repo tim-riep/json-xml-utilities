@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/minContains.json, test group 08
+     Description: minContains = 0 with maxContains
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <contains type="object">
+    <const type="number">1</const>
+  </contains>
+  <minContains type="number">0</minContains>
+  <maxContains type="number">1</maxContains>
+</json>

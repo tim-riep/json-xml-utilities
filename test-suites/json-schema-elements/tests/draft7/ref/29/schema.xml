@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/ref.json, test group 29
+     Description: ref to if
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <allOf type="array">
+    <item type="object">
+      <_x0024_ref>http://example.com/ref/if</_x0024_ref>
+    </item>
+    <item type="object">
+      <if type="object">
+        <_x0024_id>http://example.com/ref/if</_x0024_id>
+        <type>integer</type>
+      </if>
+    </item>
+  </allOf>
+</json>

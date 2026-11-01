@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/time.json, test group 01, test 31
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a valid time string with case-insensitive Z</string>
+  <string key="data">08:30:06z</string>
+  <boolean key="valid">true</boolean>
+</map>

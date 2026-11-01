@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/allOf.json, test group 12
+     Description: allOf combined with anyOf, oneOf
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <array key="allOf">
+    <map>
+      <number key="multipleOf">2</number>
+    </map>
+  </array>
+  <array key="anyOf">
+    <map>
+      <number key="multipleOf">3</number>
+    </map>
+  </array>
+  <array key="oneOf">
+    <map>
+      <number key="multipleOf">5</number>
+    </map>
+  </array>
+</map>

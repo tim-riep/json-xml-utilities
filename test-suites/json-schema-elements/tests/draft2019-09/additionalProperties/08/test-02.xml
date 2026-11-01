@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/additionalProperties.json, test group 08, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>Valid against propertyNames, but not additionalProperties</description>
+  <data type="object">
+    <fig type="number">2</fig>
+    <pear>available</pear>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

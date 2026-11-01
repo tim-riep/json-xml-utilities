@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/uniqueItems.json, test group 01, test 19
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">nested [1] and [true] are unique</string>
+  <array key="data">
+    <array>
+      <array>
+        <number>1</number>
+      </array>
+      <string>foo</string>
+    </array>
+    <array>
+      <array>
+        <boolean>true</boolean>
+      </array>
+      <string>foo</string>
+    </array>
+  </array>
+  <boolean key="valid">true</boolean>
+</map>

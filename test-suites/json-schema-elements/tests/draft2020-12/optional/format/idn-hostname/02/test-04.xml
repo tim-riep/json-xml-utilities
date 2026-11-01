@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/idn-hostname.json, test group 02, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>single halfwidth ideographic full stop</description>
+  <data>｡</data>
+  <valid type="boolean">false</valid>
+</json>

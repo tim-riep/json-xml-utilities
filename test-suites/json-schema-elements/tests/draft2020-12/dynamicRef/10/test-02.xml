@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/dynamicRef.json, test group 10, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>The recursive part is not valid against the root</description>
+  <data type="object">
+    <foo>pass</foo>
+    <bar type="object">
+      <baz type="object">
+        <foo>fail</foo>
+      </baz>
+    </bar>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

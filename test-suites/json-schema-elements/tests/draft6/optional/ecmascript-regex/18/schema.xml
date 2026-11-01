@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/ecmascript-regex.json, test group 18
+     Description: patternProperties with ASCII ranges
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type>object</type>
+  <patternProperties type="object">
+    <_x005B_a-z_x005D_cole type="boolean">true</_x005B_a-z_x005D_cole>
+  </patternProperties>
+  <additionalProperties type="boolean">false</additionalProperties>
+</json>

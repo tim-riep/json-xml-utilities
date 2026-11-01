@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/additionalProperties.json, test group 01
+     Description: additionalProperties being false does not allow other properties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <properties type="object">
+    <foo type="object"/>
+    <bar type="object"/>
+  </properties>
+  <patternProperties type="object">
+    <_x005E_v type="object"/>
+  </patternProperties>
+  <additionalProperties type="boolean">false</additionalProperties>
+</json>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/uri.json, test group 01, test 48
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an IPv6 address without enclosing brackets is invalid</description>
+  <data>http://2001:0db8:85a3:0000:0000:8a2e:0370:7334</data>
+  <valid type="boolean">false</valid>
+</json>

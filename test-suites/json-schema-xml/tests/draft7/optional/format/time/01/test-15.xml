@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/time.json, test group 01, test 15
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">invalid leap second, zero time-offset (wrong hour)</string>
+  <string key="data">22:59:60+00:00</string>
+  <boolean key="valid">false</boolean>
+</map>

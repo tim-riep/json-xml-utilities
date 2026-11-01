@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedProperties.json, test group 36, test 10
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">b + d is invalid</string>
+  <map key="data">
+    <number key="b">1</number>
+    <number key="d">1</number>
+  </map>
+  <boolean key="valid">false</boolean>
+</map>

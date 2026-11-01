@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/unevaluatedItems.json, test group 19
+     Description: unevaluatedItems with $dynamicRef
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <_x0024_id>https://example.com/unevaluated-items-with-dynamic-ref/derived</_x0024_id>
+  <_x0024_ref>./baseSchema</_x0024_ref>
+  <_x0024_defs type="object">
+    <derived type="object">
+      <_x0024_dynamicAnchor>addons</_x0024_dynamicAnchor>
+      <prefixItems type="array">
+        <item type="boolean">true</item>
+        <item type="object">
+          <type>string</type>
+        </item>
+      </prefixItems>
+    </derived>
+    <baseSchema type="object">
+      <_x0024_id>./baseSchema</_x0024_id>
+      <_x0024_comment>unevaluatedItems comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering</_x0024_comment>
+      <unevaluatedItems type="boolean">false</unevaluatedItems>
+      <type>array</type>
+      <prefixItems type="array">
+        <item type="object">
+          <type>string</type>
+        </item>
+      </prefixItems>
+      <_x0024_dynamicRef>#addons</_x0024_dynamicRef>
+    </baseSchema>
+  </_x0024_defs>
+</json>

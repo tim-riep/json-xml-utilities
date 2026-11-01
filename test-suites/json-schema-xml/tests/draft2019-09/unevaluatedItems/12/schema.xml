@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/unevaluatedItems.json, test group 12
+     Description: unevaluatedItems with nested unevaluatedItems
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2019-09/schema</string>
+  <array key="allOf">
+    <map>
+      <array key="items">
+        <map>
+          <string key="type">string</string>
+        </map>
+      </array>
+    </map>
+    <map>
+      <boolean key="unevaluatedItems">true</boolean>
+    </map>
+  </array>
+  <boolean key="unevaluatedItems">false</boolean>
+</map>

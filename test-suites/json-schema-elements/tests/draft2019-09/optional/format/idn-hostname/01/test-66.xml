@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/idn-hostname.json, test group 01, test 66
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a label of only Arabic-Indic digits is invalid</description>
+  <comment>https://www.rfc-editor.org/rfc/rfc5893#section-2 condition 1 allows only L, R or AL as the first character, and an Arabic-Indic digit is AN</comment>
+  <data>٠١</data>
+  <valid type="boolean">false</valid>
+</json>

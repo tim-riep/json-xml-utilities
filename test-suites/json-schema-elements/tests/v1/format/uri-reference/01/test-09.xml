@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/uri-reference.json, test group 01, test 09
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a valid relative URI Reference</description>
+  <data>/abc</data>
+  <valid type="boolean">true</valid>
+</json>

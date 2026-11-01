@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/patternProperties.json, test group 05
+     Description: patternProperties with null valued instance properties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <map key="patternProperties">
+    <map key="^.*bar$">
+      <string key="type">null</string>
+    </map>
+  </map>
+</map>

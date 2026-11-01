@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/ref.json, test group 28
+     Description: URN base URI with URN and anchor ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2020-12/schema</string>
+  <string key="$id">urn:uuid:deadbeef-1234-ff00-00ff-4321feebdaed</string>
+  <map key="properties">
+    <map key="foo">
+      <string key="$ref">urn:uuid:deadbeef-1234-ff00-00ff-4321feebdaed#something</string>
+    </map>
+  </map>
+  <map key="$defs">
+    <map key="bar">
+      <string key="$anchor">something</string>
+      <string key="type">string</string>
+    </map>
+  </map>
+</map>

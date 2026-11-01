@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format-assertion.json, test group 02
+     Description: schema that uses custom metaschema with format-assertion: true
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_id>https://schema/using/format-assertion/true</_x0024_id>
+  <_x0024_schema>http://localhost:1234/draft2020-12/format-assertion-true.json</_x0024_schema>
+  <format>ipv4</format>
+</json>

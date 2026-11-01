@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/if-then-else.json, test group 10
+     Description: if appears at the end when serialized (keyword processing sequence)
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <then type="object">
+    <const>yes</const>
+  </then>
+  <else type="object">
+    <const>other</const>
+  </else>
+  <if type="object">
+    <maxLength type="number">4</maxLength>
+  </if>
+</json>

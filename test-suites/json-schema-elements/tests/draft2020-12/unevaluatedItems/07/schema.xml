@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedItems.json, test group 07
+     Description: unevaluatedItems with items
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <items type="object">
+    <type>number</type>
+  </items>
+  <unevaluatedItems type="object">
+    <type>string</type>
+  </unevaluatedItems>
+</json>

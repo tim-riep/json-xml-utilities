@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/optional/format/date-time.json, test group 01, test 21
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an invalid closing Z after time-zone offset</description>
+  <data>1963-06-19T08:30:06.28123+01:00Z</data>
+  <valid type="boolean">false</valid>
+</json>

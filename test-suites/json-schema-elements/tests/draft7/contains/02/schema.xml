@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/contains.json, test group 02
+     Description: contains keyword with const keyword
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <contains type="object">
+    <const type="number">5</const>
+  </contains>
+</json>

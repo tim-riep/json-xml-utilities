@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/refRemote.json, test group 10
+     Description: retrieved nested refs resolve relative to their URI not $id
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_id>http://localhost:1234/some-id</_x0024_id>
+  <properties type="object">
+    <name type="object">
+      <_x0024_ref>nested/foo-ref-string.json</_x0024_ref>
+    </name>
+  </properties>
+</json>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/ref.json, test group 24
+     Description: URN base URI with NSS
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$comment">RFC 8141 §2.2</string>
+  <string key="$id">urn:example:1/406/47452/2</string>
+  <map key="properties">
+    <map key="foo">
+      <string key="$ref">#/definitions/bar</string>
+    </map>
+  </map>
+  <map key="definitions">
+    <map key="bar">
+      <string key="type">string</string>
+    </map>
+  </map>
+</map>

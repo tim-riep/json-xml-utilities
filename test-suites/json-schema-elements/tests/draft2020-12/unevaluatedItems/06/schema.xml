@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedItems.json, test group 06
+     Description: unevaluatedItems with items and prefixItems
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <prefixItems type="array">
+    <item type="object">
+      <type>string</type>
+    </item>
+  </prefixItems>
+  <items type="boolean">true</items>
+  <unevaluatedItems type="boolean">false</unevaluatedItems>
+</json>

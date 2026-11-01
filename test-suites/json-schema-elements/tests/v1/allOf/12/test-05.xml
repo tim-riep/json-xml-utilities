@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/allOf.json, test group 12, test 05
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>allOf: true, anyOf: false, oneOf: false</description>
+  <data type="number">2</data>
+  <valid type="boolean">false</valid>
+</json>

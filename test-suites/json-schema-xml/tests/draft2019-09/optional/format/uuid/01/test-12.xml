@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/uuid.json, test group 01, test 12
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">missing section</string>
+  <string key="data">2eb8aa08-aa98-11ea-73b441d16380</string>
+  <boolean key="valid">false</boolean>
+</map>

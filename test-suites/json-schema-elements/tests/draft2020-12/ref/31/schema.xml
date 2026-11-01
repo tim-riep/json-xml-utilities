@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/ref.json, test group 31
+     Description: ref to then
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_ref>http://example.com/ref/then</_x0024_ref>
+  <then type="object">
+    <_x0024_id>http://example.com/ref/then</_x0024_id>
+    <type>integer</type>
+  </then>
+</json>

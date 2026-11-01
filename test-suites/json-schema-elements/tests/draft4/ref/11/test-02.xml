@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/ref.json, test group 11, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid tree</description>
+  <data type="object">
+    <meta>root</meta>
+    <nodes type="array">
+      <item type="object">
+        <value type="number">1</value>
+        <subtree type="object">
+          <meta>child</meta>
+          <nodes type="array">
+            <item type="object">
+              <value>string is invalid</value>
+            </item>
+            <item type="object">
+              <value type="number">1.2</value>
+            </item>
+          </nodes>
+        </subtree>
+      </item>
+      <item type="object">
+        <value type="number">2</value>
+        <subtree type="object">
+          <meta>child</meta>
+          <nodes type="array">
+            <item type="object">
+              <value type="number">2.1</value>
+            </item>
+            <item type="object">
+              <value type="number">2.2</value>
+            </item>
+          </nodes>
+        </subtree>
+      </item>
+    </nodes>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

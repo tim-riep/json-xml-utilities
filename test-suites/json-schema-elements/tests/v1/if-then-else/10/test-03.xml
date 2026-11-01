@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/if-then-else.json, test group 10, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>no redirects to then and fails</description>
+  <data>no</data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/items.json, test group 07, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>nested array with invalid type</description>
+  <data type="array">
+    <item type="array">
+      <item type="array">
+        <item type="array">
+          <item>1</item>
+        </item>
+      </item>
+      <item type="array">
+        <item type="array">
+          <item type="number">2</item>
+        </item>
+        <item type="array">
+          <item type="number">3</item>
+        </item>
+      </item>
+    </item>
+    <item type="array">
+      <item type="array">
+        <item type="array">
+          <item type="number">4</item>
+        </item>
+        <item type="array">
+          <item type="number">5</item>
+        </item>
+        <item type="array">
+          <item type="number">6</item>
+        </item>
+      </item>
+    </item>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

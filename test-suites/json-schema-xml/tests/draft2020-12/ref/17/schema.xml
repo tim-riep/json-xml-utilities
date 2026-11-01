@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/ref.json, test group 17
+     Description: relative refs with absolute uris and defs
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2020-12/schema</string>
+  <string key="$id">http://example.com/schema-refs-absolute-uris-defs1.json</string>
+  <map key="properties">
+    <map key="foo">
+      <string key="$id">http://example.com/schema-refs-absolute-uris-defs2.json</string>
+      <map key="$defs">
+        <map key="inner">
+          <map key="properties">
+            <map key="bar">
+              <string key="type">string</string>
+            </map>
+          </map>
+        </map>
+      </map>
+      <string key="$ref">#/$defs/inner</string>
+    </map>
+  </map>
+  <string key="$ref">schema-refs-absolute-uris-defs2.json</string>
+</map>

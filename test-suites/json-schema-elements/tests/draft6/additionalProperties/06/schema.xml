@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/additionalProperties.json, test group 06
+     Description: additionalProperties does not look in applicators
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <allOf type="array">
+    <item type="object">
+      <properties type="object">
+        <foo type="object"/>
+      </properties>
+    </item>
+  </allOf>
+  <additionalProperties type="object">
+    <type>boolean</type>
+  </additionalProperties>
+</json>

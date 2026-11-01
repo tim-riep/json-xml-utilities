@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/ref.json, test group 22
+     Description: simple URN base URI with $ref via the URN
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <_x0024_comment>URIs do not have to have HTTP(s) schemes</_x0024_comment>
+  <_x0024_id>urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed</_x0024_id>
+  <minimum type="number">30</minimum>
+  <properties type="object">
+    <foo type="object">
+      <_x0024_ref>urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed</_x0024_ref>
+    </foo>
+  </properties>
+</json>

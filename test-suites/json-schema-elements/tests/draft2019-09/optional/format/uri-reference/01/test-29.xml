@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/uri-reference.json, test group 01, test 29
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a colon in the first segment of a relative-path reference</description>
+  <comment>RFC 3986, Section 4.2: relative-part uses path-noscheme, whose first segment is segment-nz-nc - a non-zero-length segment without any colon. A scheme must start with ALPHA, so 1:b cannot be read as a URI either.</comment>
+  <data>1:b</data>
+  <valid type="boolean">false</valid>
+</json>

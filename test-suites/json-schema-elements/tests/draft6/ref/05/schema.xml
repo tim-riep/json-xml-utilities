@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/ref.json, test group 05
+     Description: nested refs
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <definitions type="object">
+    <a type="object">
+      <type>integer</type>
+    </a>
+    <b type="object">
+      <_x0024_ref>#/definitions/a</_x0024_ref>
+    </b>
+    <c type="object">
+      <_x0024_ref>#/definitions/b</_x0024_ref>
+    </c>
+  </definitions>
+  <allOf type="array">
+    <item type="object">
+      <_x0024_ref>#/definitions/c</_x0024_ref>
+    </item>
+  </allOf>
+</json>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedProperties.json, test group 40
+     Description: unevaluatedProperties can see annotations from if without then and else
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <if type="object">
+    <patternProperties type="object">
+      <foo type="object">
+        <type>string</type>
+      </foo>
+    </patternProperties>
+  </if>
+  <unevaluatedProperties type="boolean">false</unevaluatedProperties>
+</json>

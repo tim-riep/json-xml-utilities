@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/duration.json, test group 01, test 41
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">minutes and seconds can appear without hour</string>
+  <string key="data">PT1M2S</string>
+  <boolean key="valid">true</boolean>
+</map>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedItems.json, test group 22, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>contains passes, second item is not evaluated</description>
+  <data type="array">
+    <item type="number">1</item>
+    <item type="number">2</item>
+    <item>foo</item>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

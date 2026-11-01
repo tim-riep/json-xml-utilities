@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedProperties.json, test group 21
+     Description: unevaluatedProperties before $ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <unevaluatedProperties type="boolean">false</unevaluatedProperties>
+  <properties type="object">
+    <foo type="object">
+      <type>string</type>
+    </foo>
+  </properties>
+  <_x0024_ref>#/$defs/bar</_x0024_ref>
+  <_x0024_defs type="object">
+    <bar type="object">
+      <properties type="object">
+        <bar type="object">
+          <type>string</type>
+        </bar>
+      </properties>
+    </bar>
+  </_x0024_defs>
+</json>

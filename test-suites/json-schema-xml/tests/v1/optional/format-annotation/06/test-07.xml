@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/optional/format-annotation.json, test group 06, test 07
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">invalid idn-hostname string is only an annotation by default</string>
+  <string key="data">〮실례.테스트</string>
+  <boolean key="valid">true</boolean>
+</map>

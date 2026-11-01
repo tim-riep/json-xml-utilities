@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/enum.json, test group 04, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>wrong foo value</description>
+  <data type="object">
+    <foo>foot</foo>
+    <bar>bar</bar>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

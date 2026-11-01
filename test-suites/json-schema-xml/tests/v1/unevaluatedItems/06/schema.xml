@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/unevaluatedItems.json, test group 06
+     Description: unevaluatedItems with items and prefixItems
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <array key="prefixItems">
+    <map>
+      <string key="type">string</string>
+    </map>
+  </array>
+  <boolean key="items">true</boolean>
+  <boolean key="unevaluatedItems">false</boolean>
+</map>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/format/uri-reference.json, test group 01, test 25
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>square brackets outside an authority</description>
+  <comment>RFC 3986, Section 3.2.2: square brackets are reserved for an IP-literal inside the authority. path-absolute is built from pchar, which excludes them.</comment>
+  <data>/[::1]</data>
+  <valid type="boolean">false</valid>
+</json>

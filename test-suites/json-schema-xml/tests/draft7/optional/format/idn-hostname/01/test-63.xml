@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/idn-hostname.json, test group 01, test 63
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a zero width space is ignored by the mapping</string>
+  <string key="comment">IdnaMappingTable.txt lists U+200B as ignored, so this label maps to ab</string>
+  <string key="data">a​b</string>
+  <boolean key="valid">true</boolean>
+</map>

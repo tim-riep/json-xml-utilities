@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/dependentRequired.json, test group 01
+     Description: single dependency
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <dependentRequired type="object">
+    <bar type="array">
+      <item>foo</item>
+    </bar>
+  </dependentRequired>
+</json>

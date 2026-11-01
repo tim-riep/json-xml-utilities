@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/idn-hostname.json, test group 01, test 75
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>A-label that decodes to a disallowed code point is invalid</description>
+  <comment>https://www.rfc-editor.org/rfc/rfc5890#section-2.3.2.1 https://www.rfc-editor.org/rfc/rfc5892#section-2.6</comment>
+  <data>xn--7a</data>
+  <valid type="boolean">false</valid>
+</json>

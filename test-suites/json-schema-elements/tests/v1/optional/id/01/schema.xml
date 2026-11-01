@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/optional/id.json, test group 01
+     Description: $id inside an enum is not a real identifier
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <_x0024_defs type="object">
+    <id_in_enum type="object">
+      <enum type="array">
+        <item type="object">
+          <_x0024_id>https://localhost:1234/v1/id/my_identifier.json</_x0024_id>
+          <type>null</type>
+        </item>
+      </enum>
+    </id_in_enum>
+    <real_id_in_schema type="object">
+      <_x0024_id>https://localhost:1234/v1/id/my_identifier.json</_x0024_id>
+      <type>string</type>
+    </real_id_in_schema>
+    <zzz_id_in_const type="object">
+      <const type="object">
+        <_x0024_id>https://localhost:1234/v1/id/my_identifier.json</_x0024_id>
+        <type>null</type>
+      </const>
+    </zzz_id_in_const>
+  </_x0024_defs>
+  <anyOf type="array">
+    <item type="object">
+      <_x0024_ref>#/$defs/id_in_enum</_x0024_ref>
+    </item>
+    <item type="object">
+      <_x0024_ref>https://localhost:1234/v1/id/my_identifier.json</_x0024_ref>
+    </item>
+  </anyOf>
+</json>

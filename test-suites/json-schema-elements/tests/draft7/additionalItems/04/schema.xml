@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/additionalItems.json, test group 04
+     Description: array of items with no additionalItems permitted
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <items type="array">
+    <item type="object"/>
+    <item type="object"/>
+    <item type="object"/>
+  </items>
+  <additionalItems type="boolean">false</additionalItems>
+</json>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/uri-reference.json, test group 01, test 19
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a query-only reference</description>
+  <comment>RFC 3986, Section 4.2: relative-ref = relative-part [ "?" query ] [ "#" fragment ], so a query with an empty path is a reference.</comment>
+  <data>?query=1</data>
+  <valid type="boolean">true</valid>
+</json>

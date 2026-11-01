@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/date-time.json, test group 01, test 46
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">leading whitespace before a valid date-time</string>
+  <string key="comment">RFC 3339 section 5.6: no production of date-time emits whitespace</string>
+  <string key="data"> 1985-04-12T23:20:50Z</string>
+  <boolean key="valid">false</boolean>
+</map>

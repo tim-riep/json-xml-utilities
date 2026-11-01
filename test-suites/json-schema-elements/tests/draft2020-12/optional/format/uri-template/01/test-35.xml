@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/uri-template.json, test group 01, test 35
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a trailing dot in a variable name is invalid</description>
+  <data>{a.}</data>
+  <valid type="boolean">false</valid>
+</json>

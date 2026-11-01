@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/enum.json, test group 10
+     Description: enum with 0 does not match false
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <enum type="array">
+    <item type="number">0</item>
+  </enum>
+</json>

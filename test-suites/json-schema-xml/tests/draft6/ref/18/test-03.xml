@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/ref.json, test group 18, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">match the enum exactly</string>
+  <map key="data">
+    <string key="$ref">#/definitions/a_string</string>
+  </map>
+  <boolean key="valid">true</boolean>
+</map>

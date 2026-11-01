@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/ref.json, test group 19
+     Description: order of evaluation: $id and $ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_comment>$id must be evaluated before $ref to get the proper $ref destination</_x0024_comment>
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_id>https://example.com/draft2020-12/ref-and-id1/base.json</_x0024_id>
+  <_x0024_ref>int.json</_x0024_ref>
+  <_x0024_defs type="object">
+    <bigint type="object">
+      <_x0024_comment>canonical uri: https://example.com/ref-and-id1/int.json</_x0024_comment>
+      <_x0024_id>int.json</_x0024_id>
+      <maximum type="number">10</maximum>
+    </bigint>
+    <smallint type="object">
+      <_x0024_comment>canonical uri: https://example.com/ref-and-id1-int.json</_x0024_comment>
+      <_x0024_id>/draft2020-12/ref-and-id1-int.json</_x0024_id>
+      <maximum type="number">2</maximum>
+    </smallint>
+  </_x0024_defs>
+</json>

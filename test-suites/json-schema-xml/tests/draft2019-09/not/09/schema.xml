@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/not.json, test group 09
+     Description: collect annotations inside a 'not', even if collection is disabled
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2019-09/schema</string>
+  <map key="not">
+    <string key="$comment">this subschema must still produce annotations internally, even though the 'not' will ultimately discard them</string>
+    <array key="anyOf">
+      <boolean>true</boolean>
+      <map>
+        <map key="properties">
+          <boolean key="foo">true</boolean>
+        </map>
+      </map>
+    </array>
+    <boolean key="unevaluatedProperties">false</boolean>
+  </map>
+</map>

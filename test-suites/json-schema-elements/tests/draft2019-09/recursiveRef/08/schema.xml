@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/recursiveRef.json, test group 08
+     Description: multiple dynamic paths to the $recursiveRef keyword
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <_x0024_id>https://example.com/recursiveRef8_main.json</_x0024_id>
+  <_x0024_defs type="object">
+    <inner type="object">
+      <_x0024_id>recursiveRef8_inner.json</_x0024_id>
+      <_x0024_recursiveAnchor type="boolean">true</_x0024_recursiveAnchor>
+      <title>inner</title>
+      <additionalProperties type="object">
+        <_x0024_recursiveRef>#</_x0024_recursiveRef>
+      </additionalProperties>
+    </inner>
+  </_x0024_defs>
+  <if type="object">
+    <propertyNames type="object">
+      <pattern>^[a-m]</pattern>
+    </propertyNames>
+  </if>
+  <then type="object">
+    <title>any type of node</title>
+    <_x0024_id>recursiveRef8_anyLeafNode.json</_x0024_id>
+    <_x0024_recursiveAnchor type="boolean">true</_x0024_recursiveAnchor>
+    <_x0024_ref>recursiveRef8_inner.json</_x0024_ref>
+  </then>
+  <else type="object">
+    <title>integer node</title>
+    <_x0024_id>recursiveRef8_integerNode.json</_x0024_id>
+    <_x0024_recursiveAnchor type="boolean">true</_x0024_recursiveAnchor>
+    <type type="array">
+      <item>object</item>
+      <item>integer</item>
+    </type>
+    <_x0024_ref>recursiveRef8_inner.json</_x0024_ref>
+  </else>
+</json>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/oneOf.json, test group 03
+     Description: oneOf complex types
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <array key="oneOf">
+    <map>
+      <map key="properties">
+        <map key="bar">
+          <string key="type">integer</string>
+        </map>
+      </map>
+      <array key="required">
+        <string>bar</string>
+      </array>
+    </map>
+    <map>
+      <map key="properties">
+        <map key="foo">
+          <string key="type">string</string>
+        </map>
+      </map>
+      <array key="required">
+        <string>foo</string>
+      </array>
+    </map>
+  </array>
+</map>

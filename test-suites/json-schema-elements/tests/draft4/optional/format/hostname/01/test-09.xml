@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/optional/format/hostname.json, test group 01, test 09
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>hostname with consecutive hyphens (RFC1123)</description>
+  <data>ab--cd.example</data>
+  <valid type="boolean">true</valid>
+</json>

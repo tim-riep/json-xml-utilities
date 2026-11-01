@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <number key="id">4711</number>
+  <string key="name">Beispiel "Bestellung"</string>
+  <boolean key="active">true</boolean>
+  <null key="discount"/>
+  <number key="price">19.99</number>
+  <array key="tags">
+    <string>neu</string>
+    <string>sale</string>
+    <number>42</number>
+    <boolean>false</boolean>
+    <null/>
+  </array>
+  <map key="customer">
+    <string key="firstName">Erika</string>
+    <string key="lastName">Mustermann</string>
+    <map key="address">
+      <string key="street">Hauptstraße 1</string>
+      <string key="zip">12345</string>
+      <string key="city">Köln</string>
+    </map>
+  </map>
+  <array key="items">
+    <map>
+      <string key="sku">A-1</string>
+      <number key="qty">2</number>
+      <number key="price">5.5</number>
+    </map>
+    <map>
+      <string key="sku">B-2</string>
+      <number key="qty">1</number>
+      <number key="price">8.99</number>
+    </map>
+  </array>
+  <map key="emptyObject"/>
+  <array key="emptyArray"/>
+  <string key="special chars &amp; &lt;xml&gt;">a &lt; b &amp; c &gt; d</string>
+</map>

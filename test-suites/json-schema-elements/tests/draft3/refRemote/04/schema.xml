@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/refRemote.json, test group 04
+     Description: change resolution scope
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <id>http://localhost:1234/</id>
+  <items type="object">
+    <id>baseUriChange/</id>
+    <items type="object">
+      <_x0024_ref>folderInteger.json</_x0024_ref>
+    </items>
+  </items>
+</json>

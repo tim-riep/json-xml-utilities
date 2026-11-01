@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/dependencies-compatibility.json, test group 03, test 05
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>missing other dependency</description>
+  <data type="object">
+    <bar type="number">1</bar>
+    <quux type="number">2</quux>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

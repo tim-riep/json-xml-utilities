@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/date-time.json, test group 01, test 10
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a valid date-time string with minus offset</string>
+  <string key="data">1990-12-31T15:59:50.123-08:00</string>
+  <boolean key="valid">true</boolean>
+</map>

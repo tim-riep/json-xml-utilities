@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/required.json, test group 03
+     Description: required explicitly false validation
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <properties type="object">
+    <foo type="object">
+      <required type="boolean">false</required>
+    </foo>
+  </properties>
+</json>

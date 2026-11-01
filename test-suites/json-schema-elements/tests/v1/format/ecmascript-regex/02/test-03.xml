@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/ecmascript-regex.json, test group 02, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>inline comment group (?#...) is not ECMA 262</description>
+  <data>(?#comment)a</data>
+  <valid type="boolean">false</valid>
+</json>

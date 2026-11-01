@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/allOf.json, test group 02, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>mismatch first allOf</description>
+  <data type="object">
+    <bar type="number">2</bar>
+    <baz type="null"/>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

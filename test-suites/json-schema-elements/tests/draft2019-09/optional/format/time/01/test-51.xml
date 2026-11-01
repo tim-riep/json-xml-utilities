@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/time.json, test group 01, test 51
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a valid time string with a 15 digit second fraction</description>
+  <comment>RFC 3339 section 5.6: time-secfrac = "." 1*DIGIT, with no upper bound on the number of digits</comment>
+  <data>00:59:59.999999999999999Z</data>
+  <valid type="boolean">true</valid>
+</json>

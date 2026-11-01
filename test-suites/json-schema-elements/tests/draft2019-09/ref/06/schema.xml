@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/ref.json, test group 06
+     Description: ref applies alongside sibling keywords
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <_x0024_defs type="object">
+    <reffed type="object">
+      <type>array</type>
+    </reffed>
+  </_x0024_defs>
+  <properties type="object">
+    <foo type="object">
+      <_x0024_ref>#/$defs/reffed</_x0024_ref>
+      <maxItems type="number">2</maxItems>
+    </foo>
+  </properties>
+</json>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/uniqueItems.json, test group 01, test 22
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">{"a": false} and {"a": 0} are unique</string>
+  <array key="data">
+    <map>
+      <boolean key="a">false</boolean>
+    </map>
+    <map>
+      <number key="a">0</number>
+    </map>
+  </array>
+  <boolean key="valid">true</boolean>
+</map>

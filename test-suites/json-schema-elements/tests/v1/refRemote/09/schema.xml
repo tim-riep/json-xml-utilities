@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/refRemote.json, test group 09
+     Description: remote ref with ref to defs
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <_x0024_id>http://localhost:1234/v1/schema-remote-ref-ref-defs1.json</_x0024_id>
+  <_x0024_ref>ref-and-defs.json</_x0024_ref>
+</json>

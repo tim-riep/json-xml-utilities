@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/vocabulary.json, test group 02
+     Description: ignore unrecognized optional vocabulary
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">http://localhost:1234/draft2020-12/metaschema-optional-vocabulary.json</string>
+  <string key="type">number</string>
+</map>

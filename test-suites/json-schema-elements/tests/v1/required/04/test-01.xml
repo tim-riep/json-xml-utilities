@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/required.json, test group 04, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>object with all properties present is valid</description>
+  <data type="object">
+    <foo_x000A_bar type="number">1</foo_x000A_bar>
+    <foo_x0022_bar type="number">1</foo_x0022_bar>
+    <foo_x005C_bar type="number">1</foo_x005C_bar>
+    <foo_x000D_bar type="number">1</foo_x000D_bar>
+    <foo_x0009_bar type="number">1</foo_x0009_bar>
+    <foo_x000C_bar type="number">1</foo_x000C_bar>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

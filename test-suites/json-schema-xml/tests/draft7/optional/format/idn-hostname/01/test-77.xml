@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/idn-hostname.json, test group 01, test 77
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">a U-label whose A-label form is longer than 63 octets is invalid</string>
+  <string key="comment">https://www.rfc-editor.org/rfc/rfc5891#section-4.2.4 the 63-octet limit is on the A-label form, not the code point count</string>
+  <string key="data">üüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüü</string>
+  <boolean key="valid">false</boolean>
+</map>

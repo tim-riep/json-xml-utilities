@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/ref.json, test group 15
+     Description: naive replacement of $ref with its destination is not correct
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_defs type="object">
+    <a_string type="object">
+      <type>string</type>
+    </a_string>
+  </_x0024_defs>
+  <enum type="array">
+    <item type="object">
+      <_x0024_ref>#/$defs/a_string</_x0024_ref>
+    </item>
+  </enum>
+</json>

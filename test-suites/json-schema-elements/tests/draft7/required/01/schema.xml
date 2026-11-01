@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/required.json, test group 01
+     Description: required validation
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <properties type="object">
+    <foo type="object"/>
+    <bar type="object"/>
+  </properties>
+  <required type="array">
+    <item>foo</item>
+  </required>
+</json>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/idn-email.json, test group 01, test 17
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a fullwidth commercial at is not a local-part separator</description>
+  <comment>https://www.rfc-editor.org/rfc/rfc5321#section-4.1.2 Mailbox = Local-part "@" ( Domain / address-literal ) splits on U+0040, and any IDN mapping applies only to the domain that split produces, so U+FF20 cannot become the delimiter</comment>
+  <data>user＠example.com</data>
+  <valid type="boolean">false</valid>
+</json>

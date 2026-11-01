@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/date-time.json, test group 01, test 28
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid non-ASCII '৪' (a Bengali 4) in time portion</description>
+  <data>1963-06-11T0৪:00:00Z</data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/idn-hostname.json, test group 01, test 62
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>fullwidth digits are mapped to ASCII digits</description>
+  <comment>IdnaMappingTable.txt maps U+FF11 to 0031, so this label maps to 123</comment>
+  <data>１２３</data>
+  <valid type="boolean">true</valid>
+</json>

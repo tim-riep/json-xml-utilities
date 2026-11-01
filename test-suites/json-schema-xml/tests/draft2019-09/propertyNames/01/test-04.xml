@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/propertyNames.json, test group 01, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="description">ignores arrays</string>
+  <array key="data">
+    <number>1</number>
+    <number>2</number>
+    <number>3</number>
+    <number>4</number>
+  </array>
+  <boolean key="valid">true</boolean>
+</map>

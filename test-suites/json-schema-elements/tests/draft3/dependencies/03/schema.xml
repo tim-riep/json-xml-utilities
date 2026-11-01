@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/dependencies.json, test group 03
+     Description: multiple dependencies subschema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <dependencies type="object">
+    <bar type="object">
+      <properties type="object">
+        <foo type="object">
+          <type>integer</type>
+        </foo>
+        <bar type="object">
+          <type>integer</type>
+        </bar>
+      </properties>
+    </bar>
+  </dependencies>
+</json>

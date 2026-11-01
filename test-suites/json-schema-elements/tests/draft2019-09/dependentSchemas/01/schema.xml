@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/dependentSchemas.json, test group 01
+     Description: single dependency
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <dependentSchemas type="object">
+    <bar type="object">
+      <properties type="object">
+        <foo type="object">
+          <type>integer</type>
+        </foo>
+        <bar type="object">
+          <type>integer</type>
+        </bar>
+      </properties>
+    </bar>
+  </dependentSchemas>
+</json>

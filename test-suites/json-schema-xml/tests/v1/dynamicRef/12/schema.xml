@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/dynamicRef.json, test group 12
+     Description: $dynamicRef avoids the root of each schema, but scopes are still registered
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/v1</string>
+  <string key="$id">https://test.json-schema.org/dynamic-ref-avoids-root-of-each-schema/base</string>
+  <string key="$ref">first#/$defs/stuff</string>
+  <map key="$defs">
+    <map key="first">
+      <string key="$id">first</string>
+      <map key="$defs">
+        <map key="stuff">
+          <string key="$ref">second#/$defs/stuff</string>
+        </map>
+        <map key="length">
+          <string key="$comment">unused, because there is no $dynamicAnchor here</string>
+          <number key="maxLength">1</number>
+        </map>
+      </map>
+    </map>
+    <map key="second">
+      <string key="$id">second</string>
+      <map key="$defs">
+        <map key="stuff">
+          <string key="$ref">third#/$defs/stuff</string>
+        </map>
+        <map key="length">
+          <string key="$dynamicAnchor">length</string>
+          <number key="maxLength">2</number>
+        </map>
+      </map>
+    </map>
+    <map key="third">
+      <string key="$id">third</string>
+      <map key="$defs">
+        <map key="stuff">
+          <string key="$dynamicRef">#length</string>
+        </map>
+        <map key="length">
+          <string key="$dynamicAnchor">length</string>
+          <number key="maxLength">3</number>
+        </map>
+      </map>
+    </map>
+  </map>
+</map>

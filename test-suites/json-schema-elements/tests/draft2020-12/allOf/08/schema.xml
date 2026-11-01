@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/allOf.json, test group 08
+     Description: allOf with two empty schemas
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <allOf type="array">
+    <item type="object"/>
+    <item type="object"/>
+  </allOf>
+</json>

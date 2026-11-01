@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/ipv6.json, test group 01, test 28
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>insufficient octets without double colons</description>
+  <data>1:2:3:4:5:6:7</data>
+  <valid type="boolean">false</valid>
+</json>

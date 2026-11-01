@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/proposals/propertyDependencies/dynamicRef.json, test group 02
+     Description: $dynamicAnchor inside propertyDependencies
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <_x0024_id>http://localhost:1234/v1/dynamicanchor-in-propertydependencies.json</_x0024_id>
+  <_x0024_defs type="object">
+    <inner type="object">
+      <_x0024_id>inner</_x0024_id>
+      <_x0024_dynamicAnchor>foo</_x0024_dynamicAnchor>
+      <type>object</type>
+      <properties type="object">
+        <expectedTypes type="object">
+          <type>string</type>
+        </expectedTypes>
+      </properties>
+      <additionalProperties type="object">
+        <_x0024_dynamicRef>#foo</_x0024_dynamicRef>
+      </additionalProperties>
+    </inner>
+  </_x0024_defs>
+  <propertyDependencies type="object">
+    <expectedTypes type="object">
+      <strings type="object">
+        <_x0024_id>east</_x0024_id>
+        <_x0024_ref>inner</_x0024_ref>
+        <_x0024_defs type="object">
+          <foo type="object">
+            <_x0024_dynamicAnchor>foo</_x0024_dynamicAnchor>
+            <type>string</type>
+          </foo>
+        </_x0024_defs>
+      </strings>
+      <integers type="object">
+        <_x0024_id>west</_x0024_id>
+        <_x0024_ref>inner</_x0024_ref>
+        <_x0024_defs type="object">
+          <foo type="object">
+            <_x0024_dynamicAnchor>foo</_x0024_dynamicAnchor>
+            <type>integer</type>
+          </foo>
+        </_x0024_defs>
+      </integers>
+    </expectedTypes>
+  </propertyDependencies>
+</json>

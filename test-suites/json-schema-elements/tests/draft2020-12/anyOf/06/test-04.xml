@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/anyOf.json, test group 06, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>neither anyOf valid (complex)</description>
+  <data type="object">
+    <foo type="number">2</foo>
+    <bar>quux</bar>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/uniqueItems.json, test group 01, test 24
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>objects are non-unique despite key order</description>
+  <data type="array">
+    <item type="object">
+      <a type="number">1</a>
+      <b type="number">2</b>
+    </item>
+    <item type="object">
+      <b type="number">2</b>
+      <a type="number">1</a>
+    </item>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

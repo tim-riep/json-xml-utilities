@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/additionalItems.json, test group 04, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>equal number of items present</description>
+  <data type="array">
+    <item type="number">1</item>
+    <item type="number">2</item>
+    <item type="number">3</item>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

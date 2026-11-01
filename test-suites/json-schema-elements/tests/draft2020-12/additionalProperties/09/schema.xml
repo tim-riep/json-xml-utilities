@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/additionalProperties.json, test group 09
+     Description: dependentSchemas with additionalProperties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <properties type="object">
+    <foo2 type="object"/>
+  </properties>
+  <dependentSchemas type="object">
+    <foo type="object"/>
+    <foo2 type="object">
+      <properties type="object">
+        <bar type="object"/>
+      </properties>
+    </foo2>
+  </dependentSchemas>
+  <additionalProperties type="boolean">false</additionalProperties>
+</json>

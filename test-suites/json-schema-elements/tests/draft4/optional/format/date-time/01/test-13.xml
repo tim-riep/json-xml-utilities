@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/optional/format/date-time.json, test group 01, test 13
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an invalid date-time past leap second, UTC</description>
+  <data>1998-12-31T23:59:61Z</data>
+  <valid type="boolean">false</valid>
+</json>

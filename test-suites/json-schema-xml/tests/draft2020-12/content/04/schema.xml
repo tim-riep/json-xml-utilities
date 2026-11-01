@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/content.json, test group 04
+     Description: validation of binary-encoded media type documents with schema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><map xmlns="http://www.w3.org/2005/xpath-functions">
+  <string key="$schema">https://json-schema.org/draft/2020-12/schema</string>
+  <string key="contentMediaType">application/json</string>
+  <string key="contentEncoding">base64</string>
+  <map key="contentSchema">
+    <string key="type">object</string>
+    <array key="required">
+      <string>foo</string>
+    </array>
+    <map key="properties">
+      <map key="foo">
+        <string key="type">string</string>
+      </map>
+    </map>
+  </map>
+</map>

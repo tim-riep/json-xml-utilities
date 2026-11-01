@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/optional/dependencies-compatibility.json, test group 07, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>quoted tab</description>
+  <data type="object">
+    <foo_x0009_bar type="number">1</foo_x0009_bar>
+    <a type="number">2</a>
+    <b type="number">3</b>
+    <c type="number">4</c>
+  </data>
+  <valid type="boolean">true</valid>
+</json>
