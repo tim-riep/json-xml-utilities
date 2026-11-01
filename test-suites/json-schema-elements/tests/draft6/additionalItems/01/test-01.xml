@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/additionalItems.json, test group 01, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>additional items match schema</description>
+  <data type="array">
+    <item type="null"/>
+    <item type="number">2</item>
+    <item type="number">3</item>
+    <item type="number">4</item>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

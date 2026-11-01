@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/format/email.json, test group 01, test 55
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a domain label ending with a hyphen is not valid</description>
+  <data>test@iana-.com</data>
+  <valid type="boolean">false</valid>
+</json>

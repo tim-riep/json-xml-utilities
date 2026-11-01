@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date.json, test group 01, test 77
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid: year field numerically larger than a 32-bit signed integer</description>
+  <data>2147483648-01-01</data>
+  <valid type="boolean">false</valid>
+</json>

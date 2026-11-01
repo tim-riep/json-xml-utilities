@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/ref.json, test group 06, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>ref invalid</description>
+  <data type="object">
+    <foo>string</foo>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

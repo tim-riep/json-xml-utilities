@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/ecmascript-regex.json, test group 17, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>unicode matching is case-sensitive</description>
+  <data type="object">
+    <L_x0027_ÉCOLE>PAS DE VRAIE VIE</L_x0027_ÉCOLE>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

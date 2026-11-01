@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/anyOf.json, test group 07
+     Description: anyOf with one empty schema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <anyOf type="array">
+    <item type="object">
+      <type>number</type>
+    </item>
+    <item type="object"/>
+  </anyOf>
+</json>

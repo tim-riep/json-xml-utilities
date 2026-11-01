@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/optional/ecmascript-regex.json, test group 08
+     Description: ECMA 262 \\W matches everything but ascii letters
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type>string</type>
+  <pattern>^\W$</pattern>
+</json>

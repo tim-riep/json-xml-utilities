@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/unevaluatedProperties.json, test group 22
+     Description: unevaluatedProperties with $dynamicRef
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <_x0024_id>https://example.com/unevaluated-properties-with-dynamic-ref/derived</_x0024_id>
+  <_x0024_ref>./baseSchema</_x0024_ref>
+  <_x0024_defs type="object">
+    <derived type="object">
+      <_x0024_dynamicAnchor>addons</_x0024_dynamicAnchor>
+      <properties type="object">
+        <bar type="object">
+          <type>string</type>
+        </bar>
+      </properties>
+    </derived>
+    <baseSchema type="object">
+      <_x0024_id>./baseSchema</_x0024_id>
+      <_x0024_comment>unevaluatedProperties comes first so it's more likely to catch bugs with implementations that are sensitive to keyword ordering</_x0024_comment>
+      <unevaluatedProperties type="boolean">false</unevaluatedProperties>
+      <type>object</type>
+      <properties type="object">
+        <foo type="object">
+          <type>string</type>
+        </foo>
+      </properties>
+      <_x0024_dynamicRef>#addons</_x0024_dynamicRef>
+    </baseSchema>
+  </_x0024_defs>
+</json>

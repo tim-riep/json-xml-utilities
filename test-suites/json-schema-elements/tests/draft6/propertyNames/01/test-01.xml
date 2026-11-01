@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/propertyNames.json, test group 01, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>all property names valid</description>
+  <data type="object">
+    <f type="object"/>
+    <foo type="object"/>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

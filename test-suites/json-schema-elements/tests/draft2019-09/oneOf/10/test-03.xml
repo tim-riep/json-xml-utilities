@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/oneOf.json, test group 10, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>both oneOf valid</description>
+  <data type="object">
+    <foo>foo</foo>
+    <bar type="number">8</bar>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

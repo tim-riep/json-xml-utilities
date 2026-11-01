@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/ref.json, test group 37, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>extra items allowed for inner arrays</description>
+  <data type="array">
+    <item>foo</item>
+    <item type="array">
+      <item>bar</item>
+      <item type="array"/>
+      <item type="number">8</item>
+    </item>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

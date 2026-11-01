@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/contains.json, test group 02, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>array with item 5 is valid</description>
+  <data type="array">
+    <item type="number">3</item>
+    <item type="number">4</item>
+    <item type="number">5</item>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

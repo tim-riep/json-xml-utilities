@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/ref.json, test group 04
+     Description: escaped pointer ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_defs type="object">
+    <tilde_x007E_field type="object">
+      <type>integer</type>
+    </tilde_x007E_field>
+    <slash_x002F_field type="object">
+      <type>integer</type>
+    </slash_x002F_field>
+    <percent_x0025_field type="object">
+      <type>integer</type>
+    </percent_x0025_field>
+  </_x0024_defs>
+  <properties type="object">
+    <tilde type="object">
+      <_x0024_ref>#/$defs/tilde~0field</_x0024_ref>
+    </tilde>
+    <slash type="object">
+      <_x0024_ref>#/$defs/slash~1field</_x0024_ref>
+    </slash>
+    <percent type="object">
+      <_x0024_ref>#/$defs/percent%25field</_x0024_ref>
+    </percent>
+  </properties>
+</json>

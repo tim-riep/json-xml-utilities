@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/if-then-else.json, test group 10, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid redirects to else and fails</description>
+  <data>invalid</data>
+  <valid type="boolean">false</valid>
+</json>

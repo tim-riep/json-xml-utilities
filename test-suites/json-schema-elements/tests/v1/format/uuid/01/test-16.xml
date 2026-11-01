@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/uuid.json, test group 01, test 16
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>too many dashes</description>
+  <data>2eb8-aa08-aa98-11ea-b4aa73b44-1d16380</data>
+  <valid type="boolean">false</valid>
+</json>

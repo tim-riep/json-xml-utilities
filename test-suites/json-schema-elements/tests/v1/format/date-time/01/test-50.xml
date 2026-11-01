@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date-time.json, test group 01, test 50
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a valid date-time-ext with a critical time-zone suffix</description>
+  <comment>RFC 9557 section 4.1: critical-flag = ["!"]. The "!" is part of the time-zone syntax. Syntactic validation only: a critical suffix is not rejected here even if an application would later treat it as an error.</comment>
+  <data>2022-07-08T00:14:07Z[!Europe/London]</data>
+  <valid type="boolean">true</valid>
+</json>

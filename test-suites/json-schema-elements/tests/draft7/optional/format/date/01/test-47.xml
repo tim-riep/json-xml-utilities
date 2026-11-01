@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/date.json, test group 01, test 47
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>century year 0400 is a leap year</description>
+  <comment>https://www.rfc-editor.org/rfc/rfc3339#appendix-C — 400-year cycle boundary</comment>
+  <data>0400-02-29</data>
+  <valid type="boolean">true</valid>
+</json>

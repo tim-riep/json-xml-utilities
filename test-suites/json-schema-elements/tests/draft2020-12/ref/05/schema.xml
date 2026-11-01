@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/ref.json, test group 05
+     Description: nested refs
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_defs type="object">
+    <a type="object">
+      <type>integer</type>
+    </a>
+    <b type="object">
+      <_x0024_ref>#/$defs/a</_x0024_ref>
+    </b>
+    <c type="object">
+      <_x0024_ref>#/$defs/b</_x0024_ref>
+    </c>
+  </_x0024_defs>
+  <_x0024_ref>#/$defs/c</_x0024_ref>
+</json>

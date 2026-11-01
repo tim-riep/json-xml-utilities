@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/time.json, test group 01, test 34
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an invalid time string with invalid second</description>
+  <data>00:00:61Z</data>
+  <valid type="boolean">false</valid>
+</json>

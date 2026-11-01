@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/ipv6.json, test group 01, test 30
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>ipv4 is not ipv6</description>
+  <data>127.0.0.1</data>
+  <valid type="boolean">false</valid>
+</json>

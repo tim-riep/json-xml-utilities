@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/dynamicRef.json, test group 08, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>correct extended schema</description>
+  <data type="object">
+    <elements type="array">
+      <item type="object">
+        <a type="number">1</a>
+      </item>
+    </elements>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

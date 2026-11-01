@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/proposals/propertyDependencies/dynamicRef.json, test group 01, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>number list with number values</description>
+  <data type="object">
+    <kindOfList>numbers</kindOfList>
+    <list type="array">
+      <item type="number">1.1</item>
+    </list>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

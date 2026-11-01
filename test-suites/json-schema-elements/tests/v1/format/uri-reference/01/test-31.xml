@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/uri-reference.json, test group 01, test 31
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a trailing line feed</description>
+  <comment>RFC 3986, Appendix A: no production admits %x0A.</comment>
+  <data>/p
+</data>
+  <valid type="boolean">false</valid>
+</json>

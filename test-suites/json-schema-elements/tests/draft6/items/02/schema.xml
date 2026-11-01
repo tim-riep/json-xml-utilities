@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/items.json, test group 02
+     Description: an array of schemas for items
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <items type="array">
+    <item type="object">
+      <type>integer</type>
+    </item>
+    <item type="object">
+      <type>string</type>
+    </item>
+  </items>
+</json>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/optional/anchor.json, test group 01, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>in implementations that strip $anchor, this may match either $def</description>
+  <data type="object">
+    <type>null</type>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

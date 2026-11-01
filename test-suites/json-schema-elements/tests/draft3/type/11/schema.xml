@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/type.json, test group 11
+     Description: applies a nested schema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type type="array">
+    <item>integer</item>
+    <item type="object">
+      <properties type="object">
+        <foo type="object">
+          <type>null</type>
+        </foo>
+      </properties>
+    </item>
+  </type>
+</json>

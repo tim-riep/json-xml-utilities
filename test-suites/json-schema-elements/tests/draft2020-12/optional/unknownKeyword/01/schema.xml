@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/unknownKeyword.json, test group 01
+     Description: $id inside an unknown keyword is not a real identifier
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_defs type="object">
+    <id_in_unknown0 type="object">
+      <not type="object">
+        <array_of_schemas type="array">
+          <item type="object">
+            <_x0024_id>https://localhost:1234/draft2020-12/unknownKeyword/my_identifier.json</_x0024_id>
+            <type>null</type>
+          </item>
+        </array_of_schemas>
+      </not>
+    </id_in_unknown0>
+    <real_id_in_schema type="object">
+      <_x0024_id>https://localhost:1234/draft2020-12/unknownKeyword/my_identifier.json</_x0024_id>
+      <type>string</type>
+    </real_id_in_schema>
+    <id_in_unknown1 type="object">
+      <not type="object">
+        <object_of_schemas type="object">
+          <foo type="object">
+            <_x0024_id>https://localhost:1234/draft2020-12/unknownKeyword/my_identifier.json</_x0024_id>
+            <type>integer</type>
+          </foo>
+        </object_of_schemas>
+      </not>
+    </id_in_unknown1>
+  </_x0024_defs>
+  <anyOf type="array">
+    <item type="object">
+      <_x0024_ref>#/$defs/id_in_unknown0</_x0024_ref>
+    </item>
+    <item type="object">
+      <_x0024_ref>#/$defs/id_in_unknown1</_x0024_ref>
+    </item>
+    <item type="object">
+      <_x0024_ref>https://localhost:1234/draft2020-12/unknownKeyword/my_identifier.json</_x0024_ref>
+    </item>
+  </anyOf>
+</json>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date-time.json, test group 01, test 51
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a valid date-time-ext with a suffix-tag</description>
+  <comment>RFC 9557 section 4.1: suffix-tag = "[" ["!"] suffix-key "=" suffix-values "]". Syntactic validation only: the key and value are not interpreted.</comment>
+  <data>2022-07-08T00:14:07Z[u-ca=chinese]</data>
+  <valid type="boolean">true</valid>
+</json>

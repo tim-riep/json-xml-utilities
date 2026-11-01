@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/dynamicRef.json, test group 21, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>data is not sufficient for schema at second#/$defs/length</description>
+  <data>hey</data>
+  <valid type="boolean">false</valid>
+</json>

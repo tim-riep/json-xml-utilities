@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/additionalProperties.json, test group 07, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>allows null values</description>
+  <data type="object">
+    <foo type="null"/>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

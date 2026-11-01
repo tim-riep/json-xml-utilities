@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedItems.json, test group 24, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a's, b's and c's are valid</description>
+  <data type="array">
+    <item>c</item>
+    <item>a</item>
+    <item>c</item>
+    <item>c</item>
+    <item>b</item>
+    <item>a</item>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

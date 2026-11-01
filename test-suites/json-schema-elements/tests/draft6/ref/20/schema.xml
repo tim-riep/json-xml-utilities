@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/ref.json, test group 20
+     Description: relative refs with absolute uris and defs
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_id>http://example.com/schema-refs-absolute-uris-defs1.json</_x0024_id>
+  <properties type="object">
+    <foo type="object">
+      <_x0024_id>http://example.com/schema-refs-absolute-uris-defs2.json</_x0024_id>
+      <definitions type="object">
+        <inner type="object">
+          <properties type="object">
+            <bar type="object">
+              <type>string</type>
+            </bar>
+          </properties>
+        </inner>
+      </definitions>
+      <allOf type="array">
+        <item type="object">
+          <_x0024_ref>#/definitions/inner</_x0024_ref>
+        </item>
+      </allOf>
+    </foo>
+  </properties>
+  <allOf type="array">
+    <item type="object">
+      <_x0024_ref>schema-refs-absolute-uris-defs2.json</_x0024_ref>
+    </item>
+  </allOf>
+</json>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/date.json, test group 01, test 42
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>ISO8601 / non-RFC3339: week number implicit day of week (2023-01-02)</description>
+  <data>2023-W01</data>
+  <valid type="boolean">false</valid>
+</json>

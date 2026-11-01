@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/uri-template.json, test group 01, test 20
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a literal with non-hex percent encoding is invalid</description>
+  <data>a%GG</data>
+  <valid type="boolean">false</valid>
+</json>

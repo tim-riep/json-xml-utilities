@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/optional/dynamicRef.json, test group 01, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>string property fails</description>
+  <data type="object">
+    <bar-item type="object">
+      <content>value</content>
+    </bar-item>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

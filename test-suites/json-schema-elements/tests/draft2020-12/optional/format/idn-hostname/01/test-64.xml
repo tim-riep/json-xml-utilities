@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/idn-hostname.json, test group 01, test 64
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an A-label with an uppercase Punycode body is valid</description>
+  <comment>https://www.rfc-editor.org/rfc/rfc5891#section-5.3 lowercases the A-label before the round-trip test, and RFC 3492 section 5 gives A-Z and a-z the same digit-values</comment>
+  <data>xn--NXASMQ6B</data>
+  <valid type="boolean">true</valid>
+</json>

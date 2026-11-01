@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/ipv6.json, test group 01, test 39
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid non-ASCII '৪' (a Bengali 4)</description>
+  <data>1:2:3:4:5:6:7:৪</data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/time.json, test group 01, test 22
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a leap second with a large negative time-offset is not a valid time</description>
+  <data>00:29:60-23:30</data>
+  <valid type="boolean">false</valid>
+</json>

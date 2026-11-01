@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/additionalItems.json, test group 01
+     Description: additionalItems as schema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <items type="array">
+    <item type="object"/>
+  </items>
+  <additionalItems type="object">
+    <type>integer</type>
+  </additionalItems>
+</json>

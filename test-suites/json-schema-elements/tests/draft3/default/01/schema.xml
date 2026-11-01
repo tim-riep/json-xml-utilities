@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/default.json, test group 01
+     Description: invalid type for default
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <properties type="object">
+    <foo type="object">
+      <type>integer</type>
+      <default type="array"/>
+    </foo>
+  </properties>
+</json>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/propertyNames.json, test group 01
+     Description: propertyNames validation
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <propertyNames type="object">
+    <maxLength type="number">3</maxLength>
+  </propertyNames>
+</json>

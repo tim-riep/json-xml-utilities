@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/refOfUnknownKeyword.json, test group 05
+     Description: reference of an arbitrary keyword of a sub-schema with encoded ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <properties type="object">
+    <foo type="object">
+      <unknown_x002F_keyword type="object">
+        <type>integer</type>
+      </unknown_x002F_keyword>
+    </foo>
+    <bar type="object">
+      <_x0024_ref>#/properties/foo/unknown~1keyword</_x0024_ref>
+    </bar>
+  </properties>
+</json>

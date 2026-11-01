@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/ipv4.json, test group 01, test 16
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid fullwidth digits (non-ASCII)</description>
+  <data>１９２.１６８.１.１</data>
+  <valid type="boolean">false</valid>
+</json>

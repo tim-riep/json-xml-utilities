@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/optional/bignum.json, test group 04
+     Description: maximum integer comparison
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <maximum type="number">18446744073709551615</maximum>
+</json>

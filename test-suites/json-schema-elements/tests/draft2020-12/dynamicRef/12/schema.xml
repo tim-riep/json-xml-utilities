@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/dynamicRef.json, test group 12
+     Description: multiple dynamic paths to the $dynamicRef keyword
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_id>https://test.json-schema.org/dynamic-ref-with-multiple-paths/main</_x0024_id>
+  <if type="object">
+    <properties type="object">
+      <kindOfList type="object">
+        <const>numbers</const>
+      </kindOfList>
+    </properties>
+    <required type="array">
+      <item>kindOfList</item>
+    </required>
+  </if>
+  <then type="object">
+    <_x0024_ref>numberList</_x0024_ref>
+  </then>
+  <else type="object">
+    <_x0024_ref>stringList</_x0024_ref>
+  </else>
+  <_x0024_defs type="object">
+    <genericList type="object">
+      <_x0024_id>genericList</_x0024_id>
+      <properties type="object">
+        <list type="object">
+          <items type="object">
+            <_x0024_dynamicRef>#itemType</_x0024_dynamicRef>
+          </items>
+        </list>
+      </properties>
+      <_x0024_defs type="object">
+        <defaultItemType type="object">
+          <_x0024_comment>Only needed to satisfy bookending requirement</_x0024_comment>
+          <_x0024_dynamicAnchor>itemType</_x0024_dynamicAnchor>
+        </defaultItemType>
+      </_x0024_defs>
+    </genericList>
+    <numberList type="object">
+      <_x0024_id>numberList</_x0024_id>
+      <_x0024_defs type="object">
+        <itemType type="object">
+          <_x0024_dynamicAnchor>itemType</_x0024_dynamicAnchor>
+          <type>number</type>
+        </itemType>
+      </_x0024_defs>
+      <_x0024_ref>genericList</_x0024_ref>
+    </numberList>
+    <stringList type="object">
+      <_x0024_id>stringList</_x0024_id>
+      <_x0024_defs type="object">
+        <itemType type="object">
+          <_x0024_dynamicAnchor>itemType</_x0024_dynamicAnchor>
+          <type>string</type>
+        </itemType>
+      </_x0024_defs>
+      <_x0024_ref>genericList</_x0024_ref>
+    </stringList>
+  </_x0024_defs>
+</json>

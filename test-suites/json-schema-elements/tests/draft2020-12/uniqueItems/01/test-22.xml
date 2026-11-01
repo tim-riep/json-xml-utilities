@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/uniqueItems.json, test group 01, test 22
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>non-unique heterogeneous types are invalid</description>
+  <data type="array">
+    <item type="object"/>
+    <item type="array">
+      <item type="number">1</item>
+    </item>
+    <item type="boolean">true</item>
+    <item type="null"/>
+    <item type="object"/>
+    <item type="number">1</item>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

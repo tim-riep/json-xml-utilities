@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/items.json, test group 04
+     Description: items and subitems
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_defs type="object">
+    <item type="object">
+      <type>array</type>
+      <items type="boolean">false</items>
+      <prefixItems type="array">
+        <item type="object">
+          <_x0024_ref>#/$defs/sub-item</_x0024_ref>
+        </item>
+        <item type="object">
+          <_x0024_ref>#/$defs/sub-item</_x0024_ref>
+        </item>
+      </prefixItems>
+    </item>
+    <sub-item type="object">
+      <type>object</type>
+      <required type="array">
+        <item>foo</item>
+      </required>
+    </sub-item>
+  </_x0024_defs>
+  <type>array</type>
+  <items type="boolean">false</items>
+  <prefixItems type="array">
+    <item type="object">
+      <_x0024_ref>#/$defs/item</_x0024_ref>
+    </item>
+    <item type="object">
+      <_x0024_ref>#/$defs/item</_x0024_ref>
+    </item>
+    <item type="object">
+      <_x0024_ref>#/$defs/item</_x0024_ref>
+    </item>
+  </prefixItems>
+</json>

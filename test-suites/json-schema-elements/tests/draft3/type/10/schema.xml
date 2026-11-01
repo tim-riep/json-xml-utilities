@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/type.json, test group 10
+     Description: types can include schemas
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type type="array">
+    <item>array</item>
+    <item type="object">
+      <type>object</type>
+    </item>
+  </type>
+</json>

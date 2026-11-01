@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/dependencies-compatibility.json, test group 06, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>empty object is valid</description>
+  <data type="object"/>
+  <valid type="boolean">true</valid>
+</json>

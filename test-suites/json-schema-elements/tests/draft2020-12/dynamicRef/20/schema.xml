@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/dynamicRef.json, test group 20
+     Description: $dynamicRef skips over intermediate resources - direct reference
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_id>https://test.json-schema.org/dynamic-ref-skips-intermediate-resource/main</_x0024_id>
+  <type>object</type>
+  <properties type="object">
+    <bar-item type="object">
+      <_x0024_ref>item</_x0024_ref>
+    </bar-item>
+  </properties>
+  <_x0024_defs type="object">
+    <bar type="object">
+      <_x0024_id>bar</_x0024_id>
+      <type>array</type>
+      <items type="object">
+        <_x0024_ref>item</_x0024_ref>
+      </items>
+      <_x0024_defs type="object">
+        <item type="object">
+          <_x0024_id>item</_x0024_id>
+          <type>object</type>
+          <properties type="object">
+            <content type="object">
+              <_x0024_dynamicRef>#content</_x0024_dynamicRef>
+            </content>
+          </properties>
+          <_x0024_defs type="object">
+            <defaultContent type="object">
+              <_x0024_dynamicAnchor>content</_x0024_dynamicAnchor>
+              <type>integer</type>
+            </defaultContent>
+          </_x0024_defs>
+        </item>
+        <content type="object">
+          <_x0024_dynamicAnchor>content</_x0024_dynamicAnchor>
+          <type>string</type>
+        </content>
+      </_x0024_defs>
+    </bar>
+  </_x0024_defs>
+</json>

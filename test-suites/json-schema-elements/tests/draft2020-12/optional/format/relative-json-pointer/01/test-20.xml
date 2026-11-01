@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/relative-json-pointer.json, test group 01, test 20
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>multi-digit integer prefix</description>
+  <data>120/foo/bar</data>
+  <valid type="boolean">true</valid>
+</json>

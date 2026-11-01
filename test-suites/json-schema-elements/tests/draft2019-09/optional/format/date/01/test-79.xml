@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/date.json, test group 01, test 79
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid: non-ASCII digit leaving ten UTF-8 bytes but eight characters</description>
+  <data>২0-01-01</data>
+  <valid type="boolean">false</valid>
+</json>

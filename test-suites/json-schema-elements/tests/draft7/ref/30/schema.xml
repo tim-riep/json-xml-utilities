@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/ref.json, test group 30
+     Description: ref to then
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <allOf type="array">
+    <item type="object">
+      <_x0024_ref>http://example.com/ref/then</_x0024_ref>
+    </item>
+    <item type="object">
+      <then type="object">
+        <_x0024_id>http://example.com/ref/then</_x0024_id>
+        <type>integer</type>
+      </then>
+    </item>
+  </allOf>
+</json>

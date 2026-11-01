@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/time.json, test group 01, test 29
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>time with unknown local offset is valid</description>
+  <comment>RFC 3339 section 4.3 (unknown local offset)</comment>
+  <data>12:34:56-00:00</data>
+  <valid type="boolean">true</valid>
+</json>

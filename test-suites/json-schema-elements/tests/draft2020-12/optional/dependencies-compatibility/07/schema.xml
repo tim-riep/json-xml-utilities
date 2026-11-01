@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/dependencies-compatibility.json, test group 07
+     Description: schema dependencies with escaped characters
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <dependencies type="object">
+    <foo_x0009_bar type="object">
+      <minProperties type="number">4</minProperties>
+    </foo_x0009_bar>
+    <foo_x0027_bar type="object">
+      <required type="array">
+        <item>foo"bar</item>
+      </required>
+    </foo_x0027_bar>
+  </dependencies>
+</json>

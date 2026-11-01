@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/ref.json, test group 21
+     Description: order of evaluation: $id and $ref on nested schema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_comment>$id must be evaluated before $ref to get the proper $ref destination</_x0024_comment>
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <_x0024_id>https://example.com/draft2019-09/ref-and-id3/base.json</_x0024_id>
+  <_x0024_ref>nested/foo.json</_x0024_ref>
+  <_x0024_defs type="object">
+    <foo type="object">
+      <_x0024_comment>canonical uri: https://example.com/draft2019-09/ref-and-id3/nested/foo.json</_x0024_comment>
+      <_x0024_id>nested/foo.json</_x0024_id>
+      <_x0024_ref>./bar.json</_x0024_ref>
+    </foo>
+    <bar type="object">
+      <_x0024_comment>canonical uri: https://example.com/draft2019-09/ref-and-id3/nested/bar.json</_x0024_comment>
+      <_x0024_id>nested/bar.json</_x0024_id>
+      <type>number</type>
+    </bar>
+  </_x0024_defs>
+</json>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/minItems.json, test group 01
+     Description: minItems validation
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <minItems type="number">1</minItems>
+</json>

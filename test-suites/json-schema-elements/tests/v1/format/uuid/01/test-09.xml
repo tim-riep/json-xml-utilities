@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/uuid.json, test group 01, test 09
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>mixed case</description>
+  <data>2eb8aa08-AA98-11ea-B4Aa-73B441D16380</data>
+  <valid type="boolean">true</valid>
+</json>

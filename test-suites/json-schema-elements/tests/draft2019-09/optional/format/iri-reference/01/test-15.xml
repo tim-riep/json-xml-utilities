@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/optional/format/iri-reference.json, test group 01, test 15
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a valid protocol-relative IRI Reference with a compressed IPv6 host</description>
+  <data>//[2001:db8::1]/p</data>
+  <valid type="boolean">true</valid>
+</json>

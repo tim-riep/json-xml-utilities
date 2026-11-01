@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/ecmascript-regex.json, test group 06, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>NKO DIGIT ZERO matches (unlike e.g. Python)</description>
+  <data>߀</data>
+  <valid type="boolean">true</valid>
+</json>

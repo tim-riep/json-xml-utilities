@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/minimum.json, test group 02, test 07
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>ignores non-numbers</description>
+  <data>x</data>
+  <valid type="boolean">true</valid>
+</json>

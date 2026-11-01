@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/ref.json, test group 16
+     Description: Reference an anchor with a non-relative URI
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_id>https://example.com/schema-with-anchor</_x0024_id>
+  <allOf type="array">
+    <item type="object">
+      <_x0024_ref>https://example.com/schema-with-anchor#foo</_x0024_ref>
+    </item>
+  </allOf>
+  <definitions type="object">
+    <A type="object">
+      <_x0024_id>#foo</_x0024_id>
+      <type>integer</type>
+    </A>
+  </definitions>
+</json>

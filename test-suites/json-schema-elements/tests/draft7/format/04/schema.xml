@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/format.json, test group 04
+     Description: ipv4 format
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <format>ipv4</format>
+</json>

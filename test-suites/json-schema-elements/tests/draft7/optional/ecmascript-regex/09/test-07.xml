@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/ecmascript-regex.json, test group 09, test 07
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>line feed matches (line terminator)</description>
+  <data>
+</data>
+  <valid type="boolean">true</valid>
+</json>

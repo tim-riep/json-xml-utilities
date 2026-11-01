@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/enum.json, test group 05, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>member 1 is valid</description>
+  <data>foo
+bar</data>
+  <valid type="boolean">true</valid>
+</json>

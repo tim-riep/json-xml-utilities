@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/uniqueItems.json, test group 04, test 05
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>true is not equal to one</description>
+  <data type="array">
+    <item type="number">1</item>
+    <item type="boolean">true</item>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

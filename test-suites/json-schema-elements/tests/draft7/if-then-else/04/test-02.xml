@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/if-then-else.json, test group 04, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid through then</description>
+  <data type="number">-100</data>
+  <valid type="boolean">false</valid>
+</json>

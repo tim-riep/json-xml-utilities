@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/minimum.json, test group 03
+     Description: exclusiveMinimum validation
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <minimum type="number">1.1</minimum>
+  <exclusiveMinimum type="boolean">true</exclusiveMinimum>
+</json>

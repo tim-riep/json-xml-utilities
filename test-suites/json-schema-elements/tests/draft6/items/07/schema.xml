@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/items.json, test group 07
+     Description: nested items
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type>array</type>
+  <items type="object">
+    <type>array</type>
+    <items type="object">
+      <type>array</type>
+      <items type="object">
+        <type>array</type>
+        <items type="object">
+          <type>number</type>
+        </items>
+      </items>
+    </items>
+  </items>
+</json>

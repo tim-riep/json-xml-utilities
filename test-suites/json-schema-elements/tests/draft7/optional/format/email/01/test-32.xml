@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/email.json, test group 01, test 32
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a domain label starting with a digit is valid</description>
+  <data>test@123.com</data>
+  <valid type="boolean">true</valid>
+</json>

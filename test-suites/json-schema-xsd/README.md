@@ -46,30 +46,31 @@ text, `-v` prints every failed test, `-failures file` writes them to a file,
 `-xml` and `-xsd` point to other directories. The exit status is 1 if a test
 fails, which is the case for the known failures below.
 
+The same test suite in the JSON elements format, with XSDs that describe
+objects as element declarations, is in
+[`../json-schema-elements-xsd`](../json-schema-elements-xsd).
+
 | Tests | Passed |
 |---|---|
 | draft3 | 437 / 437 |
 | draft3 optional | 145 / 145 |
 | draft4 | 614 / 614 |
-| draft4 optional | 390 / 394 |
+| draft4 optional | 394 / 394 |
 | draft6 | 837 / 837 |
-| draft6 optional | 519 / 523 |
+| draft6 optional | 523 / 523 |
 | draft7 | 925 / 925 |
-| draft7 optional | 927 / 933 |
+| draft7 optional | 931 / 933 |
 | draft2019-09 | 1257 / 1257 |
-| draft2019-09 optional | 1049 / 1053 |
+| draft2019-09 optional | 1053 / 1053 |
 | draft2020-12 | 1298 / 1298 |
-| draft2020-12 optional | 1053 / 1057 |
+| draft2020-12 optional | 1057 / 1057 |
 | v1 | 2087 / 2087 |
-| v1 optional | 283 / 287 |
-| **Total** | **11821 / 11847 (99.8%)** |
+| v1 optional | 287 / 287 |
+| **Total** | **11845 / 11847** |
 
-The 26 failures:
-
-- 24 × `optional/ecmascript-regex`, `\s` / `\S` with U+000B and U+000C: XML 1.0
-  cannot hold these characters, so they cannot appear in an instance or a schema.
-- 2 × `draft7/optional/content`: `contentMediaType: application/json` would need
-  a JSON syntax check of the string, which XPath cannot do without failing.
+The 2 failures are in `draft7/optional/content`: `contentMediaType:
+application/json` would need a JSON syntax check of the string, which XPath
+cannot do without failing (feature request: tim-riep/go-xslt#21).
 
 Format tests (`optional/format/`, `v1/format/`) are compiled with format
 assertion on; everywhere else `format` is an annotation.

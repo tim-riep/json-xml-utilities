@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/additionalItems.json, test group 02
+     Description: when items is schema, additionalItems does nothing
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <items type="object"/>
+  <additionalItems type="boolean">false</additionalItems>
+</json>

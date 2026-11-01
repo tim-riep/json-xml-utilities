@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/not.json, test group 04, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>property absent</description>
+  <data type="object">
+    <bar type="number">1</bar>
+    <baz type="number">2</baz>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

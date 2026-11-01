@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/idn-hostname.json, test group 01, test 28
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>MIDDLE DOT with no following 'l'</description>
+  <comment>https://tools.ietf.org/html/rfc5891#section-4.2.3.3 https://tools.ietf.org/html/rfc5892#appendix-A.3</comment>
+  <data>l·a</data>
+  <valid type="boolean">false</valid>
+</json>

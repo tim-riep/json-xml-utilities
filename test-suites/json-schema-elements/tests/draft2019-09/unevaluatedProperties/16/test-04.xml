@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/unevaluatedProperties.json, test group 16, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>when if is false and has unevaluated properties</description>
+  <data type="object">
+    <foo>else</foo>
+    <baz>baz</baz>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

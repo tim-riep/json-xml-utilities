@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/boolean_schema.json, test group 01
+     Description: boolean schema 'true'
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="boolean">true</json>

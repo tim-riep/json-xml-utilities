@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedProperties.json, test group 32
+     Description: in-place applicator siblings, allOf has unevaluated
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <allOf type="array">
+    <item type="object">
+      <properties type="object">
+        <foo type="boolean">true</foo>
+      </properties>
+      <unevaluatedProperties type="boolean">false</unevaluatedProperties>
+    </item>
+  </allOf>
+  <anyOf type="array">
+    <item type="object">
+      <properties type="object">
+        <bar type="boolean">true</bar>
+      </properties>
+    </item>
+  </anyOf>
+</json>

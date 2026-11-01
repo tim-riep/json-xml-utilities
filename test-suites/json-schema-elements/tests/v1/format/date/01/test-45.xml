@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date.json, test group 01, test 45
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an invalid time string in date-time format</description>
+  <data>2020-11-28T23:55:45Z</data>
+  <valid type="boolean">false</valid>
+</json>

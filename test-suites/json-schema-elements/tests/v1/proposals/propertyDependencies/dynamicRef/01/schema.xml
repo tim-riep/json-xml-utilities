@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/proposals/propertyDependencies/dynamicRef.json, test group 01
+     Description: multiple dynamic paths to the $dynamicRef keyword
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <_x0024_id>https://test.json-schema.org/dynamic-ref-with-multiple-paths/main</_x0024_id>
+  <propertyDependencies type="object">
+    <kindOfList type="object">
+      <numbers type="object">
+        <_x0024_ref>numberList</_x0024_ref>
+      </numbers>
+      <strings type="object">
+        <_x0024_ref>stringList</_x0024_ref>
+      </strings>
+    </kindOfList>
+  </propertyDependencies>
+  <_x0024_defs type="object">
+    <genericList type="object">
+      <_x0024_id>genericList</_x0024_id>
+      <properties type="object">
+        <list type="object">
+          <items type="object">
+            <_x0024_dynamicRef>#itemType</_x0024_dynamicRef>
+          </items>
+        </list>
+      </properties>
+    </genericList>
+    <numberList type="object">
+      <_x0024_id>numberList</_x0024_id>
+      <_x0024_defs type="object">
+        <itemType type="object">
+          <_x0024_dynamicAnchor>itemType</_x0024_dynamicAnchor>
+          <type>number</type>
+        </itemType>
+      </_x0024_defs>
+      <_x0024_ref>genericList</_x0024_ref>
+    </numberList>
+    <stringList type="object">
+      <_x0024_id>stringList</_x0024_id>
+      <_x0024_defs type="object">
+        <itemType type="object">
+          <_x0024_dynamicAnchor>itemType</_x0024_dynamicAnchor>
+          <type>string</type>
+        </itemType>
+      </_x0024_defs>
+      <_x0024_ref>genericList</_x0024_ref>
+    </stringList>
+  </_x0024_defs>
+</json>

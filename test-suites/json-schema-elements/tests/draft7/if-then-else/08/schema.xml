@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/if-then-else.json, test group 08
+     Description: if with boolean schema true
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <if type="boolean">true</if>
+  <then type="object">
+    <const>then</const>
+  </then>
+  <else type="object">
+    <const>else</const>
+  </else>
+</json>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/ref.json, test group 25
+     Description: URN base URI with q-component
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_comment>RFC 8141 §2.3.2</_x0024_comment>
+  <_x0024_id>urn:example:weather?=op=map&amp;lat=39.56&amp;lon=-104.85&amp;datetime=1969-07-21T02:56:15Z</_x0024_id>
+  <properties type="object">
+    <foo type="object">
+      <_x0024_ref>#/definitions/bar</_x0024_ref>
+    </foo>
+  </properties>
+  <definitions type="object">
+    <bar type="object">
+      <type>string</type>
+    </bar>
+  </definitions>
+</json>

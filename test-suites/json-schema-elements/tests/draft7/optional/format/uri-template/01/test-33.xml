@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/uri-template.json, test group 01, test 33
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a variable list with more than one varspec is valid</description>
+  <data>{x,y}</data>
+  <valid type="boolean">true</valid>
+</json>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/duration.json, test group 01, test 33
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>fractional duration is not allowed by RFC 3339 ABNF</description>
+  <comment>numeric components use 1*DIGIT where DIGIT = %x30-39; '.' is not allowed</comment>
+  <data>PT0.5S</data>
+  <valid type="boolean">false</valid>
+</json>

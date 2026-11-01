@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/idn-hostname.json, test group 01, test 57
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>single label ending with digit</description>
+  <data>hostnam3</data>
+  <valid type="boolean">true</valid>
+</json>

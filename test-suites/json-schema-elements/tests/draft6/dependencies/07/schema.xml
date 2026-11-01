@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/dependencies.json, test group 07
+     Description: dependent subschema incompatible with root
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <properties type="object">
+    <foo type="object"/>
+  </properties>
+  <dependencies type="object">
+    <foo type="object">
+      <properties type="object">
+        <bar type="object"/>
+      </properties>
+      <additionalProperties type="boolean">false</additionalProperties>
+    </foo>
+  </dependencies>
+</json>

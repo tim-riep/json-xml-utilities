@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/date-time.json, test group 01, test 37
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a valid date-time string with 28 days in February (normal)</description>
+  <data>2021-02-28T00:00:00Z</data>
+  <valid type="boolean">true</valid>
+</json>

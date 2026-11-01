@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/idn-hostname.json, test group 02, test 10
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>leading ideographic full stop</description>
+  <data>。example</data>
+  <valid type="boolean">false</valid>
+</json>

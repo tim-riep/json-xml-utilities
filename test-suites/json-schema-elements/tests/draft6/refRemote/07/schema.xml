@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/refRemote.json, test group 07
+     Description: root ref in remote ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_id>http://localhost:1234/object</_x0024_id>
+  <type>object</type>
+  <properties type="object">
+    <name type="object">
+      <_x0024_ref>draft6/name.json#/definitions/orNull</_x0024_ref>
+    </name>
+  </properties>
+</json>

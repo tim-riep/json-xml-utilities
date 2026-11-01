@@ -8,14 +8,21 @@
 // "valid". It prints a summary per test directory and exits with status 1 if
 // any test fails.
 //
+// The tests can be in the W3C representation of fn:json-to-xml
+// (test-suites/json-schema-xml, the default) or in the JSON elements format
+// of xslt/json-elements.xslt (test-suites/json-schema-elements, with -format
+// elements).
+//
 // Usage, from the repository root:
 //
 //	go run ./tools/jsonschema-testrunner
+//	go run ./tools/jsonschema-testrunner -format elements
 //	go run ./tools/jsonschema-testrunner -filter draft2020-12/ref -v
 //	go run ./tools/jsonschema-testrunner -failures failures.txt
 package main
 
 import (
+	"cmp"
 	"flag"
 	"fmt"
 	"io/fs"
@@ -29,17 +36,29 @@ import (
 	"github.com/tim-riep/go-xslt/engine"
 )
 
-// extract writes "valid|<data as a standalone document>" for a test-NN.xml.
+// extract writes "valid|<data as a standalone document>" for a test-NN.xml,
+// in the W3C representation of fn:json-to-xml (a map with members keyed by
+// @key) or in the JSON elements format (a json element with members as
+// elements, where the data becomes a json element of its own).
 const extract = `<xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:fn="http://www.w3.org/2005/xpath-functions">
   <xsl:output method="xml" omit-xml-declaration="yes"/>
-  <xsl:template match="/">
-    <xsl:value-of select="normalize-space(fn:map/fn:boolean[@key = 'valid'])"/>
+  <xsl:template match="/fn:map">
+    <xsl:value-of select="normalize-space(fn:boolean[@key = 'valid'])"/>
     <xsl:text>|</xsl:text>
-    <xsl:for-each select="fn:map/*[@key = 'data']">
+    <xsl:for-each select="*[@key = 'data']">
       <xsl:copy>
         <xsl:copy-of select="@* except (@key, @escaped-key), node()"/>
       </xsl:copy>
+    </xsl:for-each>
+  </xsl:template>
+  <xsl:template match="/json">
+    <xsl:value-of select="normalize-space(valid)"/>
+    <xsl:text>|</xsl:text>
+    <xsl:for-each select="data">
+      <json>
+        <xsl:copy-of select="@*, node()"/>
+      </json>
     </xsl:for-each>
   </xsl:template>
 </xsl:stylesheet>`
@@ -51,13 +70,25 @@ type result struct {
 }
 
 func main() {
-	xmlRoot := flag.String("xml", "test-suites/json-schema-xml", "directory of the tests as XML (schema.xml, test-NN.xml)")
-	xsdRoot := flag.String("xsd", "test-suites/json-schema-xsd", "directory of the compiled schemas (schema.xsd)")
+	format := flag.String("format", "xpath", "XML representation of the tests: xpath or elements (sets the defaults of -xml and -xsd)")
+	xmlRoot := flag.String("xml", "", "directory of the tests as XML (schema.xml, test-NN.xml); default test-suites/json-schema-xml or test-suites/json-schema-elements")
+	xsdRoot := flag.String("xsd", "", "directory of the compiled schemas (schema.xsd); default test-suites/json-schema-xsd or test-suites/json-schema-elements-xsd")
 	filter := flag.String("filter", "", "run only tests whose path contains this text")
 	failures := flag.String("failures", "", "write the failed tests to this file")
 	verbose := flag.Bool("v", false, "print every failed test")
 	workers := flag.Int("j", runtime.NumCPU(), "number of tests run in parallel")
 	flag.Parse()
+	switch *format {
+	case "xpath":
+		*xmlRoot = cmp.Or(*xmlRoot, "test-suites/json-schema-xml")
+		*xsdRoot = cmp.Or(*xsdRoot, "test-suites/json-schema-xsd")
+	case "elements":
+		*xmlRoot = cmp.Or(*xmlRoot, "test-suites/json-schema-elements")
+		*xsdRoot = cmp.Or(*xsdRoot, "test-suites/json-schema-elements-xsd")
+	default:
+		fmt.Fprintln(os.Stderr, "jsonschema-testrunner: -format must be xpath or elements")
+		os.Exit(2)
+	}
 
 	sheet, diags := engine.Compile(engine.Request{Stylesheet: extract})
 	if sheet == nil {

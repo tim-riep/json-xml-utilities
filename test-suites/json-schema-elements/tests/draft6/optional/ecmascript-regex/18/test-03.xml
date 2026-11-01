@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/ecmascript-regex.json, test group 18, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>ascii characters match</description>
+  <data type="object">
+    <l_x0027_ecole>pas de vraie vie</l_x0027_ecole>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

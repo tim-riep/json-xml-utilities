@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/patternProperties.json, test group 02, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a single valid match is valid</description>
+  <data type="object">
+    <a type="number">21</a>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

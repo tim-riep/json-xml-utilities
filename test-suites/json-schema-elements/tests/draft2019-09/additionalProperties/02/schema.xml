@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/additionalProperties.json, test group 02
+     Description: non-ASCII pattern with additionalProperties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <patternProperties type="object">
+    <_x005E_á type="object"/>
+  </patternProperties>
+  <additionalProperties type="boolean">false</additionalProperties>
+</json>

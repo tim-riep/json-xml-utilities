@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/dependencies.json, test group 06
+     Description: dependencies with escaped characters
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <dependencies type="object">
+    <foo_x000A_bar type="array">
+      <item>foo&#13;bar</item>
+    </foo_x000A_bar>
+    <foo_x0009_bar type="object">
+      <minProperties type="number">4</minProperties>
+    </foo_x0009_bar>
+    <foo_x0027_bar type="object">
+      <required type="array">
+        <item>foo"bar</item>
+      </required>
+    </foo_x0027_bar>
+    <foo_x0022_bar type="array">
+      <item>foo'bar</item>
+    </foo_x0022_bar>
+  </dependencies>
+</json>

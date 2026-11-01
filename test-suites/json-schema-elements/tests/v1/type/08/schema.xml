@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/type.json, test group 08
+     Description: multiple types can be specified in an array
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <type type="array">
+    <item>integer</item>
+    <item>string</item>
+  </type>
+</json>

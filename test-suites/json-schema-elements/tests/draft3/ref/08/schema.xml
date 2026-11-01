@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/ref.json, test group 08
+     Description: $ref prevents a sibling id from changing the base uri
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <id>http://localhost:1234/sibling_id/base/</id>
+  <definitions type="object">
+    <foo type="object">
+      <id>http://localhost:1234/sibling_id/foo.json</id>
+      <type>string</type>
+    </foo>
+    <base_foo type="object">
+      <_x0024_comment>this canonical uri is http://localhost:1234/sibling_id/base/foo.json</_x0024_comment>
+      <id>foo.json</id>
+      <type>number</type>
+    </base_foo>
+  </definitions>
+  <extends type="array">
+    <item type="object">
+      <_x0024_comment>$ref resolves to http://localhost:1234/sibling_id/base/foo.json, not http://localhost:1234/sibling_id/foo.json</_x0024_comment>
+      <id>http://localhost:1234/sibling_id/</id>
+      <_x0024_ref>foo.json</_x0024_ref>
+    </item>
+  </extends>
+</json>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/unevaluatedProperties.json, test group 12, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>when one matches and has unevaluated properties</description>
+  <data type="object">
+    <foo>foo</foo>
+    <bar>bar</bar>
+    <baz>not-baz</baz>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/optional/id.json, test group 01, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>match $ref to id</description>
+  <data>a string to match #/definitions/id_in_enum</data>
+  <valid type="boolean">true</valid>
+</json>

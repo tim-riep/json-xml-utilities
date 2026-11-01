@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/ref.json, test group 16
+     Description: id must be resolved against nearest parent, not just immediate parent
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <id>http://example.com/a.json</id>
+  <definitions type="object">
+    <x type="object">
+      <id>http://example.com/b/c.json</id>
+      <not type="object">
+        <definitions type="object">
+          <y type="object">
+            <id>d.json</id>
+            <type>number</type>
+          </y>
+        </definitions>
+      </not>
+    </x>
+  </definitions>
+  <allOf type="array">
+    <item type="object">
+      <_x0024_ref>http://example.com/b/d.json</_x0024_ref>
+    </item>
+  </allOf>
+</json>

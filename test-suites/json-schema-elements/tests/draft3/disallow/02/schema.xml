@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/disallow.json, test group 02
+     Description: multiple disallow
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <disallow type="array">
+    <item>integer</item>
+    <item>boolean</item>
+  </disallow>
+</json>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/properties.json, test group 04, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>object with strings is invalid</description>
+  <data type="object">
+    <foo_x000A_bar>1</foo_x000A_bar>
+    <foo_x0022_bar>1</foo_x0022_bar>
+    <foo_x005C_bar>1</foo_x005C_bar>
+    <foo_x000D_bar>1</foo_x000D_bar>
+    <foo_x0009_bar>1</foo_x0009_bar>
+    <foo_x000C_bar>1</foo_x000C_bar>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

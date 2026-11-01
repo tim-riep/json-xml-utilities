@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/uuid.json, test group 01, test 23
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>URN prefixed UUID is invalid</description>
+  <data>urn:uuid:2eb8aa08-aa98-11ea-b4aa-73b441d16380</data>
+  <valid type="boolean">false</valid>
+</json>

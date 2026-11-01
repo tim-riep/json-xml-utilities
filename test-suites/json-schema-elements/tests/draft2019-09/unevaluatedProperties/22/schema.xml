@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/unevaluatedProperties.json, test group 22
+     Description: unevaluatedProperties with $recursiveRef
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <_x0024_id>https://example.com/unevaluated-properties-with-recursive-ref/extended-tree</_x0024_id>
+  <_x0024_recursiveAnchor type="boolean">true</_x0024_recursiveAnchor>
+  <_x0024_ref>./tree</_x0024_ref>
+  <properties type="object">
+    <name type="object">
+      <type>string</type>
+    </name>
+  </properties>
+  <_x0024_defs type="object">
+    <tree type="object">
+      <_x0024_id>./tree</_x0024_id>
+      <_x0024_recursiveAnchor type="boolean">true</_x0024_recursiveAnchor>
+      <type>object</type>
+      <properties type="object">
+        <node type="boolean">true</node>
+        <branches type="object">
+          <_x0024_comment>unevaluatedProperties comes first so it's more likely to bugs errors with implementations that are sensitive to keyword ordering</_x0024_comment>
+          <unevaluatedProperties type="boolean">false</unevaluatedProperties>
+          <_x0024_recursiveRef>#</_x0024_recursiveRef>
+        </branches>
+      </properties>
+      <required type="array">
+        <item>node</item>
+      </required>
+    </tree>
+  </_x0024_defs>
+</json>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/ref.json, test group 14
+     Description: refs with quote
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <properties type="object">
+    <foo_x0022_bar type="object">
+      <_x0024_ref>#/definitions/foo%22bar</_x0024_ref>
+    </foo_x0022_bar>
+  </properties>
+  <definitions type="object">
+    <foo_x0022_bar type="object">
+      <type>number</type>
+    </foo_x0022_bar>
+  </definitions>
+</json>

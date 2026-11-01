@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/json-pointer.json, test group 01, test 11
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>valid JSON-pointer as stated in RFC 6901 #1</description>
+  <data/>
+  <valid type="boolean">true</valid>
+</json>

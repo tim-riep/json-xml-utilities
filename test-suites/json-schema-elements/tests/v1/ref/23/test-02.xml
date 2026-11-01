@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/ref.json, test group 23, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a non-string is invalid</description>
+  <data type="object">
+    <foo type="number">12</foo>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/optional/ecmascript-regex.json, test group 17
+     Description: \\w in patternProperties matches [A-Za-z0-9_], not unicode letters
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type>object</type>
+  <patternProperties type="object">
+    <_x005C_wcole type="object"/>
+  </patternProperties>
+  <additionalProperties type="boolean">false</additionalProperties>
+</json>

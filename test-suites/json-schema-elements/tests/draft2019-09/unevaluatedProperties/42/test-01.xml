@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/unevaluatedProperties.json, test group 42, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>with an unevaluated property that exists at another location</description>
+  <data type="object">
+    <foo type="object">
+      <bar>foo</bar>
+    </foo>
+    <bar>bar</bar>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

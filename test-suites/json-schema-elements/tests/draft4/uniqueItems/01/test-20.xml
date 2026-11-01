@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/uniqueItems.json, test group 01, test 20
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>nested [0] and [false] are unique</description>
+  <data type="array">
+    <item type="array">
+      <item type="array">
+        <item type="number">0</item>
+      </item>
+      <item>foo</item>
+    </item>
+    <item type="array">
+      <item type="array">
+        <item type="boolean">false</item>
+      </item>
+      <item>foo</item>
+    </item>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

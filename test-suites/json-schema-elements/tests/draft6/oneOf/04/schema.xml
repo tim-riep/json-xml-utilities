@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/oneOf.json, test group 04
+     Description: oneOf with boolean schemas, one true
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <oneOf type="array">
+    <item type="boolean">true</item>
+    <item type="boolean">false</item>
+    <item type="boolean">false</item>
+  </oneOf>
+</json>

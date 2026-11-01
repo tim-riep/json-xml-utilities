@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/oneOf.json, test group 10
+     Description: oneOf with missing optional property
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <oneOf type="array">
+    <item type="object">
+      <properties type="object">
+        <bar type="boolean">true</bar>
+        <baz type="boolean">true</baz>
+      </properties>
+      <required type="array">
+        <item>bar</item>
+      </required>
+    </item>
+    <item type="object">
+      <properties type="object">
+        <foo type="boolean">true</foo>
+      </properties>
+      <required type="array">
+        <item>foo</item>
+      </required>
+    </item>
+  </oneOf>
+</json>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/optional/format/email.json, test group 01, test 10
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>two email addresses is not valid</description>
+  <data>user1@oceania.org, user2@oceania.org</data>
+  <valid type="boolean">false</valid>
+</json>

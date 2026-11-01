@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/dependentRequired.json, test group 04, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>quoted quotes</description>
+  <data type="object">
+    <foo_x0027_bar type="number">1</foo_x0027_bar>
+    <foo_x0022_bar type="number">2</foo_x0022_bar>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

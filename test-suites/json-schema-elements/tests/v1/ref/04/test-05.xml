@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/ref.json, test group 04, test 05
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>tilde valid</description>
+  <data type="object">
+    <tilde type="number">123</tilde>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

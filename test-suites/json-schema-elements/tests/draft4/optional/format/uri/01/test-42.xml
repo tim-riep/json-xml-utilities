@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/optional/format/uri.json, test group 01, test 42
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>scheme must start with a letter</description>
+  <data>1http://example.com</data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/minProperties.json, test group 01, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>exact length is valid</description>
+  <data type="object">
+    <foo type="number">1</foo>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

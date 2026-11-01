@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/infinite-loop-detection.json, test group 01
+     Description: evaluating the same schema location against the same data location twice is not a sign of an infinite loop
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <definitions type="object">
+    <int type="object">
+      <type>integer</type>
+    </int>
+  </definitions>
+  <properties type="object">
+    <foo type="object">
+      <_x0024_ref>#/definitions/int</_x0024_ref>
+    </foo>
+  </properties>
+  <extends type="object">
+    <additionalProperties type="object">
+      <_x0024_ref>#/definitions/int</_x0024_ref>
+    </additionalProperties>
+  </extends>
+</json>

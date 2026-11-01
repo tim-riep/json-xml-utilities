@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/idn-email.json, test group 01, test 14
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a C1 control in the local part is valid</description>
+  <comment>https://www.rfc-editor.org/rfc/rfc6531#section-3.3 atext =/ UTF8-non-ascii; https://www.rfc-editor.org/rfc/rfc3629#section-4 UTF8-2 admits U+0085</comment>
+  <data>@example.com</data>
+  <valid type="boolean">true</valid>
+</json>

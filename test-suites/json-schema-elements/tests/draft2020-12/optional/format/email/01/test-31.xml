@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/email.json, test group 01, test 31
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>consecutive hyphens inside a domain label are valid</description>
+  <data>test@c--n.com</data>
+  <valid type="boolean">true</valid>
+</json>

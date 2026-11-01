@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/dependentSchemas.json, test group 01, test 05
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>wrong type both</description>
+  <data type="object">
+    <foo>quux</foo>
+    <bar>quux</bar>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

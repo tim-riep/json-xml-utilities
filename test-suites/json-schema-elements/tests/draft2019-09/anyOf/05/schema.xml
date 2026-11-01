@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/anyOf.json, test group 05
+     Description: anyOf with boolean schemas, all false
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <anyOf type="array">
+    <item type="boolean">false</item>
+    <item type="boolean">false</item>
+  </anyOf>
+</json>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/date-time.json, test group 01, test 41
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>century year 0100 is not a leap year</description>
+  <data>0100-02-29T00:00:00Z</data>
+  <valid type="boolean">false</valid>
+</json>

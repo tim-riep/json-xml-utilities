@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/duration.json, test group 01, test 29
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>time components only</description>
+  <data>PT1H2M3S</data>
+  <valid type="boolean">true</valid>
+</json>

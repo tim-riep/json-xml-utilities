@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/dependencies.json, test group 01
+     Description: dependencies
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <dependencies type="object">
+    <bar type="array">
+      <item>foo</item>
+    </bar>
+  </dependencies>
+</json>

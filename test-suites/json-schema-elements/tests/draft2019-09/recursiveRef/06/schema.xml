@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/recursiveRef.json, test group 06
+     Description: $recursiveRef with no $recursiveAnchor in the initial target schema resource
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <_x0024_id>http://localhost:4242/draft2019-09/recursiveRef6/base.json</_x0024_id>
+  <_x0024_recursiveAnchor type="boolean">true</_x0024_recursiveAnchor>
+  <anyOf type="array">
+    <item type="object">
+      <type>boolean</type>
+    </item>
+    <item type="object">
+      <type>object</type>
+      <additionalProperties type="object">
+        <_x0024_id>http://localhost:4242/draft2019-09/recursiveRef6/inner.json</_x0024_id>
+        <_x0024_comment>there is no $recursiveAnchor: true here, so we do NOT recurse to the base</_x0024_comment>
+        <anyOf type="array">
+          <item type="object">
+            <type>integer</type>
+          </item>
+          <item type="object">
+            <type>object</type>
+            <additionalProperties type="object">
+              <_x0024_recursiveRef>#</_x0024_recursiveRef>
+            </additionalProperties>
+          </item>
+        </anyOf>
+      </additionalProperties>
+    </item>
+  </anyOf>
+</json>

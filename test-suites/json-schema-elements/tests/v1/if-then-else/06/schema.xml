@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/if-then-else.json, test group 06
+     Description: validate against correct branch, then vs else
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <if type="object">
+    <exclusiveMaximum type="number">0</exclusiveMaximum>
+  </if>
+  <then type="object">
+    <minimum type="number">-10</minimum>
+  </then>
+  <else type="object">
+    <multipleOf type="number">2</multipleOf>
+  </else>
+</json>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/duration.json, test group 01, test 09
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>must start with P</description>
+  <data>4DT12H30M5S</data>
+  <valid type="boolean">false</valid>
+</json>

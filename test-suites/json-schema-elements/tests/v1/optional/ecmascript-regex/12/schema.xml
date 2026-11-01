@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/optional/ecmascript-regex.json, test group 12
+     Description: \\w in patterns matches [A-Za-z0-9_], not unicode letters
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <pattern>\wcole</pattern>
+</json>

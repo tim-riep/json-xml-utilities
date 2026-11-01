@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/type.json, test group 08
+     Description: any type matches any type
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type>any</type>
+</json>

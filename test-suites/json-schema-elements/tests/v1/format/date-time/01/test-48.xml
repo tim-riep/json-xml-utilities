@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date-time.json, test group 01, test 48
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a valid date-time-ext with an elective time-zone suffix</description>
+  <comment>RFC 9557 section 4.1: date-time-ext = date-time suffix, and time-zone = "[" critical-flag time-zone-name / time-numoffset "]". Syntactic validation only: the suffix is not checked against the IANA time zone database.</comment>
+  <data>2022-07-08T00:14:07Z[Europe/London]</data>
+  <valid type="boolean">true</valid>
+</json>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date.json, test group 01, test 46
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>century year 0100 is not a leap year</description>
+  <comment>https://www.rfc-editor.org/rfc/rfc3339#appendix-C — 100 % 100 == 0 but 100 % 400 != 0</comment>
+  <data>0100-02-29</data>
+  <valid type="boolean">false</valid>
+</json>

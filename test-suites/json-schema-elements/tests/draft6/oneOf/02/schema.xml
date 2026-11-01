@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/oneOf.json, test group 02
+     Description: oneOf with base schema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type>string</type>
+  <oneOf type="array">
+    <item type="object">
+      <minLength type="number">2</minLength>
+    </item>
+    <item type="object">
+      <maxLength type="number">4</maxLength>
+    </item>
+  </oneOf>
+</json>

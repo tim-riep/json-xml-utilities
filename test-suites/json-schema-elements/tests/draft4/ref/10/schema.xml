@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/ref.json, test group 10
+     Description: property named $ref, containing an actual $ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <properties type="object">
+    <_x0024_ref type="object">
+      <_x0024_ref>#/definitions/is-string</_x0024_ref>
+    </_x0024_ref>
+  </properties>
+  <definitions type="object">
+    <is-string type="object">
+      <type>string</type>
+    </is-string>
+  </definitions>
+</json>

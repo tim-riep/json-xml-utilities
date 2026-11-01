@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/contains.json, test group 05
+     Description: items + contains
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <items type="object">
+    <multipleOf type="number">2</multipleOf>
+  </items>
+  <contains type="object">
+    <multipleOf type="number">3</multipleOf>
+  </contains>
+</json>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/unevaluatedItems.json, test group 15
+     Description: unevaluatedItems with if/then/else
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <prefixItems type="array">
+    <item type="object">
+      <const>foo</const>
+    </item>
+  </prefixItems>
+  <if type="object">
+    <prefixItems type="array">
+      <item type="boolean">true</item>
+      <item type="object">
+        <const>bar</const>
+      </item>
+    </prefixItems>
+  </if>
+  <then type="object">
+    <prefixItems type="array">
+      <item type="boolean">true</item>
+      <item type="boolean">true</item>
+      <item type="object">
+        <const>then</const>
+      </item>
+    </prefixItems>
+  </then>
+  <else type="object">
+    <prefixItems type="array">
+      <item type="boolean">true</item>
+      <item type="boolean">true</item>
+      <item type="boolean">true</item>
+      <item type="object">
+        <const>else</const>
+      </item>
+    </prefixItems>
+  </else>
+  <unevaluatedItems type="boolean">false</unevaluatedItems>
+</json>

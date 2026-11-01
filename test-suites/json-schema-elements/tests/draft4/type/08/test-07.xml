@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/type.json, test group 08, test 07
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>null is invalid</description>
+  <data type="null"/>
+  <valid type="boolean">false</valid>
+</json>

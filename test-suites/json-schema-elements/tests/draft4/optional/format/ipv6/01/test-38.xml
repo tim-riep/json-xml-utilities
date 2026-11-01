@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/optional/format/ipv6.json, test group 01, test 38
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a long invalid ipv6, below length limit, second</description>
+  <data>100:100:100:100:100:100:100:255.255.255.255</data>
+  <valid type="boolean">false</valid>
+</json>

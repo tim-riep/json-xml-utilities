@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/regex.json, test group 01, test 10
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a character class range in reverse order is invalid</description>
+  <comment>https://tc39.es/ecma262/#sec-patterns-static-semantics-early-errors it is a Syntax Error if the first ClassAtom of a range has a greater CharacterValue than the second</comment>
+  <data>[z-a]</data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/refRemote.json, test group 09
+     Description: Location-independent identifier in remote ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_ref>http://localhost:1234/draft6/locationIndependentIdentifier.json#/definitions/refToInteger</_x0024_ref>
+</json>

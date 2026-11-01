@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/enum.json, test group 15
+     Description: characters with the same visual representation but different codepoint
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <enum type="array">
+    <item>μ</item>
+  </enum>
+  <_x0024_comment>U+03BC</_x0024_comment>
+</json>

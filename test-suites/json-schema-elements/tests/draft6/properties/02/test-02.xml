@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/properties.json, test group 02, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>property invalidates property</description>
+  <data type="object">
+    <foo type="array">
+      <item type="number">1</item>
+      <item type="number">2</item>
+      <item type="number">3</item>
+      <item type="number">4</item>
+    </foo>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

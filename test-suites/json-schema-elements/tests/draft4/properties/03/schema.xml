@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/properties.json, test group 03
+     Description: properties with escaped characters
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <properties type="object">
+    <foo_x000A_bar type="object">
+      <type>number</type>
+    </foo_x000A_bar>
+    <foo_x0022_bar type="object">
+      <type>number</type>
+    </foo_x0022_bar>
+    <foo_x005C_bar type="object">
+      <type>number</type>
+    </foo_x005C_bar>
+    <foo_x000D_bar type="object">
+      <type>number</type>
+    </foo_x000D_bar>
+    <foo_x0009_bar type="object">
+      <type>number</type>
+    </foo_x0009_bar>
+    <foo_x000C_bar type="object">
+      <type>number</type>
+    </foo_x000C_bar>
+  </properties>
+</json>

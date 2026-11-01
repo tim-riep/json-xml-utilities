@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/propertyNames.json, test group 02
+     Description: propertyNames validation with pattern
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <propertyNames type="object">
+    <pattern>^a+$</pattern>
+  </propertyNames>
+</json>

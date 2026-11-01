@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedProperties.json, test group 15
+     Description: unevaluatedProperties with if/then/else
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <if type="object">
+    <properties type="object">
+      <foo type="object">
+        <const>then</const>
+      </foo>
+    </properties>
+    <required type="array">
+      <item>foo</item>
+    </required>
+  </if>
+  <then type="object">
+    <properties type="object">
+      <bar type="object">
+        <type>string</type>
+      </bar>
+    </properties>
+    <required type="array">
+      <item>bar</item>
+    </required>
+  </then>
+  <else type="object">
+    <properties type="object">
+      <baz type="object">
+        <type>string</type>
+      </baz>
+    </properties>
+    <required type="array">
+      <item>baz</item>
+    </required>
+  </else>
+  <unevaluatedProperties type="boolean">false</unevaluatedProperties>
+</json>

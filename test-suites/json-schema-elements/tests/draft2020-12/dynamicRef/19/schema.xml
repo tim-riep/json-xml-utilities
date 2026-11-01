@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/dynamicRef.json, test group 19
+     Description: $dynamicRef points to a boolean schema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_defs type="object">
+    <true type="boolean">true</true>
+    <false type="boolean">false</false>
+  </_x0024_defs>
+  <properties type="object">
+    <true type="object">
+      <_x0024_dynamicRef>#/$defs/true</_x0024_dynamicRef>
+    </true>
+    <false type="object">
+      <_x0024_dynamicRef>#/$defs/false</_x0024_dynamicRef>
+    </false>
+  </properties>
+</json>

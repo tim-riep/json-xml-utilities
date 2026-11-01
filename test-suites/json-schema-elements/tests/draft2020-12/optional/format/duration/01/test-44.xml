@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/duration.json, test group 01, test 44
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>exponent notation is not allowed in a component</description>
+  <data>P1e2D</data>
+  <valid type="boolean">false</valid>
+</json>

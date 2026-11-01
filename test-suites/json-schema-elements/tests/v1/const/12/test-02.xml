@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/const.json, test group 12, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>integer one is valid</description>
+  <data type="number">1</data>
+  <valid type="boolean">true</valid>
+</json>

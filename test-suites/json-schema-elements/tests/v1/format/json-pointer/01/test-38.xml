@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/json-pointer.json, test group 01, test 38
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>not a valid JSON-pointer (isn't empty nor starts with /) #3</description>
+  <data>a/a</data>
+  <valid type="boolean">false</valid>
+</json>

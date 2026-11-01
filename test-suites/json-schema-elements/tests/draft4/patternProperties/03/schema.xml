@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/patternProperties.json, test group 03
+     Description: regexes are not anchored by default and are case sensitive
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <patternProperties type="object">
+    <_x005B_0-9_x005D__x007B_2_x002C__x007D_ type="object">
+      <type>boolean</type>
+    </_x005B_0-9_x005D__x007B_2_x002C__x007D_>
+    <X_ type="object">
+      <type>string</type>
+    </X_>
+  </patternProperties>
+</json>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/ref.json, test group 29
+     Description: URN ref with nested pointer ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <_x0024_ref>urn:uuid:deadbeef-4321-ffff-ffff-1234feebdaed</_x0024_ref>
+  <_x0024_defs type="object">
+    <foo type="object">
+      <_x0024_id>urn:uuid:deadbeef-4321-ffff-ffff-1234feebdaed</_x0024_id>
+      <_x0024_defs type="object">
+        <bar type="object">
+          <type>string</type>
+        </bar>
+      </_x0024_defs>
+      <_x0024_ref>#/$defs/bar</_x0024_ref>
+    </foo>
+  </_x0024_defs>
+</json>

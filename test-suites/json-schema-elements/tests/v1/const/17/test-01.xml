@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/const.json, test group 17, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>character uses the same codepoint</description>
+  <data>ä</data>
+  <comment>U+00E4</comment>
+  <valid type="boolean">true</valid>
+</json>

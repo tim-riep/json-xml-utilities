@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/uniqueItems.json, test group 05, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>[false, false] from items array is valid</description>
+  <data type="array">
+    <item type="boolean">false</item>
+    <item type="boolean">false</item>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

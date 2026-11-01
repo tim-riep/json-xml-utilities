@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/patternProperties.json, test group 02, test 06
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an invalid due to both is invalid</description>
+  <data type="object">
+    <aaa>foo</aaa>
+    <aaaa type="number">31</aaaa>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/if-then-else.json, test group 07
+     Description: non-interference across combined schemas
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <allOf type="array">
+    <item type="object">
+      <if type="object">
+        <exclusiveMaximum type="number">0</exclusiveMaximum>
+      </if>
+    </item>
+    <item type="object">
+      <then type="object">
+        <minimum type="number">-10</minimum>
+      </then>
+    </item>
+    <item type="object">
+      <else type="object">
+        <multipleOf type="number">2</multipleOf>
+      </else>
+    </item>
+  </allOf>
+</json>

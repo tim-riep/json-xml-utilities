@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/disallow.json, test group 03
+     Description: multiple disallow subschema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <disallow type="array">
+    <item>string</item>
+    <item type="object">
+      <type>object</type>
+      <properties type="object">
+        <foo type="object">
+          <type>string</type>
+        </foo>
+      </properties>
+    </item>
+  </disallow>
+</json>

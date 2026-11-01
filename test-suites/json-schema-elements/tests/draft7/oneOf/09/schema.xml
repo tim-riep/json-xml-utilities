@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/oneOf.json, test group 09
+     Description: oneOf with required
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type>object</type>
+  <oneOf type="array">
+    <item type="object">
+      <required type="array">
+        <item>foo</item>
+        <item>bar</item>
+      </required>
+    </item>
+    <item type="object">
+      <required type="array">
+        <item>foo</item>
+        <item>baz</item>
+      </required>
+    </item>
+  </oneOf>
+</json>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/patternProperties.json, test group 03, test 04
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>regexes are case sensitive, 2</description>
+  <data type="object">
+    <a_X_3 type="number">3</a_X_3>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

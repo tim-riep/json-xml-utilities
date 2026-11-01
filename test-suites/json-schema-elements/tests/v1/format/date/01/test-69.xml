@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date.json, test group 01, test 69
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid: alphabetic characters in day field</description>
+  <data>2020-01-DD</data>
+  <valid type="boolean">false</valid>
+</json>

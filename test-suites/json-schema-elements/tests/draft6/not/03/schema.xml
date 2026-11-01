@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/not.json, test group 03
+     Description: not more complex schema
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <not type="object">
+    <type>object</type>
+    <properties type="object">
+      <foo type="object">
+        <type>string</type>
+      </foo>
+    </properties>
+  </not>
+</json>

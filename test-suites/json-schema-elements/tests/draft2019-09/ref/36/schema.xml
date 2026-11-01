@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/ref.json, test group 36
+     Description: empty tokens in $ref json-pointer
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2019-09/schema</_x0024_schema>
+  <_x0024_defs type="object">
+    <_x_ type="object">
+      <_x0024_defs type="object">
+        <_x_ type="object">
+          <type>number</type>
+        </_x_>
+      </_x0024_defs>
+    </_x_>
+  </_x0024_defs>
+  <allOf type="array">
+    <item type="object">
+      <_x0024_ref>#/$defs//$defs/</_x0024_ref>
+    </item>
+  </allOf>
+</json>

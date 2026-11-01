@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/dynamicRef.json, test group 05, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>string matches /$defs/thingy, but the $dynamicRef does not stop here</description>
+  <data>a string</data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/ref.json, test group 20
+     Description: order of evaluation: $id and $anchor and $ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_comment>$id must be evaluated before $ref to get the proper $ref destination</_x0024_comment>
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <_x0024_id>https://example.com/draft2020-12/ref-and-id2/base.json</_x0024_id>
+  <_x0024_ref>#bigint</_x0024_ref>
+  <_x0024_defs type="object">
+    <bigint type="object">
+      <_x0024_comment>canonical uri: /ref-and-id2/base.json#/$defs/bigint; another valid uri for this location: /ref-and-id2/base.json#bigint</_x0024_comment>
+      <_x0024_anchor>bigint</_x0024_anchor>
+      <maximum type="number">10</maximum>
+    </bigint>
+    <smallint type="object">
+      <_x0024_comment>canonical uri: https://example.com/ref-and-id2#/$defs/smallint; another valid uri for this location: https://example.com/ref-and-id2/#bigint</_x0024_comment>
+      <_x0024_id>https://example.com/draft2020-12/ref-and-id2/</_x0024_id>
+      <_x0024_anchor>bigint</_x0024_anchor>
+      <maximum type="number">2</maximum>
+    </smallint>
+  </_x0024_defs>
+</json>

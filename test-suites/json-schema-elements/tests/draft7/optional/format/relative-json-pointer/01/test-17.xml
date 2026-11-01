@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/relative-json-pointer.json, test group 01, test 17
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>zero cannot be followed by other digits, plus json-pointer</description>
+  <data>01/a</data>
+  <valid type="boolean">false</valid>
+</json>

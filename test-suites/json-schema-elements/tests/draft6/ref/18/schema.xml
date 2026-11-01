@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/ref.json, test group 18
+     Description: naive replacement of $ref with its destination is not correct
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <definitions type="object">
+    <a_string type="object">
+      <type>string</type>
+    </a_string>
+  </definitions>
+  <enum type="array">
+    <item type="object">
+      <_x0024_ref>#/definitions/a_string</_x0024_ref>
+    </item>
+  </enum>
+</json>

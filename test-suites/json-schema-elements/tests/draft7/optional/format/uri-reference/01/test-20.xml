@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/uri-reference.json, test group 01, test 20
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a network-path reference with an empty authority</description>
+  <comment>RFC 3986, Section 3.2.2: host = IP-literal / IPv4address / reg-name, and reg-name may be empty.</comment>
+  <data>//</data>
+  <valid type="boolean">true</valid>
+</json>

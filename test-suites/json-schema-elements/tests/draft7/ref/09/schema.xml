@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/ref.json, test group 09
+     Description: property named $ref that is not a reference
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <properties type="object">
+    <_x0024_ref type="object">
+      <type>string</type>
+    </_x0024_ref>
+  </properties>
+</json>

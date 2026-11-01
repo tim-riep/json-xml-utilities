@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/vocabulary.json, test group 01, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>applicator vocabulary still works</description>
+  <data type="object">
+    <badProperty>this property should not exist</badProperty>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

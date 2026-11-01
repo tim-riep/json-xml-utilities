@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/allOf.json, test group 12
+     Description: allOf combined with anyOf, oneOf
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <allOf type="array">
+    <item type="object">
+      <multipleOf type="number">2</multipleOf>
+    </item>
+  </allOf>
+  <anyOf type="array">
+    <item type="object">
+      <multipleOf type="number">3</multipleOf>
+    </item>
+  </anyOf>
+  <oneOf type="array">
+    <item type="object">
+      <multipleOf type="number">5</multipleOf>
+    </item>
+  </oneOf>
+</json>

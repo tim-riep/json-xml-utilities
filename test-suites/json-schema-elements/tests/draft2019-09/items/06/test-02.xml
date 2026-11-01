@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2019-09/items.json, test group 06, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>too many items</description>
+  <data type="array">
+    <item type="array">
+      <item type="object">
+        <foo type="null"/>
+      </item>
+      <item type="object">
+        <foo type="null"/>
+      </item>
+    </item>
+    <item type="array">
+      <item type="object">
+        <foo type="null"/>
+      </item>
+      <item type="object">
+        <foo type="null"/>
+      </item>
+    </item>
+    <item type="array">
+      <item type="object">
+        <foo type="null"/>
+      </item>
+      <item type="object">
+        <foo type="null"/>
+      </item>
+    </item>
+    <item type="array">
+      <item type="object">
+        <foo type="null"/>
+      </item>
+      <item type="object">
+        <foo type="null"/>
+      </item>
+    </item>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

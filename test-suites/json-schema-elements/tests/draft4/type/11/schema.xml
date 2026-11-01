@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/type.json, test group 11
+     Description: type: array, object or null
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type type="array">
+    <item>array</item>
+    <item>object</item>
+    <item>null</item>
+  </type>
+</json>

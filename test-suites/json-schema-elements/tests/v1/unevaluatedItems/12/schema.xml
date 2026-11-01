@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/unevaluatedItems.json, test group 12
+     Description: unevaluatedItems with anyOf
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <prefixItems type="array">
+    <item type="object">
+      <const>foo</const>
+    </item>
+  </prefixItems>
+  <anyOf type="array">
+    <item type="object">
+      <prefixItems type="array">
+        <item type="boolean">true</item>
+        <item type="object">
+          <const>bar</const>
+        </item>
+      </prefixItems>
+    </item>
+    <item type="object">
+      <prefixItems type="array">
+        <item type="boolean">true</item>
+        <item type="boolean">true</item>
+        <item type="object">
+          <const>baz</const>
+        </item>
+      </prefixItems>
+    </item>
+  </anyOf>
+  <unevaluatedItems type="boolean">false</unevaluatedItems>
+</json>

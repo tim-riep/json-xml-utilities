@@ -6,16 +6,40 @@
 
   Input and output
   ================
-  The input is a JSON Schema in the W3C XML representation of JSON, as
-  produced by fn:json-to-xml() (namespace http://www.w3.org/2005/xpath-functions),
-  for example a schema.xml of test-suites/json-schema-xml.
+  The input is a JSON Schema as XML, in the W3C representation of
+  fn:json-to-xml() (namespace http://www.w3.org/2005/xpath-functions, for
+  example a schema.xml of test-suites/json-schema-xml) or in the JSON elements
+  format of json-elements.xslt (document element json, for example a
+  schema.xml of test-suites/json-schema-elements).
 
-  The output is an XSD 1.1 schema that validates JSON instances in the same
-  XML representation: the instance document is the JSON value itself, so its
-  root element is one of map, array, string, number, boolean or null.
+  The output is an XSD 1.1 schema for JSON instances in the XML representation
+  chosen with the parameter instance-format:
 
-  How it works
-  ============
+    xpath     (default) the W3C representation; the instance document is the
+              JSON value itself, so its root element is one of map, array,
+              string, number, boolean or null
+    elements  the JSON elements format; the root element is json, object
+              members are elements named after their keys, and the JSON type
+              is the attribute type
+
+  Structure (instance-format elements)
+  ====================================
+  Schemas become element declarations and types wherever XSD can express them:
+  properties and required become the elements of an xs:all group (plus a
+  wildcard unless additionalProperties is false), items an item element,
+  type an xs:alternative per JSON type on @type, minLength, maxLength,
+  pattern and enum facets, and $ref named types, so recursive schemas are
+  recursive types. Constraints on the node itself that XSD lacks (numeric
+  limits, multipleOf, uniqueItems, minProperties, ...) are small xs:asserts on
+  the type. Subschemas that combine or select schemas (allOf, anyOf, oneOf,
+  not, if, patternProperties, additionalProperties with a schema, contains,
+  prefixItems, unevaluated*, $ref next to other keywords from 2019-09 on, ...)
+  are evaluated by an assertion as described below; with $dynamicRef or
+  $recursiveRef, the whole document is. The parameter structure=no turns the
+  structural part off.
+
+  How the assertions work
+  =======================
   Every subschema becomes an XPath 3.1 inline function
   function($S, $n, $dyn) that evaluates it against the instance node $n and
   returns map { 'v': valid, 'p': evaluated property names, 'i': evaluated item
@@ -23,8 +47,9 @@
   schemas are plain calls ($S?key($S, $n, $dyn)). $dyn is the dynamic scope
   (the schema resources entered so far, outermost first) for $dynamicRef and
   $recursiveRef; 'p' and 'i' carry the annotations unevaluatedProperties and
-  unevaluatedItems need. The whole schema is a single xs:assert on the root
-  element; the XSD itself does not constrain the element structure.
+  unevaluatedItems need. In the xpath format the whole schema is a single
+  xs:assert on the root element, and the XSD does not constrain the element
+  structure.
 
   This needs a processor that accepts XPath 3.1 in assertions, such as
   go-xslt (https://github.com/tim-riep/go-xslt).
@@ -65,10 +90,12 @@
 
   Limits
   ======
-  - XML 1.0 cannot hold most control characters (such as U+000B); in strings
-    they become U+FFFD, as parse-json() does.
+  - Control characters such as U+000B are kept in strings (go-xslt holds them
+    as XML 1.1 does) and written as codepoints-to-string() in the assertions;
+    U+0000 becomes U+FFFD.
   - content* keywords are annotations (draft-07: contentEncoding base64 is
-    checked, contentMediaType is not).
+    checked, contentMediaType is not: XPath cannot test whether a string is
+    JSON without failing).
   - Patterns are translated from ECMA-262 to XPath regular expressions; lookahead,
     lookbehind and backreferences are not available there.
 
@@ -86,6 +113,8 @@
     input-dir        batch mode: directory of the files (default
                      ../test-suites/json-schema-xml/)
     format-assertion 'yes' validates format (default: annotation only)
+    instance-format  xpath (default) or elements, see above
+    structure        elements format: 'no' evaluates everything by assertions
 
   Run with go-xslt
   ================
@@ -101,6 +130,13 @@
       -allow-dir test-suites -allow-network -d test-suites/json-schema-xsd \
       -p "files=$(cd test-suites/json-schema-xml && find tests -name schema.xml | sort)"
 
+  The test suite in the JSON elements format:
+
+    go-xslt transform -s xslt/json-schema-to-xsd.xslt -it xsl:initial-template \
+      -allow-dir test-suites -allow-network -d test-suites/json-schema-elements-xsd \
+      -p instance-format=elements -p input-dir=../test-suites/json-schema-elements/ \
+      -p "files=$(cd test-suites/json-schema-elements && find tests -name schema.xml | sort)"
+
   Validate an instance:
 
     go-xslt validate -xsd 1.1 -x schema.xsd instance.xml
@@ -113,7 +149,10 @@
     xmlns:array="http://www.w3.org/2005/xpath-functions/array"
     xmlns:err="http://www.w3.org/2005/xqt-errors"
     xmlns:c="urn:json-xml-utilities:json-schema-to-xsd"
-    exclude-result-prefixes="map array err c">
+    xmlns:je="urn:json-xml-utilities:json-elements"
+    exclude-result-prefixes="map array err c je">
+
+  <xsl:import href="json-elements.xslt"/>
 
   <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
 
@@ -124,6 +163,11 @@
   <xsl:param name="files" as="xs:string" select="''"/>
   <xsl:param name="input-dir" as="xs:string" select="'../test-suites/json-schema-xml/'"/>
   <xsl:param name="format-assertion" as="xs:string" select="'no'"/>
+  <xsl:param name="instance-format" as="xs:string" select="'xpath'"/>
+  <xsl:param name="structure" as="xs:string" select="'yes'"/>
+
+  <!-- instances in the JSON elements format of json-elements.xslt -->
+  <xsl:variable name="elements" as="xs:boolean" select="$instance-format eq 'elements'"/>
 
   <xsl:variable name="remotes-uri" as="xs:anyURI" select="c:dir-uri($remotes-dir)"/>
   <xsl:variable name="input-uri" as="xs:anyURI" select="c:dir-uri($input-dir)"/>
@@ -197,17 +241,18 @@
     <xsl:param name="source" as="xs:string"/>
     <xsl:param name="format" as="xs:boolean"/>
 
+    <!-- a schema in the JSON elements format is read as the W3C representation -->
+    <xsl:variable name="root" as="element()"
+        select="if ($root/self::json) then je:to-xpath-json($root)/* else $root"/>
     <xsl:variable name="d" select="c:detect-dialect($root, $dialect)"/>
     <xsl:variable name="entries" as="map(*)*"
         select="c:closure(c:walk($root, c:strip-fragment($base), (), $d, true(), map { 'noval': false(), 'fmt': $format }), (), $dialect, $format)"/>
     <xsl:variable name="reg" as="map(*)" select="c:registry($entries)"/>
 
-    <xsl:variable name="functions" as="xs:string*">
-      <xsl:for-each select="$entries">
-        <xsl:sequence select="c:lit(c:fkey(?n)) || ': function($S, $n, $dyn) { '
-            || c:schema-body(., $reg) || ' }'"/>
-      </xsl:for-each>
-    </xsl:variable>
+    <xsl:variable name="functions" as="map(xs:string, xs:string)" select="map:merge(
+        $entries ! map:entry(c:fkey(?n), c:schema-body(., $reg)), map { 'duplicates': 'use-first' })"/>
+    <xsl:variable name="index" as="map(xs:string, xs:integer)" select="map:merge(
+        for $i in 1 to count($entries) return map:entry(c:fkey($entries[$i]?n), $i), map { 'duplicates': 'use-first' })"/>
 
     <xsl:variable name="dynamic-anchors" as="xs:string*">
       <xsl:for-each-group select="$entries[exists(?danchors)]" group-by="?res">
@@ -218,56 +263,765 @@
     </xsl:variable>
     <xsl:variable name="recursive-anchors" as="xs:string*"
         select="distinct-values($entries[?ranchor] ! (c:lit(?res) || ': ' || c:lit(c:fkey(?n))))"/>
+    <xsl:variable name="program" as="map(*)" select="map {
+        'functions': $functions, 'index': $index,
+        'da': $dynamic-anchors, 'ra': $recursive-anchors,
+        'formats': some $e in $entries satisfies ($e?fmt and c:kw($e?n, 'format') = $format-names) }"/>
 
-    <xsl:variable name="assertion" as="xs:string" select="string-join((
-        'let $T := map { ''v'': true() }',
-        '$num := function($n) { let $s := normalize-space(string($n)) return if (not(matches($s, ''[eE]''))) then xs:decimal($s) '
-          || 'else let $m := xs:decimal(replace($s, ''[eE].*$'', '''')), $e := xs:integer(replace($s, ''^.*[eE]\+?'', '''')) '
-          || 'return if (abs($e) gt 1000) then xs:double($s) '
-          || 'else if ($e ge 0) then $m * xs:decimal(''1'' || string-join((1 to $e) ! ''0'')) '
-          || 'else $m div xs:decimal(''1'' || string-join((1 to -$e) ! ''0'')) }',
-        '$unesc := function($s) { parse-json(''&quot;'' || replace($s, ''&quot;'', ''\\u0022'') || ''&quot;'') }',
-        '$str := function($n) { if ($n/@escaped = ''true'') then $unesc(string($n)) else string($n) }',
-        '$key := function($n) { if ($n/@escaped-key = ''true'') then $unesc(string($n/@key)) else string($n/@key) }',
-        '$isint := function($n) { let $x := $num($n) return $x = floor($x) }',
-        '$mult := function($x, $m) { if ($x instance of xs:double or $m instance of xs:double) then (let $q := xs:double($x) div xs:double($m) return $q = floor($q)) else ($x mod $m = 0) }',
-        '$eq := function($eq, $a, $b) { if (local-name($a) ne local-name($b)) then false() '
-          || 'else if ($a/self::fn:number) then $num($a) = $num($b) '
-          || 'else if ($a/self::fn:string) then $str($a) eq $str($b) '
-          || 'else if ($a/self::fn:boolean) then xs:boolean(normalize-space($a)) eq xs:boolean(normalize-space($b)) '
-          || 'else if ($a/self::fn:null) then true() '
-          || 'else if ($a/self::fn:array) then count($a/*) eq count($b/*) and (every $i in 1 to count($a/*) satisfies $eq($eq, $a/*[$i], $b/*[$i])) '
-          || 'else count($a/*) eq count($b/*) and (every $x in $a/* satisfies (some $y in $b/* satisfies ($key($x) eq $key($y) and $eq($eq, $x, $y)))) }',
-        if (some $e in $entries satisfies ($e?fmt and c:kw($e?n, 'format') = $format-names))
-          then normalize-space($format-functions) else (),
-        '$DA := map { ' || string-join($dynamic-anchors, ', ') || ' }',
-        '$RA := map { ' || string-join($recursive-anchors, ', ') || ' }',
-        '$S := map { ' || string-join($functions, ', ') || ' } '
-          || 'return $S(' || c:lit(c:fkey($root)) || ')($S, ., ())?v'), ', ')"/>
+    <xsl:variable name="description" select="'Generated by json-schema-to-xsd.xslt'
+        || (if ($source) then ' from ' || $source else '') || ' (dialect ' || c:dialect-name($d) || '). '"/>
 
-    <xs:schema targetNamespace="http://www.w3.org/2005/xpath-functions"
-        elementFormDefault="qualified" vc:minVersion="1.1"
-        xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
+    <xsl:choose>
+      <xsl:when test="$elements">
+        <xsl:sequence select="c:xsd-elements($root, $entries, $reg, $program,
+            $description || 'Validates a JSON instance in the JSON elements format of json-elements.xslt.')"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xs:schema targetNamespace="http://www.w3.org/2005/xpath-functions"
+            elementFormDefault="qualified" vc:minVersion="1.1"
+            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
+          <xs:annotation>
+            <xs:documentation>
+              <xsl:value-of select="$description || 'Validates a JSON instance in the XML representation of fn:json-to-xml().'"/>
+            </xs:documentation>
+          </xs:annotation>
+          <xs:complexType name="json" mixed="true">
+            <xs:sequence>
+              <xs:any namespace="##any" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:anyAttribute namespace="##any" processContents="skip"/>
+            <xs:assert test="{c:assertion($program, c:fkey($root))}"/>
+          </xs:complexType>
+          <xsl:for-each select="('map', 'array', 'string', 'number', 'boolean', 'null')">
+            <xs:element name="{.}" type="fn:json"/>
+          </xsl:for-each>
+        </xs:schema>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+
+  <!-- The assertion that evaluates the schema with function key $key on the
+       context node: the helper bindings, the functions it can reach, and the
+       call. -->
+  <xsl:function name="c:assertion" as="xs:string">
+    <xsl:param name="program" as="map(*)"/>
+    <xsl:param name="key" as="xs:string"/>
+    <xsl:variable name="keys" select="c:reachable($program?functions,
+        ($key, ($program?da, $program?ra) ! analyze-string(., 'k_[A-Za-z0-9]+_k')/fn:match/string()), ())"/>
+    <xsl:sequence select="c:renumber(string-join((
+        'let ' || string-join(c:helpers(('$T', '$num', '$str', '$key', '$isint', '$mult', '$eq', '$xmlesc')), ', '),
+        if ($program?formats) then normalize-space($format-functions) else (),
+        '$DA := map { ' || string-join($program?da, ', ') || ' }',
+        '$RA := map { ' || string-join($program?ra, ', ') || ' }',
+        '$S := map { ' || string-join($keys ! (c:lit(.) || ': function($S, $n, $dyn) { ' || $program?functions(.) || ' }'), ', ')
+          || ' } return $S(' || c:lit($key) || ')($S, ., ())?v'), ', '), $program?index)"/>
+  </xsl:function>
+
+  <!-- The function keys reachable from $todo. -->
+  <xsl:function name="c:reachable" as="xs:string*">
+    <xsl:param name="functions" as="map(xs:string, xs:string)"/>
+    <xsl:param name="todo" as="xs:string*"/>
+    <xsl:param name="done" as="xs:string*"/>
+    <xsl:variable name="new" select="distinct-values($todo)[not(. = $done)]"/>
+    <xsl:sequence select="if (empty($new)) then $done else c:reachable($functions,
+        $new ! (analyze-string($functions(.), 'k_[A-Za-z0-9]+_k')/fn:match/string()), ($done, $new))"/>
+  </xsl:function>
+
+  <!-- Function keys k_<generate-id>_k to stable names s<position>. -->
+  <xsl:function name="c:renumber" as="xs:string">
+    <xsl:param name="text" as="xs:string"/>
+    <xsl:param name="index" as="map(xs:string, xs:integer)"/>
+    <xsl:sequence select="string-join(analyze-string($text, 'k_[A-Za-z0-9]+_k')/* !
+        (if (self::fn:match) then 's' || $index(string(.)) else string(.)))"/>
+  </xsl:function>
+
+  <!-- The let bindings of the helper functions $names and of the helpers
+       they use, in dependency order. -->
+  <xsl:function name="c:helpers" as="xs:string*">
+    <xsl:param name="names" as="xs:string*"/>
+    <xsl:variable name="all" as="map(xs:string, xs:string)" select="map:merge((
+        map {
+          '$T': 'map { ''v'': true() }',
+          '$num': 'function($n) { let $s := normalize-space(string($n)) return if (not(matches($s, ''[eE]''))) then xs:decimal($s) '
+            || 'else let $m := xs:decimal(replace($s, ''[eE].*$'', '''')), $e := xs:integer(replace($s, ''^.*[eE]\+?'', '''')) '
+            || 'return if (abs($e) gt 1000) then xs:double($s) '
+            || 'else if ($e ge 0) then $m * xs:decimal(''1'' || string-join((1 to $e) ! ''0'')) '
+            || 'else $m div xs:decimal(''1'' || string-join((1 to -$e) ! ''0'')) }',
+          '$unesc': 'function($s) { string-join(analyze-string($s, ''\\u[dD][89abAB][0-9a-fA-F]{2}\\u[dD][c-fC-F][0-9a-fA-F]{2}|\\u[0-9a-fA-F]{4}|\\.'')/* ! '
+            || '(if (self::fn:non-match) then string(.) else let $t := string(.), '
+            || '$c := if (string-length($t) eq 12) then 65536 + ($hex(substring($t, 3, 4)) - 55296) * 1024 + $hex(substring($t, 9, 4)) - 56320 '
+            || 'else if (string-length($t) eq 6) then $hex(substring($t, 3)) '
+            || 'else (map { ''b'': 8, ''f'': 12, ''n'': 10, ''r'': 13, ''t'': 9 }(substring($t, 2)), string-to-codepoints(substring($t, 2)))[1] '
+            || 'return codepoints-to-string(if ($c eq 0 or ($c ge 55296 and $c le 57343) or $c = (65534, 65535)) then 65533 else $c))) }',
+          '$hex': 'function($h) { fold-left(string-to-codepoints(upper-case($h)), 0, function($a, $c) { $a * 16 + (if ($c ge 65) then $c - 55 else $c - 48) }) }',
+          '$str': 'function($n) { if ($n/@escaped = ''true'') then $unesc(string($n)) else string($n) }',
+          '$isint': 'function($n) { let $x := $num($n) return $x = floor($x) }',
+          '$mult': 'function($x, $m) { if ($x instance of xs:double or $m instance of xs:double) then (let $q := xs:double($x) div xs:double($m) return $q = floor($q)) else ($x mod $m = 0) }'
+        },
+        if ($elements) then map {
+          '$key': 'function($n) { let $m := local-name($n) return if ($m eq ''_x_'') then '''' else if (not(contains($m, ''_x''))) then $m '
+            || 'else string-join(analyze-string($m, ''_x([0-9A-Fa-f]{8}|[0-9A-Fa-f]{4})_'')/* ! '
+            || '(if (self::fn:match) then codepoints-to-string($hex(string(fn:group))) else string(.))) }',
+          '$xmlesc': 'function($s) { replace(replace($s, ''&amp;'', ''&amp;amp;''), ''&lt;'', ''&amp;lt;'') }',
+          '$eq': 'function($eq, $a, $b) { let $t := string($a/@type) return if ($t ne string($b/@type)) then false() '
+            || 'else if ($t eq ''number'') then $num($a) = $num($b) '
+            || 'else if ($t eq '''') then $str($a) eq $str($b) '
+            || 'else if ($t eq ''boolean'') then normalize-space($a) eq normalize-space($b) '
+            || 'else if ($t eq ''null'') then true() '
+            || 'else if ($t eq ''array'') then count($a/*) eq count($b/*) and (every $i in 1 to count($a/*) satisfies $eq($eq, $a/*[$i], $b/*[$i])) '
+            || 'else count($a/*) eq count($b/*) and (every $x in $a/* satisfies (some $y in $b/*[local-name() eq local-name($x)] satisfies $eq($eq, $x, $y))) }'
+        } else map {
+          '$key': 'function($n) { if ($n/@escaped-key = ''true'') then $unesc(string($n/@key)) else string($n/@key) }',
+          '$eq': 'function($eq, $a, $b) { if (local-name($a) ne local-name($b)) then false() '
+            || 'else if ($a/self::fn:number) then $num($a) = $num($b) '
+            || 'else if ($a/self::fn:string) then $str($a) eq $str($b) '
+            || 'else if ($a/self::fn:boolean) then xs:boolean(normalize-space($a)) eq xs:boolean(normalize-space($b)) '
+            || 'else if ($a/self::fn:null) then true() '
+            || 'else if ($a/self::fn:array) then count($a/*) eq count($b/*) and (every $i in 1 to count($a/*) satisfies $eq($eq, $a/*[$i], $b/*[$i])) '
+            || 'else count($a/*) eq count($b/*) and (every $x in $a/* satisfies (some $y in $b/* satisfies ($key($x) eq $key($y) and $eq($eq, $x, $y)))) }'
+        }))"/>
+    <xsl:variable name="deps" select="map {
+        '$str': '$unesc', '$unesc': '$hex', '$isint': '$num', '$key': if ($elements) then '$hex' else '$unesc',
+        '$eq': ('$num', '$str', '$key') }"/>
+    <xsl:variable name="closure" select="c:helper-closure($names, $deps)"/>
+    <xsl:sequence select="('$T', '$num', '$hex', '$unesc', '$str', '$key', '$isint', '$mult', '$xmlesc', '$eq')
+        [. = $closure][map:contains($all, .)] ! (. || ' := ' || $all(.))"/>
+  </xsl:function>
+
+  <xsl:function name="c:helper-closure" as="xs:string*">
+    <xsl:param name="names" as="xs:string*"/>
+    <xsl:param name="deps" as="map(*)"/>
+    <xsl:variable name="more" select="distinct-values(($names, $names ! $deps(.)))"/>
+    <xsl:sequence select="if (count($more) eq count(distinct-values($names))) then $more else c:helper-closure($more, $deps)"/>
+  </xsl:function>
+
+  <!-- ================================================================== -->
+  <!-- Structural XSD for the JSON elements format                       -->
+  <!-- ================================================================== -->
+
+  <!--
+    In the JSON elements format, object members are elements named after
+    their keys and the JSON type is the attribute type (absent for strings).
+    Each schema then becomes element declarations and types:
+
+    - an element (the document element json, a member, an array item) gets
+      one xs:alternative per JSON type, selected by @type, pointing to the
+      type of that kind for its schema (t<i>.object, t<i>.number, ...), or to
+      xs:error for kinds the schema does not allow;
+    - objects are xs:all groups of their properties (minOccurs 1 for
+      required ones) plus a wildcard unless additionalProperties is false;
+    - arrays are sequences of item elements (prefixItems as nested optional
+      sequences);
+    - strings get minLength, maxLength, pattern and enumeration facets,
+      booleans an enumeration;
+    - what has no XSD equivalent but concerns only the node itself
+      (numeric limits, multipleOf, uniqueItems, minProperties, ...) is a small
+      xs:assert on the type;
+    - schemas that combine or select other schemas (allOf, anyOf, oneOf, not,
+      if, patternProperties, additionalProperties with a schema, contains,
+      unevaluated*, ...) become a type f<i> whose assertion evaluates the
+      whole subschema, as in the xpath format;
+    - $ref without other validation keywords points to the target's types,
+      so recursive schemas are recursive types.
+    Schemas with $dynamicRef or $recursiveRef depend on the dynamic scope and
+    are evaluated by one assertion on the document element.
+  -->
+
+  <xsl:function name="c:xsd-elements" as="element(xs:schema)">
+    <xsl:param name="root" as="element()"/>
+    <xsl:param name="entries" as="map(*)*"/>
+    <xsl:param name="reg" as="map(*)"/>
+    <xsl:param name="program" as="map(*)"/>
+    <xsl:param name="description" as="xs:string"/>
+
+    <xsl:variable name="dynamic" select="$structure ne 'yes' or exists($entries[
+        exists(($program?ra, $program?da)) and exists(c:kw(?n, ('$dynamicRef', '$recursiveRef')))])"/>
+    <xsl:variable name="ctx" select="map { 'reg': $reg, 'program': $program, 'dynamic': $dynamic }"/>
+    <xsl:variable name="nodes" as="element()*" select="if ($dynamic) then () else c:typed-nodes($root, $ctx, ())"/>
+
+    <xsl:variable name="body" as="element()*">
+      <xsl:choose>
+        <xsl:when test="$dynamic">
+          <xs:element name="json" type="f{c:idx($root, $ctx)}"/>
+          <xsl:sequence select="c:fallback-type($root, $ctx)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xs:element name="json">
+            <xsl:sequence select="c:element-type($root, $ctx)"/>
+          </xs:element>
+          <xsl:for-each select="$nodes">
+            <xsl:sequence select="if (c:class-of(., $ctx) eq 'fallback') then c:fallback-type(., $ctx)
+                else (c:kind-types(., $ctx), if (c:string-constraints(.)) then c:fallback-type(., $ctx) else ())"/>
+          </xsl:for-each>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <!-- the generic types the declarations use, and the ones these use -->
+    <xsl:variable name="used" select="distinct-values(($body//@type, $body//@base)[starts-with(., 'jx.')])"/>
+    <xsl:variable name="used" select="distinct-values(($used, $generic-types[@name = $used]/(.//@base, .//xs:element/@type)[starts-with(., 'jx.')]))"/>
+    <xs:schema vc:minVersion="1.1" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
       <xs:annotation>
         <xs:documentation>
-          <xsl:value-of select="'Generated by json-schema-to-xsd.xslt' || (if ($source) then ' from ' || $source else '')
-              || ' (dialect ' || c:dialect-name($d) || '). Validates a JSON instance in the'
-              || ' XML representation of fn:json-to-xml().'"/>
+          <xsl:value-of select="$description"/>
         </xs:documentation>
       </xs:annotation>
-      <xs:complexType name="json" mixed="true">
-        <xs:sequence>
-          <xs:any namespace="##any" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-        <xs:anyAttribute namespace="##any" processContents="skip"/>
-        <!-- generate-id() differs between runs: number the functions instead -->
-        <xs:assert test="{fold-left(1 to count($entries), $assertion, function($text, $i) {
-            replace($text, c:lit(c:fkey($entries[$i]?n)), c:lit('s' || $i), 'q') })}"/>
-      </xs:complexType>
-      <xsl:for-each select="('map', 'array', 'string', 'number', 'boolean', 'null')">
-        <xs:element name="{.}" type="fn:json"/>
-      </xsl:for-each>
+      <xsl:sequence select="$body, $generic-types[@name = $used]"/>
     </xs:schema>
+  </xsl:function>
+
+  <!-- jx.<kind>: any value of a JSON type; jx.any: anything. -->
+  <xsl:variable name="generic-types" as="element()*">
+    <xs:complexType name="jx.object">
+      <xs:sequence>
+        <xs:any processContents="skip" namespace="##local" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="type" type="xs:string" fixed="object" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="jx.array">
+      <xs:sequence>
+        <xs:element name="item" type="jx.any" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="type" type="xs:string" fixed="array" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="jx.string">
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="escaped" type="xs:string"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="jx.number">
+      <xs:simpleContent>
+        <xs:extension base="jx.number.value">
+          <xs:attribute name="type" type="xs:string" fixed="number" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="jx.number.value">
+      <xs:restriction base="xs:string">
+        <xs:pattern value="-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+\-]?[0-9]+)?"/>
+      </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="jx.boolean">
+      <xs:simpleContent>
+        <xs:extension base="jx.boolean.value">
+          <xs:attribute name="type" type="xs:string" fixed="boolean" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="jx.boolean.value">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="true"/>
+        <xs:enumeration value="false"/>
+      </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="jx.null">
+      <xs:attribute name="type" type="xs:string" fixed="null" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="jx.any" mixed="true">
+      <xs:sequence>
+        <xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+  </xsl:variable>
+
+  <xsl:function name="c:idx" as="xs:integer">
+    <xsl:param name="n" as="element()"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:sequence select="$ctx?program?index(c:fkey($n))"/>
+  </xsl:function>
+
+  <!-- Keywords that select or combine subschemas: their schema is evaluated
+       by an assertion (per dialect, as in c:keywords). -->
+  <xsl:function name="c:fallback-keywords" as="xs:string*">
+    <xsl:param name="d" as="xs:integer"/>
+    <xsl:sequence select="'patternProperties',
+        if ($d eq 3) then ('extends', 'disallow') else ('allOf', 'anyOf', 'oneOf', 'not'),
+        if ($d ge 6) then ('contains', 'propertyNames') else (),
+        if ($d ge 7) then 'if' else (),
+        if ($d eq 7) then 'contentEncoding' else (),
+        if ($d ge 2019) then ('dependentSchemas', 'unevaluatedItems', 'unevaluatedProperties') else (),
+        if ($d eq 2019) then '$recursiveRef' else (),
+        if ($d ge 2020) then '$dynamicRef' else (),
+        if ($d ge 2100) then 'propertyDependencies' else ()"/>
+  </xsl:function>
+
+  <!-- Keywords that constrain the instance (all others are annotations). -->
+  <xsl:variable name="validation-keywords" as="xs:string*" select="
+      'type', 'enum', 'const', 'minimum', 'maximum', 'exclusiveMinimum', 'exclusiveMaximum',
+      'multipleOf', 'divisibleBy', 'minLength', 'maxLength', 'pattern', 'minItems', 'maxItems',
+      'uniqueItems', 'items', 'prefixItems', 'additionalItems', 'minProperties', 'maxProperties',
+      'required', 'properties', 'additionalProperties', 'dependencies', 'dependentRequired'"/>
+
+  <!-- true, false, alias ($ref only), struct or fallback. -->
+  <xsl:function name="c:class" as="xs:string">
+    <xsl:param name="n" as="element()"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:variable name="e" select="$ctx?reg?info(generate-id($n))"/>
+    <xsl:variable name="d" select="$e?d"/>
+    <xsl:variable name="keys" select="$n/self::fn:map/*/c:key(.)"/>
+    <xsl:variable name="validating" select="if (empty($e)) then () else $keys[. = ($validation-keywords, c:fallback-keywords($d))
+        or (. eq 'format' and $e?fmt and c:kw($n, 'format') = $format-names)]"/>
+    <xsl:sequence select="
+        if ($n/self::fn:boolean) then (if ($n = 'true') then 'true' else 'false')
+        else if (empty($e) or $e?noval) then 'fallback'
+        else if ($keys = '$ref' and ($d le 7 or empty($validating))) then 'alias'
+        else if ($keys = '$ref') then 'fallback'
+        else if (empty($validating)) then 'true'
+        else if ($keys = c:fallback-keywords($d) or $keys = 'format') then 'fallback'
+        else if (exists(c:kw($n, 'additionalProperties')[not(c:trivial(.))])) then 'fallback'
+        else if (exists(c:array-parts($n, $ctx)?prefix)) then 'fallback'
+        else if (exists(c:kw($n, 'dependencies')/*[c:is-schema(.)])) then 'fallback'
+        else if ($d eq 3 and exists(c:kw($n, 'type')/self::fn:array/fn:map)) then 'fallback'
+        else if (exists((c:kw($n, 'enum')/*, c:kw($n, 'const'))/self::fn:string[@escaped = 'true'][not(je:xml-safe(c:str(.)))])) then 'fallback'
+        else 'struct'"/>
+  </xsl:function>
+
+  <!-- A boolean schema or the empty schema. -->
+  <xsl:function name="c:trivial" as="xs:boolean">
+    <xsl:param name="n" as="element()"/>
+    <xsl:sequence select="exists($n/self::fn:boolean) or exists($n/self::fn:map[empty(*)])"/>
+  </xsl:function>
+
+  <!-- The schema a node stands for, following $ref aliases; () for a cycle. -->
+  <xsl:function name="c:effective" as="element()?">
+    <xsl:param name="n" as="element()"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:param name="seen" as="xs:string*"/>
+    <xsl:choose>
+      <xsl:when test="generate-id($n) = $seen"/>
+      <xsl:when test="c:class($n, $ctx) eq 'alias'">
+        <xsl:variable name="e" select="$ctx?reg?info(generate-id($n))"/>
+        <xsl:sequence select="c:effective(c:target(c:resolve(c:str(c:kw($n, '$ref')), $e?base), $ctx?reg, true()),
+            $ctx, ($seen, generate-id($n)))"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="$n"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+
+  <!-- The class of the schema a node stands for. -->
+  <xsl:function name="c:class-of" as="xs:string">
+    <xsl:param name="n" as="element()"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:variable name="eff" select="c:effective($n, $ctx, ())"/>
+    <xsl:sequence select="if (empty($eff)) then 'fallback' else c:class($eff, $ctx)"/>
+  </xsl:function>
+
+  <!-- The node whose types an element of schema $n uses. -->
+  <xsl:function name="c:typed" as="element()">
+    <xsl:param name="n" as="element()"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:sequence select="(c:effective($n, $ctx, ()), $n)[1]"/>
+  </xsl:function>
+
+  <!-- The schemas that need type definitions, reachable from $todo. -->
+  <xsl:function name="c:typed-nodes" as="element()*">
+    <xsl:param name="todo" as="element()*"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:param name="done" as="element()*"/>
+    <xsl:variable name="new" as="element()*" select="($todo ! c:typed(., $ctx))[not(. intersect $done)]
+        [c:class-of(., $ctx) = ('struct', 'fallback')]/."/>
+    <xsl:sequence select="if (empty($new)) then $done
+        else c:typed-nodes($new[c:class-of(., $ctx) eq 'struct'] ! c:element-schemas(., $ctx), $ctx, ($done, $new))"/>
+  </xsl:function>
+
+  <!-- The schemas of the member and item elements of a struct schema. -->
+  <xsl:function name="c:element-schemas" as="element()*">
+    <xsl:param name="s" as="element()"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:variable name="a" select="c:array-parts($s, $ctx)"/>
+    <xsl:sequence select="c:kw($s, 'properties')/self::fn:map/*[c:is-schema(.)],
+        c:kw($s, 'additionalProperties')[c:is-schema(.)], $a?prefix, $a?rest"/>
+  </xsl:function>
+
+  <!-- prefix (schemas of the first items) and rest (schema of the others). -->
+  <xsl:function name="c:array-parts" as="map(*)">
+    <xsl:param name="s" as="element()"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:variable name="d" select="$ctx?reg?info(generate-id($s))?d"/>
+    <xsl:variable name="items" select="c:kw($s, 'items')"/>
+    <xsl:sequence select="
+        if ($d le 2019) then map {
+          'prefix': $items/self::fn:array/*[c:is-schema(.)],
+          'rest': if ($items/self::fn:array) then c:kw($s, 'additionalItems')[c:is-schema(.)] else $items[c:is-schema(.)] }
+        else map { 'prefix': c:kw($s, 'prefixItems')/self::fn:array/*[c:is-schema(.)], 'rest': $items[c:is-schema(.)] }"/>
+  </xsl:function>
+
+  <!-- The type of an element declaration for schema $n: a type attribute or
+       one xs:alternative per JSON type. -->
+  <xsl:function name="c:element-type" as="node()*">
+    <xsl:param name="n" as="element()?"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:variable name="t" select="if (empty($n)) then () else c:typed($n, $ctx)"/>
+    <xsl:variable name="class" select="if (empty($n)) then 'true' else c:class-of($n, $ctx)"/>
+    <xsl:choose>
+      <xsl:when test="$class eq 'true'">
+        <xsl:attribute name="type" select="'jx.any'"/>
+      </xsl:when>
+      <xsl:when test="$class eq 'false'">
+        <xsl:attribute name="type" select="'xs:error'"/>
+      </xsl:when>
+      <xsl:when test="$class eq 'fallback'">
+        <xsl:attribute name="type" select="'f' || c:idx($t, $ctx)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="i" select="c:idx($t, $ctx)"/>
+        <xsl:variable name="kinds" select="c:kinds($t, $ctx)"/>
+        <xsl:for-each select="('object', 'array', 'number', 'boolean', 'null')[. = $kinds]">
+          <xs:alternative test="@type = '{.}'" type="{c:kind-type-name($t, ., $ctx)}"/>
+        </xsl:for-each>
+        <xsl:if test="'string' = $kinds and c:string-constraints($t)">
+          <xs:alternative test="not(@type) and @escaped = 'true'" type="f{$i}"/>
+        </xsl:if>
+        <xsl:if test="'string' = $kinds">
+          <xs:alternative test="not(@type)" type="{c:kind-type-name($t, 'string', $ctx)}"/>
+        </xsl:if>
+        <xs:alternative type="xs:error"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+
+  <xsl:function name="c:element" as="element(xs:element)">
+    <xsl:param name="name" as="xs:string"/>
+    <xsl:param name="schema" as="element()?"/>
+    <xsl:param name="min" as="xs:integer"/>
+    <xsl:param name="max" as="xs:integer?"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xs:element name="{$name}">
+      <xsl:if test="$min ne 1">
+        <xsl:attribute name="minOccurs" select="$min"/>
+      </xsl:if>
+      <xsl:if test="empty($max) or $max ne 1">
+        <xsl:attribute name="maxOccurs" select="if (empty($max)) then 'unbounded' else $max"/>
+      </xsl:if>
+      <xsl:sequence select="c:element-type($schema, $ctx)"/>
+    </xs:element>
+  </xsl:function>
+
+  <!-- t<i>.<kind> if the schema constrains values of that kind, else the
+       generic jx.<kind>. -->
+  <xsl:function name="c:kind-type-name" as="xs:string">
+    <xsl:param name="s" as="element()"/>
+    <xsl:param name="kind" as="xs:string"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:sequence select="if (c:constrains($s, $kind, $ctx)) then 't' || c:idx($s, $ctx) || '.' || $kind else 'jx.' || $kind"/>
+  </xsl:function>
+
+  <xsl:function name="c:constrains" as="xs:boolean">
+    <xsl:param name="s" as="element()"/>
+    <xsl:param name="kind" as="xs:string"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:variable name="d" select="$ctx?reg?info(generate-id($s))?d"/>
+    <xsl:variable name="types" select="c:kw($s, 'type')/(self::fn:string | fn:string)/c:str(.)"/>
+    <xsl:variable name="values" select="(c:kw($s, 'enum')/*, c:kw($s, 'const'))[c:kind-of(.) eq $kind]"/>
+    <xsl:sequence select="exists($values) or (
+        if ($kind eq 'object') then exists(c:kw($s, ('properties', 'required', 'minProperties', 'maxProperties',
+            'dependencies', 'dependentRequired'))) or c:kw($s, 'additionalProperties') = 'false'
+        else if ($kind eq 'array') then exists(c:kw($s, ('items', 'additionalItems', 'minItems', 'maxItems', 'uniqueItems')))
+        else if ($kind eq 'string') then c:string-constraints($s)
+        else if ($kind eq 'number') then exists(c:kw($s, ('minimum', 'maximum', 'exclusiveMinimum', 'exclusiveMaximum',
+            'multipleOf', 'divisibleBy'))) or ($types = 'integer' and not($types = ('number', 'any')))
+        else false())"/>
+  </xsl:function>
+
+  <!-- The JSON types a struct schema allows. -->
+  <xsl:function name="c:kinds" as="xs:string*">
+    <xsl:param name="s" as="element()"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:variable name="all" select="('object', 'array', 'string', 'number', 'boolean', 'null')"/>
+    <xsl:variable name="types" select="c:kw($s, 'type')/(self::fn:string | fn:string)/c:str(.)"/>
+    <xsl:variable name="by-type" select="if (empty(c:kw($s, 'type')) or $types = 'any') then $all
+        else $all[. = ($types, if ($types = 'integer') then 'number' else ())]"/>
+    <xsl:variable name="values" select="c:kw($s, 'enum')/*, c:kw($s, 'const')"/>
+    <xsl:variable name="by-value" select="if (empty(c:kw($s, ('enum', 'const')))) then $all
+        else distinct-values($values ! c:kind-of(.))"/>
+    <xsl:variable name="const-kind" select="c:kw($s, 'const') ! c:kind-of(.)"/>
+    <xsl:sequence select="$by-type[. = $by-value][empty($const-kind) or . = $const-kind]"/>
+  </xsl:function>
+
+  <xsl:function name="c:kind-of" as="xs:string">
+    <xsl:param name="v" as="element()"/>
+    <xsl:sequence select="if ($v/self::fn:map) then 'object' else local-name($v)"/>
+  </xsl:function>
+
+  <!-- A struct schema with constraints on strings (escaped strings then go
+       to its fallback type). -->
+  <xsl:function name="c:string-constraints" as="xs:boolean">
+    <xsl:param name="s" as="element()"/>
+    <xsl:sequence select="exists((c:kw($s, ('minLength', 'maxLength', 'pattern')),
+        (c:kw($s, 'enum')/*, c:kw($s, 'const'))/self::fn:string))"/>
+  </xsl:function>
+
+  <!-- An integer from a JSON number (2.0 is 2), or () if it is none. -->
+  <xsl:function name="c:int" as="xs:integer?">
+    <xsl:param name="n" as="element()?"/>
+    <xsl:variable name="v" select="$n/self::fn:number/normalize-space(.)"/>
+    <xsl:sequence select="if (exists($v) and $v castable as xs:decimal and xs:decimal($v) = floor(xs:decimal($v)))
+        then xs:integer(xs:decimal($v)) else ()"/>
+  </xsl:function>
+
+  <!-- An xs:assert for a test on $n (the element), with the helpers it uses. -->
+  <xsl:function name="c:local-assert" as="element(xs:assert)?">
+    <xsl:param name="tests" as="xs:string*"/>
+    <xsl:if test="exists($tests)">
+      <xsl:variable name="expr" select="string-join($tests ! ('(' || . || ')'), ' and ')"/>
+      <xsl:variable name="helpers" select="c:helpers(distinct-values(analyze-string($expr, '\$[a-z]+')/fn:match/string()))"/>
+      <xs:assert test="{'let ' || string-join(('$n := .', $helpers), ', ') || ' return ' || $expr}"/>
+    </xsl:if>
+  </xsl:function>
+
+  <!-- t<i>.<kind> for each kind a struct schema allows. -->
+  <xsl:function name="c:kind-types" as="element()*">
+    <xsl:param name="s" as="element()"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:variable name="i" select="c:idx($s, $ctx)"/>
+    <xsl:variable name="e" select="$ctx?reg?info(generate-id($s))"/>
+    <xsl:variable name="d" select="$e?d"/>
+    <xsl:variable name="kinds" select="c:kinds($s, $ctx)"/>
+    <xsl:variable name="values" select="c:kw($s, 'enum')/*, c:kw($s, 'const')"/>
+    <!-- values of one kind in enum and const, which must all hold -->
+    <xsl:variable name="value-tests" select="function($kind) {
+        (if (exists(c:kw($s, 'enum'))) then '(some $e in (' || string-join(c:kw($s, 'enum')/*[c:kind-of(.) eq $kind] ! c:constant(.), ', ')
+            || ') satisfies $eq($eq, $n, $e))' else (),
+         c:kw($s, 'const')[c:kind-of(.) eq $kind] ! ('$eq($eq, $n, ' || c:constant(.) || ')')) }"/>
+
+    <xsl:if test="$kinds = 'object' and c:constrains($s, 'object', $ctx)">
+      <xsl:variable name="props" select="c:kw($s, 'properties')/self::fn:map/*[c:is-schema(.)]"/>
+      <xsl:variable name="required" select="distinct-values((
+          if ($d ge 4) then c:kw($s, 'required')/self::fn:array/fn:string/c:str(.) else (),
+          if ($d eq 3) then $props[c:kw(., 'required') = 'true']/c:key(.) else ()))"/>
+      <xsl:variable name="additional" select="c:kw($s, 'additionalProperties')"/>
+      <xsl:variable name="closed" select="$additional/self::fn:boolean = 'false'"/>
+      <xs:complexType name="t{$i}.object">
+        <xs:all>
+          <xsl:for-each select="$props">
+            <xsl:sequence select="c:element(je:name(c:key(.)), ., if (c:key(.) = $required) then 1 else 0, 1, $ctx)"/>
+          </xsl:for-each>
+          <xsl:for-each select="$required[not(. = $props/c:key(.))]">
+            <xsl:sequence select="c:element(je:name(.), ($additional, $s/../*[false()])[1], 1, 1, $ctx)"/>
+          </xsl:for-each>
+          <xsl:if test="not($closed)">
+            <xs:any processContents="skip" namespace="##local" notQName="##definedSibling"
+                minOccurs="0" maxOccurs="unbounded"/>
+          </xsl:if>
+        </xs:all>
+        <xsl:sequence select="c:type-attribute('object')"/>
+        <xsl:sequence select="c:local-assert((
+            c:kw($s, 'minProperties')/c:int(.) ! ('count($n/*) ge ' || .),
+            c:kw($s, 'maxProperties')/c:int(.) ! ('count($n/*) le ' || .),
+            (c:kw($s, 'dependencies')/self::fn:map/*, if ($d ge 2019) then c:kw($s, 'dependentRequired')/self::fn:map/fn:array else ())
+              [self::fn:array or self::fn:string]
+              ! ('not(exists($n/*[$key(.) eq ' || c:lit(c:key(.)) || '])) or (every $r in ('
+                 || c:string-list(self::fn:array/* | self::fn:string) || ') satisfies exists($n/*[$key(.) eq $r]))'),
+            $value-tests('object')))"/>
+      </xs:complexType>
+    </xsl:if>
+
+    <xsl:if test="$kinds = 'array' and c:constrains($s, 'array', $ctx)">
+      <xsl:variable name="parts" select="c:array-parts($s, $ctx)"/>
+      <xsl:variable name="rest" select="($parts?rest, $s/../*[false()])[1]"/>
+      <xsl:variable name="no-rest" select="exists($rest) and c:class-of($rest, $ctx) eq 'false'"/>
+      <xsl:variable name="min" select="c:int(c:kw($s, 'minItems'))"/>
+      <xsl:variable name="max" select="c:int(c:kw($s, 'maxItems'))"/>
+      <xsl:variable name="counted" select="empty($parts?prefix) and not($no-rest)
+          and (empty($min) or empty($max) or $min le $max)"/>
+      <xs:complexType name="t{$i}.array">
+        <xs:sequence>
+          <xsl:choose>
+            <xsl:when test="$counted">
+              <xsl:sequence select="c:element('item', $rest, ($min, 0)[1], $max, $ctx)"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:sequence select="c:item-sequence($parts?prefix, if ($no-rest) then () else ($rest, $s)[1], $no-rest, exists($rest), $ctx)"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xs:sequence>
+        <xsl:sequence select="c:type-attribute('array')"/>
+        <xsl:sequence select="c:local-assert((
+            if ($counted) then () else ($min ! ('count($n/*) ge ' || .), $max ! ('count($n/*) le ' || .)),
+            if (c:kw($s, 'uniqueItems') = 'true')
+              then 'every $i in 1 to count($n/*) - 1 satisfies every $j in $i + 1 to count($n/*) satisfies not($eq($eq, $n/*[$i], $n/*[$j]))'
+              else (),
+            $value-tests('array')))"/>
+      </xs:complexType>
+    </xsl:if>
+
+    <xsl:if test="$kinds = 'string' and c:constrains($s, 'string', $ctx)">
+      <xsl:variable name="pattern" select="c:kw($s, 'pattern')/self::fn:string/c:str(.)"/>
+      <xsl:variable name="xsd-pattern" select="$pattern ! c:xsd-pattern(.)"/>
+      <xsl:variable name="strings" select="$values[c:kind-of(.) eq 'string']"/>
+      <xsl:variable name="enum" select="if (exists(c:kw($s, 'const'))) then c:kw($s, 'const')[self::fn:string]
+          else c:kw($s, 'enum')/self::fn:array/fn:string"/>
+      <xsl:variable name="facets" as="element()*">
+        <xsl:for-each select="c:kw($s, 'minLength')/c:int(.)">
+          <xs:minLength value="{.}"/>
+        </xsl:for-each>
+        <xsl:for-each select="c:kw($s, 'maxLength')/c:int(.)">
+          <xs:maxLength value="{.}"/>
+        </xsl:for-each>
+        <xsl:for-each select="$xsd-pattern">
+          <xs:pattern value="{.}"/>
+        </xsl:for-each>
+        <xsl:for-each select="$enum">
+          <xs:enumeration value="{c:str(.)}"/>
+        </xsl:for-each>
+      </xsl:variable>
+      <xsl:if test="exists($facets)">
+        <xs:simpleType name="t{$i}.string.value">
+          <xs:restriction base="xs:string">
+            <xsl:sequence select="$facets"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xsl:if>
+      <xs:complexType name="t{$i}.string">
+        <xs:simpleContent>
+          <xs:extension base="{if (exists($facets)) then 't' || $i || '.string.value' else 'xs:string'}">
+            <xsl:if test="not(c:string-constraints($s))">
+              <xs:attribute name="escaped" type="xs:string"/>
+            </xsl:if>
+            <xsl:sequence select="c:local-assert((
+                if (exists($pattern) and empty($xsd-pattern)) then 'matches(string($n), ' || c:regex($pattern) || ')' else (),
+                c:kw($s, 'const')[self::fn:string][exists(c:kw($s, 'enum'))] ! ('string($n) = (' || c:string-list(c:kw($s, 'enum')/self::fn:array/fn:string) || ')')))"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xsl:if>
+
+    <xsl:if test="$kinds = 'number' and c:constrains($s, 'number', $ctx)">
+      <xsl:variable name="excl-min" select="$d le 4 and c:kw($s, 'exclusiveMinimum') = 'true'"/>
+      <xsl:variable name="excl-max" select="$d le 4 and c:kw($s, 'exclusiveMaximum') = 'true'"/>
+      <xsl:variable name="types" select="c:kw($s, 'type')/(self::fn:string | fn:string)/c:str(.)"/>
+      <xs:complexType name="t{$i}.number">
+        <xs:simpleContent>
+          <xs:extension base="jx.number.value">
+            <xsl:sequence select="c:type-attribute('number')"/>
+            <xsl:sequence select="c:local-assert((
+                if ($types = 'integer' and not($types = ('number', 'any')))
+                  then (if ($d le 4) then 'not(contains($n, ''.'')) and $isint($n)' else '$isint($n)') else (),
+                c:kw($s, 'minimum')/self::fn:number ! ('$num($n) ' || (if ($excl-min) then 'gt ' else 'ge ') || c:number(.)),
+                c:kw($s, 'maximum')/self::fn:number ! ('$num($n) ' || (if ($excl-max) then 'lt ' else 'le ') || c:number(.)),
+                if ($d ge 6) then (
+                  c:kw($s, 'exclusiveMinimum')/self::fn:number ! ('$num($n) gt ' || c:number(.)),
+                  c:kw($s, 'exclusiveMaximum')/self::fn:number ! ('$num($n) lt ' || c:number(.))) else (),
+                c:kw($s, if ($d eq 3) then 'divisibleBy' else 'multipleOf')/self::fn:number ! ('$mult($num($n), ' || c:number(.) || ')'),
+                if (exists(c:kw($s, 'enum')/self::fn:array/fn:number))
+                  then string-join(c:kw($s, 'enum')/self::fn:array/fn:number ! ('$num($n) = ' || c:number(.)), ' or ') else (),
+                c:kw($s, 'const')[self::fn:number] ! ('$num($n) = ' || c:number(.))))"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xsl:if>
+
+    <xsl:if test="$kinds = 'boolean' and c:constrains($s, 'boolean', $ctx)">
+      <xsl:variable name="booleans" select="distinct-values(
+          if (exists(c:kw($s, 'const'))) then c:kw($s, 'const')[self::fn:boolean]/normalize-space(.)
+          else c:kw($s, 'enum')/self::fn:array/fn:boolean/normalize-space(.))"/>
+      <xs:complexType name="t{$i}.boolean">
+        <xs:simpleContent>
+          <xsl:choose>
+            <xsl:when test="exists($values)">
+              <xs:restriction base="t{$i}.boolean.base">
+                <xsl:for-each select="$booleans">
+                  <xs:enumeration value="{.}"/>
+                </xsl:for-each>
+              </xs:restriction>
+            </xsl:when>
+            <xsl:otherwise>
+              <xs:extension base="jx.boolean.value">
+                <xsl:sequence select="c:type-attribute('boolean')"/>
+              </xs:extension>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xsl:if test="exists($values)">
+        <xs:complexType name="t{$i}.boolean.base">
+          <xs:simpleContent>
+            <xs:extension base="jx.boolean.value">
+              <xsl:sequence select="c:type-attribute('boolean')"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xsl:if>
+    </xsl:if>
+
+    <xsl:if test="$kinds = 'null' and c:constrains($s, 'null', $ctx)">
+      <xs:complexType name="t{$i}.null">
+        <xsl:sequence select="c:type-attribute('null')"/>
+      </xs:complexType>
+    </xsl:if>
+  </xsl:function>
+
+  <xsl:function name="c:type-attribute" as="element(xs:attribute)">
+    <xsl:param name="kind" as="xs:string"/>
+    <xs:attribute name="type" type="xs:string" fixed="{$kind}" use="required"/>
+  </xsl:function>
+
+  <!-- Items for prefix schemas: (p1, (p2, (..., rest*)?)?)? -->
+  <xsl:function name="c:item-sequence" as="element()*">
+    <xsl:param name="prefix" as="element()*"/>
+    <xsl:param name="rest" as="element()?"/>
+    <xsl:param name="no-rest" as="xs:boolean"/>
+    <xsl:param name="has-rest" as="xs:boolean"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:choose>
+      <xsl:when test="empty($prefix)">
+        <xsl:if test="not($no-rest)">
+          <xsl:sequence select="c:element('item', if ($has-rest) then $rest else (), 0, (), $ctx)"/>
+        </xsl:if>
+      </xsl:when>
+      <xsl:otherwise>
+        <xs:sequence minOccurs="0">
+          <xsl:sequence select="c:element('item', head($prefix), 1, 1, $ctx)"/>
+          <xsl:sequence select="c:item-sequence(tail($prefix), $rest, $no-rest, $has-rest, $ctx)"/>
+        </xs:sequence>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+
+  <!-- f<i>: any content, checked by an assertion that evaluates the schema. -->
+  <xsl:function name="c:fallback-type" as="element(xs:complexType)">
+    <xsl:param name="s" as="element()"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xs:complexType name="f{c:idx($s, $ctx)}" mixed="true">
+      <xs:sequence>
+        <xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:anyAttribute processContents="skip"/>
+      <xs:assert test="{c:assertion($ctx?program, c:fkey($s))}"/>
+    </xs:complexType>
+  </xsl:function>
+
+  <!-- A JSON Schema pattern (ECMA-262, unanchored search) as an XSD pattern
+       facet (implicitly anchored), or () if it cannot be written as one. -->
+  <xsl:function name="c:xsd-pattern" as="xs:string?">
+    <xsl:param name="re" as="xs:string"/>
+    <xsl:variable name="x" select="c:regex-raw($re)"/>
+    <xsl:variable name="start" select="starts-with($x, '^')"/>
+    <xsl:variable name="end" select="matches($x, '(^|[^\\])(\\\\)*\$$')"/>
+    <xsl:variable name="core" select="if ($end) then substring(replace($x, '^\^', ''), 1, string-length(replace($x, '^\^', '')) - 1)
+        else replace($x, '^\^', '')"/>
+    <!-- XSD regular expressions have no anchors, groups with (?, reluctant
+         quantifiers or back-references; a top-level | would change the
+         meaning of the added .* -->
+    <xsl:variable name="stripped" select="replace(replace($core, '\\.', 'e'), '\[(\\.|[^\]\\])*\]', 'c')"/>
+    <xsl:if test="je:xml-safe($x) and not(matches($stripped, '[\^$]|\(\?|[*+?}]\?'))
+        and ($start and $end or not(c:top-level-alternation($stripped)))">
+      <xsl:sequence select="(if ($start) then '' else '[\s\S]*') || (if ($start and $end) then $core else '(' || $core || ')')
+          || (if ($end) then '' else '[\s\S]*')"/>
+    </xsl:if>
+  </xsl:function>
+
+  <xsl:function name="c:top-level-alternation" as="xs:boolean">
+    <xsl:param name="s" as="xs:string"/>
+    <xsl:sequence select="fold-left(string-to-codepoints($s), [0, false()], function($st, $c) {
+        if ($c eq 40) then [$st(1) + 1, $st(2)]
+        else if ($c eq 41) then [$st(1) - 1, $st(2)]
+        else if ($c eq 124 and $st(1) eq 0) then [$st(1), true()]
+        else $st })(2)"/>
   </xsl:function>
 
   <!-- ================================================================== -->
@@ -682,7 +1436,7 @@ $F := map {
 
   <xsl:function name="c:fkey" as="xs:string">
     <xsl:param name="n" as="element()"/>
-    <xsl:sequence select="'s' || generate-id($n)"/>
+    <xsl:sequence select="'k_' || generate-id($n) || '_k'"/>
   </xsl:function>
 
   <!-- Call of the function of schema $s on the instance node expression $inst. -->
@@ -727,7 +1481,16 @@ $F := map {
   <xsl:function name="c:on" as="xs:string">
     <xsl:param name="type" as="xs:string"/>
     <xsl:param name="expr" as="xs:string"/>
-    <xsl:sequence select="'(if ($n/self::fn:' || $type || ') then (' || $expr || ') else $T)'"/>
+    <xsl:sequence select="'(if (' || c:kind-test($type) || ') then (' || $expr || ') else $T)'"/>
+  </xsl:function>
+
+  <!-- Test whether the instance node $n is of a kind (map, array, string,
+       number, boolean, null), in the chosen instance format. -->
+  <xsl:function name="c:kind-test" as="xs:string">
+    <xsl:param name="kind" as="xs:string"/>
+    <xsl:sequence select="if (not($elements)) then '$n/self::fn:' || $kind
+        else if ($kind eq 'string') then 'not($n/@type)'
+        else '$n/@type = ' || c:lit(if ($kind eq 'map') then 'object' else $kind)"/>
   </xsl:function>
 
   <xsl:function name="c:valid" as="xs:string">
@@ -894,7 +1657,8 @@ $F := map {
     <xsl:if test="$d ge 6">
       <xsl:for-each select="c:kw($s, 'propertyNames')[c:is-schema(.)]">
         <xsl:sequence select="c:on('map', c:valid('(every $c in $n/* satisfies '
-            || c:call(., 'json-to-xml(serialize($key($c), map { ''method'': ''json'' }))/*') || '?v)'))"/>
+            || c:call(., if ($elements) then 'parse-xml(''&lt;json&gt;'' || $xmlesc($key($c)) || ''&lt;/json&gt;'')/*'
+                         else 'json-to-xml(serialize($key($c), map { ''method'': ''json'' }))/*') || '?v)'))"/>
       </xsl:for-each>
     </xsl:if>
     <xsl:variable name="dependencies" as="element()*" select="
@@ -918,7 +1682,7 @@ $F := map {
           select="c:kw($s, 'propertyDependencies')/self::fn:map/fn:map/*[c:is-schema(.)]"/>
       <xsl:if test="exists($property-deps)">
         <xsl:sequence select="c:on('map', c:all-of($property-deps ! ('(if (some $c in $n/*[$key(.) eq ' || c:lit(c:key(..))
-            || '] satisfies ($c/self::fn:string and $str($c) eq ' || c:lit(c:key(.)) || ')) then ' || c:call(., '$n') || ' else ())')))"/>
+            || '] satisfies (' || replace(c:kind-test('string'), '\$n', '\$c') || ' and $str($c) eq ' || c:lit(c:key(.)) || ')) then ' || c:call(., '$n') || ' else ())')))"/>
       </xsl:if>
     </xsl:if>
 
@@ -1017,11 +1781,11 @@ $F := map {
           </xsl:when>
           <xsl:otherwise>
             <xsl:sequence select="map {
-                'object': '$n/self::fn:map', 'array': '$n/self::fn:array',
-                'string': '$n/self::fn:string', 'number': '$n/self::fn:number',
-                'integer': if ($d le 4) then '($n/self::fn:number and not(contains($n, ''.'')) and $isint($n))'
-                           else '($n/self::fn:number and $isint($n))',
-                'boolean': '$n/self::fn:boolean', 'null': '$n/self::fn:null',
+                'object': c:kind-test('map'), 'array': c:kind-test('array'),
+                'string': c:kind-test('string'), 'number': c:kind-test('number'),
+                'integer': if ($d le 4) then '(' || c:kind-test('number') || ' and not(contains($n, ''.'')) and $isint($n))'
+                           else '(' || c:kind-test('number') || ' and $isint($n))',
+                'boolean': c:kind-test('boolean'), 'null': c:kind-test('null'),
                 'any': 'true()' }(c:str(.))"/>
           </xsl:otherwise>
         </xsl:choose>
@@ -1039,7 +1803,8 @@ $F := map {
         <xsl:copy-of select="$v/@escaped, $v/node()"/>
       </xsl:element>
     </xsl:variable>
-    <xsl:sequence select="'json-to-xml(' || c:lit(xml-to-json($copy)) || ', map { ''escape'': true() })/*'"/>
+    <xsl:sequence select="if ($elements) then 'parse-xml(' || c:lit(serialize(je:from-xpath-json($copy))) || ')/*'
+        else 'json-to-xml(' || c:lit(xml-to-json($copy)) || ', map { ''escape'': true() })/*'"/>
   </xsl:function>
 
   <xsl:function name="c:number" as="xs:string">
@@ -1061,11 +1826,14 @@ $F := map {
   <!-- XPath string literal. -->
   <xsl:function name="c:lit" as="xs:string">
     <xsl:param name="s" as="xs:string"/>
-    <xsl:sequence select="'''' || replace($s, '''', '''''') || ''''"/>
+    <xsl:sequence select="if (je:xml-safe($s)) then '''' || replace($s, '''', '''''') || ''''
+        else '(' || string-join(analyze-string($s, '[&#x9;&#xA;&#xD;&#x20;-&#xD7FF;&#xE000;-&#xFFFD;&#x10000;-&#x10FFFF;]+')/* ! (
+            if (self::fn:match) then '''' || replace(string(.), '''', '''''') || ''''
+            else 'codepoints-to-string((' || string-join(string-to-codepoints(.) ! string(.), ', ') || '))'), ' || ') || ')'"/>
   </xsl:function>
 
   <!-- ECMA-262 regular expression to an XPath regular expression literal. -->
-  <xsl:function name="c:regex" as="xs:string">
+  <xsl:function name="c:regex-raw" as="xs:string">
     <xsl:param name="re" as="xs:string"/>
     <xsl:variable name="tokens" as="xs:string*">
       <xsl:iterate select="analyze-string($re, '\\[pP]\{[^}]*\}|\\u\{[0-9a-fA-F]+\}|\\u[0-9a-fA-F]{4}|\\x[0-9a-fA-F]{2}|\\c[A-Za-z]|\\.|\[\^?|\]|.', 's')/fn:match/string()">
@@ -1082,9 +1850,9 @@ $F := map {
             else if ($t eq '\D') then (if ($in-class) then '\D' else '[^0-9]')
             else if ($t eq '\w') then (if ($in-class) then 'a-zA-Z0-9_' else '[a-zA-Z0-9_]')
             else if ($t eq '\W') then (if ($in-class) then '\W' else '[^a-zA-Z0-9_]')
-            else if ($t eq '\s') then (if ($in-class) then '\s\p{Zs}&#xFEFF;&#x2028;&#x2029;&#xA0;'
-                                      else '[\s\p{Zs}&#xFEFF;&#x2028;&#x2029;&#xA0;]')
-            else if ($t eq '\S') then (if ($in-class) then '\S' else '[^\s\p{Zs}&#xFEFF;&#x2028;&#x2029;&#xA0;]')
+            else if ($t eq '\s') then (if ($in-class) then '\s\p{Zs}&#xFEFF;&#x2028;&#x2029;&#xA0;' || $vtff
+                                      else '[\s\p{Zs}&#xFEFF;&#x2028;&#x2029;&#xA0;' || $vtff || ']')
+            else if ($t eq '\S') then (if ($in-class) then '\S' else '[^\s\p{Zs}&#xFEFF;&#x2028;&#x2029;&#xA0;' || $vtff || ']')
             else if ($t = ('\t', '\n', '\r', '\f', '\v', '\0'))
               then c:regex-char(map { '\t': 9, '\n': 10, '\r': 13, '\f': 12, '\v': 11, '\0': 0 }($t))
             else if (matches($t, '^\\[^nrtdDsSwWiIcCpP.\\?*+{}()|\[\]^$-]$')) then c:regex-char(string-to-codepoints(substring($t, 2)))
@@ -1096,7 +1864,12 @@ $F := map {
         </xsl:next-iteration>
       </xsl:iterate>
     </xsl:variable>
-    <xsl:sequence select="c:lit(string-join($tokens))"/>
+    <xsl:sequence select="string-join($tokens)"/>
+  </xsl:function>
+
+  <xsl:function name="c:regex" as="xs:string">
+    <xsl:param name="re" as="xs:string"/>
+    <xsl:sequence select="c:lit(c:regex-raw($re))"/>
   </xsl:function>
 
   <!-- \p{Name}: Unicode property names of ECMA-262 to XSD categories. -->
@@ -1119,12 +1892,17 @@ $F := map {
     <xsl:sequence select="substring($t, 1, 2) || '{' || ($names($name), $name)[1] || '}'"/>
   </xsl:function>
 
+  <!-- U+000B and U+000C, which ECMA-262 counts as white space; XML 1.0 has no
+       character reference for them. -->
+  <xsl:variable name="vtff" as="xs:string" select="codepoints-to-string((11, 12))"/>
+
   <!-- A literal character in an XPath regular expression. -->
   <xsl:function name="c:regex-char" as="xs:string">
     <xsl:param name="code" as="xs:integer"/>
+    <!-- control characters stay (written with codepoints-to-string, see c:lit);
+         U+0000 and surrogates become U+FFFD, as in c:unescape -->
     <xsl:variable name="ch" select="codepoints-to-string(
-        if ($code = (9, 10, 13) or ($code ge 32 and $code le 55295) or ($code ge 57344 and $code le 65533)
-            or $code ge 65536) then $code else 65533)"/>
+        if ($code eq 0 or ($code ge 55296 and $code le 57343) or $code = (65534, 65535)) then 65533 else $code)"/>
     <xsl:sequence select="if (matches($ch, '[\\.?*+{}()|\[\]^$-]')) then '\' || $ch else $ch"/>
   </xsl:function>
 
@@ -1132,15 +1910,18 @@ $F := map {
   <!-- Helpers                                                            -->
   <!-- ================================================================== -->
 
-  <xsl:function name="c:kw" as="element()?">
+  <xsl:function name="c:kw" as="element()*">
     <xsl:param name="s" as="element()?"/>
-    <xsl:param name="name" as="xs:string"/>
-    <xsl:sequence select="$s/self::fn:map/*[c:key(.) eq $name][1]"/>
+    <xsl:param name="names" as="xs:string*"/>
+    <xsl:sequence select="for $name in $names return $s/self::fn:map/*[c:key(.) eq $name][1]"/>
   </xsl:function>
 
   <xsl:function name="c:unescape" as="xs:string">
     <xsl:param name="s" as="xs:string"/>
-    <xsl:sequence select="parse-json('&quot;' || replace($s, '&quot;', '\\u0022') || '&quot;')"/>
+    <!-- control characters stay (go-xslt holds them as in XML 1.1); U+0000,
+         surrogates and U+FFFE/U+FFFF become U+FFFD -->
+    <xsl:sequence select="codepoints-to-string(je:unescape-codepoints($s) ! (
+        if (. eq 0 or (. ge 55296 and . le 57343) or . = (65534, 65535)) then 65533 else .))"/>
   </xsl:function>
 
   <xsl:function name="c:key" as="xs:string">

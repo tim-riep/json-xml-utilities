@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/optional/format/uri.json, test group 01, test 13
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a valid URL with ftp scheme</description>
+  <data>ftp://ftp.is.co.za/rfc/rfc1808.txt</data>
+  <valid type="boolean">true</valid>
+</json>

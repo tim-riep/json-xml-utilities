@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/uri.json, test group 01, test 37
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>URI with leading-zero IPv4 is structurally valid as a reg-name</description>
+  <comment>RFC 3986, Section 3.2.2: If an IP literal fails strict IPv4address parsing, it falls back to reg-name. A string of digits and dots is valid under unreserved characters. JSON Schema format asserts syntax, not scheme-specific DNS semantics.</comment>
+  <data>http://087.10.0.1/</data>
+  <valid type="boolean">true</valid>
+</json>

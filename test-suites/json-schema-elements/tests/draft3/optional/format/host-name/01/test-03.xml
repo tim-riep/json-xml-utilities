@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/optional/format/host-name.json, test group 01, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>a host name containing illegal characters</description>
+  <data>not_a_valid_host_name</data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/dynamicRef.json, test group 12
+     Description: $dynamicRef avoids the root of each schema, but scopes are still registered
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <_x0024_id>https://test.json-schema.org/dynamic-ref-avoids-root-of-each-schema/base</_x0024_id>
+  <_x0024_ref>first#/$defs/stuff</_x0024_ref>
+  <_x0024_defs type="object">
+    <first type="object">
+      <_x0024_id>first</_x0024_id>
+      <_x0024_defs type="object">
+        <stuff type="object">
+          <_x0024_ref>second#/$defs/stuff</_x0024_ref>
+        </stuff>
+        <length type="object">
+          <_x0024_comment>unused, because there is no $dynamicAnchor here</_x0024_comment>
+          <maxLength type="number">1</maxLength>
+        </length>
+      </_x0024_defs>
+    </first>
+    <second type="object">
+      <_x0024_id>second</_x0024_id>
+      <_x0024_defs type="object">
+        <stuff type="object">
+          <_x0024_ref>third#/$defs/stuff</_x0024_ref>
+        </stuff>
+        <length type="object">
+          <_x0024_dynamicAnchor>length</_x0024_dynamicAnchor>
+          <maxLength type="number">2</maxLength>
+        </length>
+      </_x0024_defs>
+    </second>
+    <third type="object">
+      <_x0024_id>third</_x0024_id>
+      <_x0024_defs type="object">
+        <stuff type="object">
+          <_x0024_dynamicRef>#length</_x0024_dynamicRef>
+        </stuff>
+        <length type="object">
+          <_x0024_dynamicAnchor>length</_x0024_dynamicAnchor>
+          <maxLength type="number">3</maxLength>
+        </length>
+      </_x0024_defs>
+    </third>
+  </_x0024_defs>
+</json>

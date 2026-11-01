@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/maximum.json, test group 04
+     Description: exclusiveMaximum validation
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <maximum type="number">3.0</maximum>
+  <exclusiveMaximum type="boolean">true</exclusiveMaximum>
+</json>

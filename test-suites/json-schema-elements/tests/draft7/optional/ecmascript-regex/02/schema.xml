@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/ecmascript-regex.json, test group 02
+     Description: ECMA 262 regex converts \\t to horizontal tab
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <type>string</type>
+  <pattern>^\t$</pattern>
+</json>

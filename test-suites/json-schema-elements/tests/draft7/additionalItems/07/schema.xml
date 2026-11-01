@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/additionalItems.json, test group 07
+     Description: additionalItems does not look in applicators, invalid case
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <allOf type="array">
+    <item type="object">
+      <items type="array">
+        <item type="object">
+          <type>integer</type>
+        </item>
+        <item type="object">
+          <type>string</type>
+        </item>
+      </items>
+    </item>
+  </allOf>
+  <items type="array">
+    <item type="object">
+      <type>integer</type>
+    </item>
+  </items>
+  <additionalItems type="object">
+    <type>boolean</type>
+  </additionalItems>
+</json>

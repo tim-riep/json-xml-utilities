@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/exclusiveMaximum.json, test group 01, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>boundary point is invalid</description>
+  <data type="number">3.0</data>
+  <valid type="boolean">false</valid>
+</json>

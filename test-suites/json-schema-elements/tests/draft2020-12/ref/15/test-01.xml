@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/ref.json, test group 15, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>do not evaluate the $ref inside the enum, matching any string</description>
+  <data>this is a string</data>
+  <valid type="boolean">false</valid>
+</json>

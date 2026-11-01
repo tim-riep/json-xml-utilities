@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/uniqueItems.json, test group 01, test 11
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>property order of array of objects is ignored</description>
+  <data type="array">
+    <item type="object">
+      <foo>bar</foo>
+      <bar>foo</bar>
+    </item>
+    <item type="object">
+      <bar>foo</bar>
+      <foo>bar</foo>
+    </item>
+  </data>
+  <valid type="boolean">false</valid>
+</json>

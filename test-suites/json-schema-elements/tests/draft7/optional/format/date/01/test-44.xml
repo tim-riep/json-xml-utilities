@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/optional/format/date.json, test group 01, test 44
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>ISO8601 / non-RFC3339: week number rollover to next year (2023-01-01)</description>
+  <data>2022W527</data>
+  <valid type="boolean">false</valid>
+</json>

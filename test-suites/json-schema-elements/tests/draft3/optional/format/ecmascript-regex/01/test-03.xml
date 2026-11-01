@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/optional/format/ecmascript-regex.json, test group 01, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>ECMA 262 does not support Python-style named groups</description>
+  <data>(?P&lt;name&gt;x)</data>
+  <valid type="boolean">false</valid>
+</json>

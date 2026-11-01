@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/maxItems.json, test group 01, test 02
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>exact length is valid</description>
+  <data type="array">
+    <item type="number">1</item>
+    <item type="number">2</item>
+  </data>
+  <valid type="boolean">true</valid>
+</json>

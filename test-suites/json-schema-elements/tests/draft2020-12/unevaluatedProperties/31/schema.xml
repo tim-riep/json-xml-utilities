@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/unevaluatedProperties.json, test group 31
+     Description: property is evaluated in an uncle schema to unevaluatedProperties
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <properties type="object">
+    <foo type="object">
+      <properties type="object">
+        <bar type="object">
+          <type>string</type>
+        </bar>
+      </properties>
+      <unevaluatedProperties type="boolean">false</unevaluatedProperties>
+    </foo>
+  </properties>
+  <anyOf type="array">
+    <item type="object">
+      <properties type="object">
+        <foo type="object">
+          <properties type="object">
+            <faz type="object">
+              <type>string</type>
+            </faz>
+          </properties>
+        </foo>
+      </properties>
+    </item>
+  </anyOf>
+</json>

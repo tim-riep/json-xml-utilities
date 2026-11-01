@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/date.json, test group 01, test 38
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>2020 is a leap year</description>
+  <data>2020-02-29</data>
+  <valid type="boolean">true</valid>
+</json>

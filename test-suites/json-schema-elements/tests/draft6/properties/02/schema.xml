@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/properties.json, test group 02
+     Description: properties, patternProperties, additionalProperties interaction
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <properties type="object">
+    <foo type="object">
+      <type>array</type>
+      <maxItems type="number">3</maxItems>
+    </foo>
+    <bar type="object">
+      <type>array</type>
+    </bar>
+  </properties>
+  <patternProperties type="object">
+    <f.o type="object">
+      <minItems type="number">2</minItems>
+    </f.o>
+  </patternProperties>
+  <additionalProperties type="object">
+    <type>integer</type>
+  </additionalProperties>
+</json>

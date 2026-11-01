@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/ref.json, test group 11
+     Description: $ref to boolean schema true
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <allOf type="array">
+    <item type="object">
+      <_x0024_ref>#/definitions/bool</_x0024_ref>
+    </item>
+  </allOf>
+  <definitions type="object">
+    <bool type="boolean">true</bool>
+  </definitions>
+</json>

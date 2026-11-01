@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/time.json, test group 01, test 20
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid leap second, positive time-offset (wrong minute)</description>
+  <data>23:59:60+00:30</data>
+  <valid type="boolean">false</valid>
+</json>

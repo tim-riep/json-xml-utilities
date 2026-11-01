@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft6/ref.json, test group 28
+     Description: ref with absolute-path-reference
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_id>http://example.com/ref/absref.json</_x0024_id>
+  <definitions type="object">
+    <a type="object">
+      <_x0024_id>http://example.com/ref/absref/foobar.json</_x0024_id>
+      <type>number</type>
+    </a>
+    <b type="object">
+      <_x0024_id>http://example.com/absref/foobar.json</_x0024_id>
+      <type>string</type>
+    </b>
+  </definitions>
+  <allOf type="array">
+    <item type="object">
+      <_x0024_ref>/absref/foobar.json</_x0024_ref>
+    </item>
+  </allOf>
+</json>

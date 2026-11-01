@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft3/optional/bignum.json, test group 07, test 01
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>comparison works for very negative numbers</description>
+  <data type="number">-972783798187987123879878123.188781371</data>
+  <valid type="boolean">false</valid>
+</json>

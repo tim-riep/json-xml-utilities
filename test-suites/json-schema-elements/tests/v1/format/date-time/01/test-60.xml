@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/format/date-time.json, test group 01, test 60
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>an invalid date-time-ext with an uppercase suffix-key</description>
+  <comment>RFC 9557 section 4.1: key-initial = lcalpha / "_", so a suffix-key can't start with an uppercase letter. Syntactic validation only.</comment>
+  <data>2022-07-08T00:14:07Z[U-CA=chinese]</data>
+  <valid type="boolean">false</valid>
+</json>

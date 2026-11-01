@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft4/optional/format/ipv6.json, test group 01, test 20
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>two sets of double colons is invalid</description>
+  <data>1::d6::42</data>
+  <valid type="boolean">false</valid>
+</json>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft7/items.json, test group 05
+     Description: items with boolean schemas
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <items type="array">
+    <item type="boolean">true</item>
+    <item type="boolean">false</item>
+  </items>
+</json>

@@ -2,9 +2,12 @@
 <!--
   json-schema-test-suite-to-xml.xslt
 
-  Splits the files of the JSON Schema Test Suite into single XML files, using
-  the standard XPath 3.1 function fn:json-to-xml() (W3C XML representation of
-  JSON, namespace http://www.w3.org/2005/xpath-functions).
+  Splits the files of the JSON Schema Test Suite into single XML files, in one
+  of two XML representations of JSON (parameter format):
+    xpath     the W3C representation of fn:json-to-xml() (default; namespace
+              http://www.w3.org/2005/xpath-functions)
+    elements  the "JSON elements" format of json-elements.xslt, in which object
+              members are elements named after their keys
 
   A test file is an array of test groups, each with a schema and several tests:
 
@@ -19,9 +22,9 @@
     <path>/<name>/<group>/test-<test>.xml   the whole test object
                                             (description, data, valid, ...)
 
-  The root element of schema.xml is the schema itself (map, or boolean for a
-  boolean schema). A comment in front of it names the source file, the group
-  and the group description.
+  The root element of schema.xml is the schema itself (xpath: map, or boolean
+  for a boolean schema; elements: json). A comment in front of it names the
+  source file, the group and the group description.
 
   Conversion is lossless: numbers keep their lexical form, and strings that
   contain characters XML cannot represent are kept with JSON escapes and
@@ -32,6 +35,7 @@
                 absolute (default: ../test-suites/json-schema/)
     files       whitespace-separated paths of the test files, relative to
                 suite-dir
+    format      xpath (default) or elements
 
   Run with go-xslt (https://github.com/tim-riep/go-xslt) from the repository
   root; find does not follow the tests/latest symlink, so it is skipped:
@@ -40,18 +44,29 @@
       -it xsl:initial-template -allow-dir test-suites/json-schema \
       -d test-suites/json-schema-xml \
       -p "files=$(cd test-suites/json-schema && find tests -name '*.json' | sort)"
+
+  The same in the JSON elements format:
+
+    go-xslt transform -s xslt/json-schema-test-suite-to-xml.xslt \
+      -it xsl:initial-template -allow-dir test-suites/json-schema \
+      -d test-suites/json-schema-elements -p format=elements \
+      -p "files=$(cd test-suites/json-schema && find tests -name '*.json' | sort)"
 -->
 <xsl:stylesheet version="3.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fn="http://www.w3.org/2005/xpath-functions"
     xmlns:local="urn:json-xml-utilities:local"
-    exclude-result-prefixes="xs fn local">
+    xmlns:je="urn:json-xml-utilities:json-elements"
+    exclude-result-prefixes="xs fn local je">
+
+  <xsl:import href="json-elements.xslt"/>
 
   <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
 
   <xsl:param name="suite-dir" as="xs:string" select="'../test-suites/json-schema/'"/>
   <xsl:param name="files" as="xs:string" select="''"/>
+  <xsl:param name="format" as="xs:string" select="'xpath'"/>
 
   <xsl:variable name="options" as="map(*)"
       select="map { 'escape': true(), 'duplicates': 'reject' }"/>
@@ -61,6 +76,10 @@
 
   <xsl:template name="xsl:initial-template">
     <xsl:variable name="paths" as="xs:string*" select="tokenize(normalize-space($files), ' ')"/>
+    <xsl:if test="not($format = ('xpath', 'elements'))">
+      <xsl:message terminate="yes" error-code="local:FORMAT"
+        select="'Unknown format ' || $format || ': use xpath or elements.'"/>
+    </xsl:if>
     <xsl:if test="empty($paths)">
       <xsl:message terminate="yes" error-code="local:NOINPUT"
         >No input: set the parameter files.</xsl:message>
@@ -108,10 +127,17 @@
   <!-- Copy a value as a standalone document: drop the key that belonged to
        its parent map. -->
   <xsl:template match="*" mode="local:root">
-    <xsl:copy>
-      <xsl:copy-of select="@* except (@key, @escaped-key)"/>
-      <xsl:copy-of select="node()"/>
-    </xsl:copy>
+    <xsl:choose>
+      <xsl:when test="$format eq 'elements'">
+        <xsl:sequence select="je:from-xpath-json(.)/*"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:copy>
+          <xsl:copy-of select="@* except (@key, @escaped-key)"/>
+          <xsl:copy-of select="node()"/>
+        </xsl:copy>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <!-- Comment text: one line per item, made safe for an XML comment. -->

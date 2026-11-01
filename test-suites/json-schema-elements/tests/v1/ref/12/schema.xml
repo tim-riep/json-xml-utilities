@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/ref.json, test group 12
+     Description: Recursive references between schemas
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <_x0024_id>http://localhost:1234/v1/tree</_x0024_id>
+  <description>tree of nodes</description>
+  <type>object</type>
+  <properties type="object">
+    <meta type="object">
+      <type>string</type>
+    </meta>
+    <nodes type="object">
+      <type>array</type>
+      <items type="object">
+        <_x0024_ref>node</_x0024_ref>
+      </items>
+    </nodes>
+  </properties>
+  <required type="array">
+    <item>meta</item>
+    <item>nodes</item>
+  </required>
+  <_x0024_defs type="object">
+    <node type="object">
+      <_x0024_id>http://localhost:1234/v1/node</_x0024_id>
+      <description>node</description>
+      <type>object</type>
+      <properties type="object">
+        <value type="object">
+          <type>number</type>
+        </value>
+        <subtree type="object">
+          <_x0024_ref>tree</_x0024_ref>
+        </subtree>
+      </properties>
+      <required type="array">
+        <item>value</item>
+      </required>
+    </node>
+  </_x0024_defs>
+</json>

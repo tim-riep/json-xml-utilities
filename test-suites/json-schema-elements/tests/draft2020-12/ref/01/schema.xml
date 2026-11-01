@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/ref.json, test group 01
+     Description: root pointer ref
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/draft/2020-12/schema</_x0024_schema>
+  <properties type="object">
+    <foo type="object">
+      <_x0024_ref>#</_x0024_ref>
+    </foo>
+  </properties>
+  <additionalProperties type="boolean">false</additionalProperties>
+</json>

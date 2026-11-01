@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/format.json, test group 07, test 03
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>all string formats ignore objects</description>
+  <data type="object"/>
+  <valid type="boolean">true</valid>
+</json>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/v1/ref.json, test group 14
+     Description: ref creates new scope when adjacent to keywords
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <_x0024_schema>https://json-schema.org/v1</_x0024_schema>
+  <_x0024_defs type="object">
+    <A type="object">
+      <unevaluatedProperties type="boolean">false</unevaluatedProperties>
+    </A>
+  </_x0024_defs>
+  <properties type="object">
+    <prop1 type="object">
+      <type>string</type>
+    </prop1>
+  </properties>
+  <_x0024_ref>#/$defs/A</_x0024_ref>
+</json>

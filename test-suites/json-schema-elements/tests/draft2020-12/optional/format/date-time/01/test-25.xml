@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Source: tests/draft2020-12/optional/format/date-time.json, test group 01, test 25
+     Schema: schema.xml
+     JSON Schema Test Suite, MIT License, Copyright (c) 2012 Julian Berman --><json type="object">
+  <description>invalid non-padded month dates</description>
+  <data>1963-6-19T08:30:06.283185Z</data>
+  <valid type="boolean">false</valid>
+</json>
