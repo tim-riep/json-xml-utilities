@@ -23,22 +23,27 @@ described with ordinary element declarations. The schema
 becomes (abridged)
 
 ```xml
+<xs:include schemaLocation="../../../../json-elements.xsd"/>
 <xs:element name="json">
-  <xs:alternative test="@type = 'object'" type="t1.object"/>
+  <xs:alternative test="@type = 'object'" type="root.object"/>
   <xs:alternative test="@type = 'array'" type="jx.array"/>
   …
   <xs:alternative type="xs:error"/>
 </xs:element>
-<xs:complexType name="t1.object">
+<xs:complexType name="root.object">
   <xs:all>
     <xs:element name="foo">
-      <xs:alternative test="@type = 'number'" type="t2.number"/>
+      <xs:alternative test="@type = 'number'" type="properties.foo.number"/>
       <xs:alternative type="xs:error"/>
     </xs:element>
   </xs:all>
   <xs:attribute name="type" type="xs:string" fixed="object" use="required"/>
 </xs:complexType>
 ```
+
+Types are named after the path of their schema (`properties.foo.number`,
+`defs.node.object` for `$defs/node`, `root.object` for the schema itself), so
+recursive schemas such as a tree of nodes become recursive types.
 
 - `xs:alternative` on `@type` selects the type for each JSON type
   (`t<i>.<kind>` for a schema's own constraints, the generic `jx.<kind>`
@@ -58,6 +63,21 @@ becomes (abridged)
 Of the 2288 schemas, 492 have no assertion at all and 457 only the small
 assertions on types. 1339 use assertions for subschemas, 1118 of them for the
 whole document: most test groups exist to test exactly these keywords.
+
+## Other schema documents
+
+A schema that refers to another schema document gets that document as an XSD
+of its own, included with `xs:include`:
+
+| Path | Content |
+|---|---|
+| `remotes/<dialect>/<path>.xsd` | a remote schema (`http://localhost:1234/<path>.json`, from [`../json-schema/remotes`](../json-schema/remotes)) or a meta-schema (`remotes/<dialect>/json-schema.org/...`), types named `<path>.<...>`, e.g. `integer.root.number` |
+| `json-elements.xsd` | the generic types `jx.object`, `jx.array`, `jx.string`, `jx.number`, `jx.boolean`, `jx.null`, `jx.any` |
+
+A remote XSD holds the types of all schemas of its document, so every test
+group that refers to it uses the same file. The dialect is part of the path
+because a remote without `$schema` is read in the dialect of the schema that
+refers to it.
 
 ## Results
 

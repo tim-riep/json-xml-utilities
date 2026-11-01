@@ -38,6 +38,24 @@
   $recursiveRef, the whole document is. The parameter structure=no turns the
   structural part off.
 
+  Types are named after the path of their schema in its document:
+  properties.foo.number, defs.node.object ($defs/node), root.string (the
+  schema itself); .assert is the type whose assertion evaluates the schema.
+  Every other schema document a schema refers to (a remote schema, a
+  meta-schema) gets an XSD of its own, included with xs:include:
+
+    remotes/<dialect>/<path of its URI>.xsd   types named <path>.<...>,
+                                              e.g. integer.root.number
+    json-elements.xsd                         the generic types jx.object,
+                                              jx.string, ... for unconstrained
+                                              JSON types
+
+  These are written next to the output: in batch mode into the output
+  directory, in single mode with xsl:result-document (go-xslt: -d, the same
+  directory as -o, which must exist). A remote XSD contains the types of all
+  schemas of its document, so it is the same for every schema that refers
+  to it.
+
   How the assertions work
   =======================
   Every subschema becomes an XPath 3.1 inline function
@@ -124,6 +142,11 @@
       -p default-dialect=draft7 -o schema.xsd \
       test-suites/json-schema-xml/tests/draft7/ref/01/schema.xml
 
+    mkdir out && go-xslt transform -s xslt/json-schema-to-xsd.xslt \
+      -allow-dir test-suites -p instance-format=elements -p default-dialect=draft7 \
+      -d out -o out/schema.xsd \
+      test-suites/json-schema-elements/tests/draft7/refRemote/01/schema.xml
+
   Whole test suite (batch mode):
 
     go-xslt transform -s xslt/json-schema-to-xsd.xslt -it xsl:initial-template \
@@ -191,8 +214,15 @@
 
   <!-- Single schema: the source document is the schema. -->
   <xsl:template match="/">
-    <xsl:sequence select="c:compile(*, c:dialect-number($default-dialect), $base-uri,
-        '', $format-assertion = ('yes', 'true', '1'))"/>
+    <xsl:variable name="result" select="c:compile(*, c:dialect-number($default-dialect), $base-uri,
+        '', $format-assertion = ('yes', 'true', '1'), 'schema.xsd')"/>
+    <xsl:sequence select="$result?main"/>
+    <!-- the included documents, next to the output (go-xslt: -d) -->
+    <xsl:for-each select="map:keys($result?files)">
+      <xsl:result-document href="{.}">
+        <xsl:sequence select="$result?files(.)"/>
+      </xsl:result-document>
+    </xsl:for-each>
   </xsl:template>
 
   <!-- Batch mode: compile every file named in $files. -->
@@ -212,7 +242,8 @@
           <xsl:map-entry key="'xsd'">
             <xsl:try select="c:compile(doc(resolve-uri($path, $input-uri))/*,
                 c:dialect-number($dialect), $base-uri, $path,
-                $format-assertion = ('yes', 'true', '1') or matches($path, '/format/[^/]+/[^/]+/[^/]+$'))">
+                $format-assertion = ('yes', 'true', '1') or matches($path, '/format/[^/]+/[^/]+/[^/]+$'),
+                replace($path, '\.xml$', '') || '.xsd')">
               <xsl:catch>
                 <xsl:message select="'Cannot compile ' || $path || ': ' || $err:code || ' ' || $err:description"/>
               </xsl:catch>
@@ -223,7 +254,14 @@
     </xsl:variable>
     <xsl:for-each select="$results[exists(?xsd)]">
       <xsl:result-document href="{replace(?path, '\.xml$', '')}.xsd">
-        <xsl:sequence select="?xsd"/>
+        <xsl:sequence select="?xsd?main"/>
+      </xsl:result-document>
+    </xsl:for-each>
+    <!-- included documents (remote schemas, generic types): each once -->
+    <xsl:variable name="files" select="map:merge($results[exists(?xsd)] ! ?xsd?files, map { 'duplicates': 'use-first' })"/>
+    <xsl:for-each select="sort(map:keys($files))">
+      <xsl:result-document href="{.}">
+        <xsl:sequence select="$files(.)"/>
       </xsl:result-document>
     </xsl:for-each>
     <xsl:message select="'Compiled ' || count($results[exists(?xsd)]) || ' of '
@@ -234,12 +272,16 @@
   <!-- Compiler                                                           -->
   <!-- ================================================================== -->
 
-  <xsl:function name="c:compile" as="element(xs:schema)">
+  <!-- map { 'main': the XSD, 'files': map { location: XSD } of the other
+       documents it includes (elements format), locations relative to the
+       main XSD's $location }. -->
+  <xsl:function name="c:compile" as="map(*)">
     <xsl:param name="root" as="element()"/>
     <xsl:param name="dialect" as="xs:integer"/>
     <xsl:param name="base" as="xs:string"/>
     <xsl:param name="source" as="xs:string"/>
     <xsl:param name="format" as="xs:boolean"/>
+    <xsl:param name="location" as="xs:string"/>
 
     <!-- a schema in the JSON elements format is read as the W3C representation -->
     <xsl:variable name="root" as="element()"
@@ -274,9 +316,12 @@
     <xsl:choose>
       <xsl:when test="$elements">
         <xsl:sequence select="c:xsd-elements($root, $entries, $reg, $program,
-            $description || 'Validates a JSON instance in the JSON elements format of json-elements.xslt.')"/>
+            $description || 'Validates a JSON instance in the JSON elements format of json-elements.xslt.', $location)"/>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:map>
+        <xsl:map-entry key="'files'" select="map {}"/>
+        <xsl:map-entry key="'main'">
         <xs:schema targetNamespace="http://www.w3.org/2005/xpath-functions"
             elementFormDefault="qualified" vc:minVersion="1.1"
             xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
@@ -296,6 +341,8 @@
             <xs:element name="{.}" type="fn:json"/>
           </xsl:for-each>
         </xs:schema>
+        </xsl:map-entry>
+        </xsl:map>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:function>
@@ -314,7 +361,8 @@
         '$DA := map { ' || string-join($program?da, ', ') || ' }',
         '$RA := map { ' || string-join($program?ra, ', ') || ' }',
         '$S := map { ' || string-join($keys ! (c:lit(.) || ': function($S, $n, $dyn) { ' || $program?functions(.) || ' }'), ', ')
-          || ' } return $S(' || c:lit($key) || ')($S, ., ())?v'), ', '), $program?index)"/>
+          || ' } return $S(' || c:lit($key) || ')($S, ., ())?v'), ', '),
+        map:merge(for $i in 1 to count($keys) return map:entry($keys[$i], $i)))"/>
   </xsl:function>
 
   <!-- The function keys reachable from $todo. -->
@@ -427,46 +475,183 @@
     are evaluated by one assertion on the document element.
   -->
 
-  <xsl:function name="c:xsd-elements" as="element(xs:schema)">
+  <xsl:function name="c:xsd-elements" as="map(*)">
     <xsl:param name="root" as="element()"/>
     <xsl:param name="entries" as="map(*)*"/>
     <xsl:param name="reg" as="map(*)"/>
     <xsl:param name="program" as="map(*)"/>
     <xsl:param name="description" as="xs:string"/>
+    <xsl:param name="location" as="xs:string"/>
 
     <xsl:variable name="dynamic" select="$structure ne 'yes' or exists($entries[
         exists(($program?ra, $program?da)) and exists(c:kw(?n, ('$dynamicRef', '$recursiveRef')))])"/>
-    <xsl:variable name="ctx" select="map { 'reg': $reg, 'program': $program, 'dynamic': $dynamic }"/>
-    <xsl:variable name="nodes" as="element()*" select="if ($dynamic) then () else c:typed-nodes($root, $ctx, ())"/>
+    <!-- the URI of each schema document ('' for the input), by its root -->
+    <xsl:variable name="docs" as="map(xs:string, xs:string)" select="map:merge((
+        map:entry(generate-id($root), ''),
+        $entries[empty(?n/parent::*)][not(?n is $root)] ! map:entry(generate-id(?n), head(?uris))),
+        map { 'duplicates': 'use-first' })"/>
+    <xsl:variable name="ctx" select="map {
+        'reg': $reg, 'program': $program, 'dynamic': $dynamic, 'docs': $docs,
+        'names': c:type-names($entries, $docs) }"/>
 
-    <xsl:variable name="body" as="element()*">
-      <xsl:choose>
-        <xsl:when test="$dynamic">
-          <xs:element name="json" type="f{c:idx($root, $ctx)}"/>
+    <xsl:choose>
+      <xsl:when test="$dynamic">
+        <xsl:variable name="body" as="element()*">
+          <xs:element name="json" type="{c:tname($root, $ctx)}.assert"/>
           <xsl:sequence select="c:fallback-type($root, $ctx)"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xs:element name="json">
-            <xsl:sequence select="c:element-type($root, $ctx)"/>
-          </xs:element>
-          <xsl:for-each select="$nodes">
-            <xsl:sequence select="if (c:class-of(., $ctx) eq 'fallback') then c:fallback-type(., $ctx)
-                else (c:kind-types(., $ctx), if (c:string-constraints(.)) then c:fallback-type(., $ctx) else ())"/>
+        </xsl:variable>
+        <xsl:sequence select="map { 'main': c:xsd-file($body, (), $description, $location, $ctx), 'files': map {} }"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="typed" as="element()*" select="c:all-typed(c:typed-nodes($root, $ctx, ()), $entries, $ctx, ())"/>
+        <xsl:variable name="remote-docs" select="distinct-values($typed ! c:doc-of(., $ctx))[. ne '']"/>
+        <xsl:variable name="hrefs" as="map(xs:string, xs:string)" select="map:merge((
+            map:entry('', $location),
+            $remote-docs ! map:entry(., c:remote-href(., $entries, $ctx))))"/>
+        <xsl:variable name="files" as="map(xs:string, element(xs:schema))*">
+          <xsl:for-each select="('', $remote-docs)">
+            <xsl:variable name="doc" select="."/>
+            <xsl:variable name="nodes" select="$typed[c:doc-of(., $ctx) eq $doc]"/>
+            <xsl:variable name="body" as="element()*">
+              <xsl:if test="$doc eq ''">
+                <xs:element name="json">
+                  <xsl:sequence select="c:element-type($root, $ctx)"/>
+                </xs:element>
+              </xsl:if>
+              <xsl:for-each select="$nodes">
+                <xsl:sequence select="if (c:class-of(., $ctx) eq 'fallback') then c:fallback-type(., $ctx)
+                    else (c:kind-types(., $ctx), if (c:string-constraints(.)) then c:fallback-type(., $ctx) else ())"/>
+              </xsl:for-each>
+            </xsl:variable>
+            <!-- the documents whose types the declarations use -->
+            <xsl:variable name="uses" select="distinct-values((
+                (if ($doc eq '') then $root else ()), $nodes[c:class-of(., $ctx) eq 'struct'] ! c:element-schemas(., $ctx))
+                ! c:typed(., $ctx)[c:class-of(., $ctx) = ('struct', 'fallback')] ! c:doc-of(., $ctx))[. ne $doc]"/>
+            <xsl:sequence select="map:entry($hrefs($doc), c:xsd-file($body, $uses ! $hrefs(.),
+                if ($doc eq '') then $description else 'Generated by json-schema-to-xsd.xslt from ' || $doc
+                  || ' for schemas that refer to it.', $hrefs($doc), $ctx))"/>
           </xsl:for-each>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-    <!-- the generic types the declarations use, and the ones these use -->
-    <xsl:variable name="used" select="distinct-values(($body//@type, $body//@base)[starts-with(., 'jx.')])"/>
-    <xsl:variable name="used" select="distinct-values(($used, $generic-types[@name = $used]/(.//@base, .//xs:element/@type)[starts-with(., 'jx.')]))"/>
+        </xsl:variable>
+        <xsl:sequence select="map {
+            'main': $files[map:contains(., $location)]($location),
+            'files': map:merge(($files[not(map:contains(., $location))],
+                map:entry('json-elements.xsd', c:generic-xsd()))) }"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+
+  <!-- A schema document: includes of the other documents and of the generic
+       types it uses, then the declarations. -->
+  <xsl:function name="c:xsd-file" as="element(xs:schema)">
+    <xsl:param name="body" as="element()*"/>
+    <xsl:param name="includes" as="xs:string*"/>
+    <xsl:param name="description" as="xs:string"/>
+    <xsl:param name="location" as="xs:string"/>
+    <xsl:param name="ctx" as="map(*)"/>
     <xs:schema vc:minVersion="1.1" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
       <xs:annotation>
         <xs:documentation>
           <xsl:value-of select="$description"/>
         </xs:documentation>
       </xs:annotation>
-      <xsl:sequence select="$body, $generic-types[@name = $used]"/>
+      <xsl:if test="exists(($body//@type, $body//@base)[starts-with(., 'jx.')])">
+        <xs:include schemaLocation="{c:relative-path($location, 'json-elements.xsd')}"/>
+      </xsl:if>
+      <xsl:for-each select="sort($includes)">
+        <xs:include schemaLocation="{c:relative-path($location, .)}"/>
+      </xsl:for-each>
+      <xsl:sequence select="$body"/>
     </xs:schema>
+  </xsl:function>
+
+  <xsl:function name="c:generic-xsd" as="element(xs:schema)">
+    <xs:schema>
+      <xs:annotation>
+        <xs:documentation>Types for any value of a JSON type in the JSON elements format of json-elements.xslt, included by the schemas json-schema-to-xsd.xslt generates.</xs:documentation>
+      </xs:annotation>
+      <xsl:sequence select="$generic-types"/>
+    </xs:schema>
+  </xsl:function>
+
+  <!-- The typed nodes, plus those of every schema document they reach (a
+       document's file has the types of all its schemas, so that it is the
+       same whichever schema refers to it). -->
+  <xsl:function name="c:all-typed" as="element()*">
+    <xsl:param name="typed" as="element()*"/>
+    <xsl:param name="entries" as="map(*)*"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:param name="done-docs" as="xs:string*"/>
+    <xsl:variable name="new-docs" select="distinct-values($typed ! c:doc-of(., $ctx))[. ne ''][not(. = $done-docs)]"/>
+    <xsl:sequence select="if (empty($new-docs)) then $typed
+        else c:all-typed(c:typed-nodes($entries[c:doc-of(?n, $ctx) = $new-docs] ! ?n, $ctx, $typed),
+            $entries, $ctx, ($done-docs, $new-docs))"/>
+  </xsl:function>
+
+  <xsl:function name="c:doc-of" as="xs:string">
+    <xsl:param name="n" as="element()"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:sequence select="($ctx?docs(generate-id($n/ancestor-or-self::*[last()])), '')[1]"/>
+  </xsl:function>
+
+  <!-- remotes/<dialect>/<path of the URI>.xsd -->
+  <xsl:function name="c:remote-href" as="xs:string">
+    <xsl:param name="uri" as="xs:string"/>
+    <xsl:param name="entries" as="map(*)*"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:variable name="d" select="head($entries[c:doc-of(?n, $ctx) eq $uri][empty(?n/parent::*)])?d"/>
+    <xsl:sequence select="'remotes/' || c:dialect-name($d) || '/' || c:doc-path($uri) || '.xsd'"/>
+  </xsl:function>
+
+  <xsl:function name="c:doc-path" as="xs:string">
+    <xsl:param name="uri" as="xs:string"/>
+    <xsl:variable name="p" select="if (starts-with($uri, $remotes-base)) then substring-after($uri, $remotes-base)
+        else replace($uri, '^[A-Za-z][A-Za-z0-9+.\-]*://', '')"/>
+    <xsl:variable name="p" select="replace(replace(replace($p, '\.json$', ''), '[^A-Za-z0-9._/\-]', '_'), '\.\.', '__')"/>
+    <xsl:sequence select="if ($p eq '' or ends-with($p, '/')) then $p || 'index' else $p"/>
+  </xsl:function>
+
+  <xsl:function name="c:relative-path" as="xs:string">
+    <xsl:param name="from" as="xs:string"/>
+    <xsl:param name="to" as="xs:string"/>
+    <xsl:variable name="f" select="tokenize($from, '/')[position() lt last()]"/>
+    <xsl:variable name="t" select="tokenize($to, '/')"/>
+    <xsl:variable name="common" select="(for $i in 1 to min((count($f), count($t) - 1))
+        return if ($f[$i] eq $t[$i]) then () else $i, min((count($f), count($t) - 1)) + 1)[1] - 1"/>
+    <xsl:sequence select="string-join(((1 to count($f) - $common) ! '..', subsequence($t, $common + 1)), '/')"/>
+  </xsl:function>
+
+  <!-- Type names: the path of the schema in its document (properties.foo,
+       $defs/node is defs.node, the document itself root), prefixed with the
+       document's path for other documents (integer.root). -->
+  <xsl:function name="c:type-names" as="map(xs:string, xs:string)">
+    <xsl:param name="entries" as="map(*)*"/>
+    <xsl:param name="docs" as="map(xs:string, xs:string)"/>
+    <xsl:variable name="named" as="map(*)*">
+      <xsl:for-each select="$entries">
+        <xsl:variable name="n" select="?n"/>
+        <xsl:variable name="doc" select="($docs(generate-id($n/ancestor-or-self::*[last()])), '')[1]"/>
+        <xsl:variable name="path" select="string-join($n/ancestor-or-self::*[parent::*] ! (
+            if (parent::fn:array) then string(count(preceding-sibling::*))
+            else (replace(replace(c:key(.), '^\$', ''), '[^A-Za-z0-9_\-]', '_')[. ne ''], '_')[1]), '.')"/>
+        <xsl:variable name="name" select="(if ($doc eq '') then '' else replace(c:doc-path($doc), '/', '.') || '.')
+            || (if ($path eq '') then 'root' else $path)"/>
+        <xsl:sequence select="map { 'id': generate-id($n), 'name': if (matches($name, '^[A-Za-z_]')) then $name else '_' || $name }"/>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:variable name="unique" as="map(*)*">
+      <xsl:for-each-group select="$named" group-by="?id">
+        <xsl:sequence select="current-group()[1]"/>
+      </xsl:for-each-group>
+    </xsl:variable>
+    <xsl:sequence select="map:merge(
+        for $g in distinct-values($unique ! ?name), $i in 1 to count($unique[?name eq $g])
+        return map:entry($unique[?name eq $g][$i]?id, $g || (if ($i gt 1) then '_' || $i else '')))"/>
+  </xsl:function>
+
+  <xsl:function name="c:tname" as="xs:string">
+    <xsl:param name="n" as="element()"/>
+    <xsl:param name="ctx" as="map(*)"/>
+    <xsl:sequence select="$ctx?names(generate-id($n))"/>
   </xsl:function>
 
   <!-- jx.<kind>: any value of a JSON type; jx.any: anything. -->
@@ -526,11 +711,6 @@
     </xs:complexType>
   </xsl:variable>
 
-  <xsl:function name="c:idx" as="xs:integer">
-    <xsl:param name="n" as="element()"/>
-    <xsl:param name="ctx" as="map(*)"/>
-    <xsl:sequence select="$ctx?program?index(c:fkey($n))"/>
-  </xsl:function>
 
   <!-- Keywords that select or combine subschemas: their schema is evaluated
        by an assertion (per dialect, as in c:keywords). -->
@@ -665,16 +845,16 @@
         <xsl:attribute name="type" select="'xs:error'"/>
       </xsl:when>
       <xsl:when test="$class eq 'fallback'">
-        <xsl:attribute name="type" select="'f' || c:idx($t, $ctx)"/>
+        <xsl:attribute name="type" select="c:tname($t, $ctx) || '.assert'"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:variable name="i" select="c:idx($t, $ctx)"/>
+        <xsl:variable name="i" select="c:tname($t, $ctx)"/>
         <xsl:variable name="kinds" select="c:kinds($t, $ctx)"/>
         <xsl:for-each select="('object', 'array', 'number', 'boolean', 'null')[. = $kinds]">
           <xs:alternative test="@type = '{.}'" type="{c:kind-type-name($t, ., $ctx)}"/>
         </xsl:for-each>
         <xsl:if test="'string' = $kinds and c:string-constraints($t)">
-          <xs:alternative test="not(@type) and @escaped = 'true'" type="f{$i}"/>
+          <xs:alternative test="not(@type) and @escaped = 'true'" type="{$i}.assert"/>
         </xsl:if>
         <xsl:if test="'string' = $kinds">
           <xs:alternative test="not(@type)" type="{c:kind-type-name($t, 'string', $ctx)}"/>
@@ -707,7 +887,7 @@
     <xsl:param name="s" as="element()"/>
     <xsl:param name="kind" as="xs:string"/>
     <xsl:param name="ctx" as="map(*)"/>
-    <xsl:sequence select="if (c:constrains($s, $kind, $ctx)) then 't' || c:idx($s, $ctx) || '.' || $kind else 'jx.' || $kind"/>
+    <xsl:sequence select="if (c:constrains($s, $kind, $ctx)) then c:tname($s, $ctx) || '.' || $kind else 'jx.' || $kind"/>
   </xsl:function>
 
   <xsl:function name="c:constrains" as="xs:boolean">
@@ -777,7 +957,7 @@
   <xsl:function name="c:kind-types" as="element()*">
     <xsl:param name="s" as="element()"/>
     <xsl:param name="ctx" as="map(*)"/>
-    <xsl:variable name="i" select="c:idx($s, $ctx)"/>
+    <xsl:variable name="i" select="c:tname($s, $ctx)"/>
     <xsl:variable name="e" select="$ctx?reg?info(generate-id($s))"/>
     <xsl:variable name="d" select="$e?d"/>
     <xsl:variable name="kinds" select="c:kinds($s, $ctx)"/>
@@ -795,7 +975,7 @@
           if ($d eq 3) then $props[c:kw(., 'required') = 'true']/c:key(.) else ()))"/>
       <xsl:variable name="additional" select="c:kw($s, 'additionalProperties')"/>
       <xsl:variable name="closed" select="$additional/self::fn:boolean = 'false'"/>
-      <xs:complexType name="t{$i}.object">
+      <xs:complexType name="{$i}.object">
         <xs:all>
           <xsl:for-each select="$props">
             <xsl:sequence select="c:element(je:name(c:key(.)), ., if (c:key(.) = $required) then 1 else 0, 1, $ctx)"/>
@@ -828,7 +1008,7 @@
       <xsl:variable name="max" select="c:int(c:kw($s, 'maxItems'))"/>
       <xsl:variable name="counted" select="empty($parts?prefix) and not($no-rest)
           and (empty($min) or empty($max) or $min le $max)"/>
-      <xs:complexType name="t{$i}.array">
+      <xs:complexType name="{$i}.array">
         <xs:sequence>
           <xsl:choose>
             <xsl:when test="$counted">
@@ -870,15 +1050,15 @@
         </xsl:for-each>
       </xsl:variable>
       <xsl:if test="exists($facets)">
-        <xs:simpleType name="t{$i}.string.value">
+        <xs:simpleType name="{$i}.string.value">
           <xs:restriction base="xs:string">
             <xsl:sequence select="$facets"/>
           </xs:restriction>
         </xs:simpleType>
       </xsl:if>
-      <xs:complexType name="t{$i}.string">
+      <xs:complexType name="{$i}.string">
         <xs:simpleContent>
-          <xs:extension base="{if (exists($facets)) then 't' || $i || '.string.value' else 'xs:string'}">
+          <xs:extension base="{if (exists($facets)) then $i || '.string.value' else 'xs:string'}">
             <xsl:if test="not(c:string-constraints($s))">
               <xs:attribute name="escaped" type="xs:string"/>
             </xsl:if>
@@ -894,7 +1074,7 @@
       <xsl:variable name="excl-min" select="$d le 4 and c:kw($s, 'exclusiveMinimum') = 'true'"/>
       <xsl:variable name="excl-max" select="$d le 4 and c:kw($s, 'exclusiveMaximum') = 'true'"/>
       <xsl:variable name="types" select="c:kw($s, 'type')/(self::fn:string | fn:string)/c:str(.)"/>
-      <xs:complexType name="t{$i}.number">
+      <xs:complexType name="{$i}.number">
         <xs:simpleContent>
           <xs:extension base="jx.number.value">
             <xsl:sequence select="c:type-attribute('number')"/>
@@ -919,11 +1099,11 @@
       <xsl:variable name="booleans" select="distinct-values(
           if (exists(c:kw($s, 'const'))) then c:kw($s, 'const')[self::fn:boolean]/normalize-space(.)
           else c:kw($s, 'enum')/self::fn:array/fn:boolean/normalize-space(.))"/>
-      <xs:complexType name="t{$i}.boolean">
+      <xs:complexType name="{$i}.boolean">
         <xs:simpleContent>
           <xsl:choose>
             <xsl:when test="exists($values)">
-              <xs:restriction base="t{$i}.boolean.base">
+              <xs:restriction base="{$i}.boolean.base">
                 <xsl:for-each select="$booleans">
                   <xs:enumeration value="{.}"/>
                 </xsl:for-each>
@@ -938,7 +1118,7 @@
         </xs:simpleContent>
       </xs:complexType>
       <xsl:if test="exists($values)">
-        <xs:complexType name="t{$i}.boolean.base">
+        <xs:complexType name="{$i}.boolean.base">
           <xs:simpleContent>
             <xs:extension base="jx.boolean.value">
               <xsl:sequence select="c:type-attribute('boolean')"/>
@@ -949,7 +1129,7 @@
     </xsl:if>
 
     <xsl:if test="$kinds = 'null' and c:constrains($s, 'null', $ctx)">
-      <xs:complexType name="t{$i}.null">
+      <xs:complexType name="{$i}.null">
         <xsl:sequence select="c:type-attribute('null')"/>
       </xs:complexType>
     </xsl:if>
@@ -986,7 +1166,7 @@
   <xsl:function name="c:fallback-type" as="element(xs:complexType)">
     <xsl:param name="s" as="element()"/>
     <xsl:param name="ctx" as="map(*)"/>
-    <xs:complexType name="f{c:idx($s, $ctx)}" mixed="true">
+    <xs:complexType name="{c:tname($s, $ctx)}.assert" mixed="true">
       <xs:sequence>
         <xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>

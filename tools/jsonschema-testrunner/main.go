@@ -176,10 +176,14 @@ func run(sheet *engine.Stylesheet, xmlRoot, xsdRoot, rel string) result {
 	if err != nil {
 		return result{rel, false, "no compiled schema: " + xsdPath}
 	}
+	// The schema may include others (remote schemas, generic types) by
+	// relative location anywhere below the XSD tree.
 	v := engine.Validate(engine.ValidateRequest{
 		Schemas:  []string{string(xsd)},
 		Instance: data,
 		Version:  engine.XSD11,
+		BaseDir:  filepath.Dir(xsdPath),
+		Security: engine.Security{AllowedDirs: []string{xsdRoot}},
 	})
 	if v.Valid == (expected == "true") {
 		return result{rel, true, ""}
