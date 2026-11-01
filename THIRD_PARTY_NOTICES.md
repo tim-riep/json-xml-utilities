@@ -7,7 +7,8 @@ license.
 ## JSON Schema Test Suite
 
 - Location: [`test-suites/json-schema/`](test-suites/json-schema/) (original files)
-  and [`test-suites/json-schema-xml/`](test-suites/json-schema-xml/) (XML files generated from them)
+  and the files generated from them: [`test-suites/json-schema-xml/`](test-suites/json-schema-xml/) (XML)
+  and [`test-suites/json-schema-xsd/`](test-suites/json-schema-xsd/) (XSD)
 - Source: https://github.com/json-schema-org/JSON-Schema-Test-Suite
 - License: MIT
 - Copyright (c) 2012 Julian Berman
