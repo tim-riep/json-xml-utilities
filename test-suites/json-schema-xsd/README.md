@@ -32,7 +32,7 @@ go-xslt validate -xsd 1.1 -x tests/draft2020-12/ref/01/schema.xsd instance.xml
 
 ## Results
 
-Each test's `data` validated against its group's schema with go-xslt v0.4.0
+Each test's `data` validated against its group's schema with go-xslt v0.4.1
 and compared with the expected `valid`, by the test runner in
 [`tools/jsonschema-testrunner`](../../tools/jsonschema-testrunner). From the
 repository root:
@@ -45,8 +45,8 @@ Options: `-filter draft2020-12/ref` runs only tests whose path contains the
 text, `-v` prints every failed test, `-failures file` writes them to a file,
 `-xml` and `-xsd` point to other directories. The exit status is 1 if a test
 fails; with `-known test-suites/known-failures.json` the failures listed
-there (the known failures below) are expected, and the exit status is 1 only
-for other failures or for a listed test that passes.
+there are expected (currently none), and the exit status is 1 only for other
+failures or for a listed test that passes.
 
 The workflow [`.github/workflows/conformance.yml`](../../.github/workflows/conformance.yml)
 runs daily (and on pushes to main and pull requests): it regenerates all
@@ -69,18 +69,17 @@ objects as element declarations, is in
 | draft6 | 837 / 837 |
 | draft6 optional | 523 / 523 |
 | draft7 | 925 / 925 |
-| draft7 optional | 931 / 933 |
+| draft7 optional | 933 / 933 |
 | draft2019-09 | 1257 / 1257 |
 | draft2019-09 optional | 1053 / 1053 |
 | draft2020-12 | 1298 / 1298 |
 | draft2020-12 optional | 1057 / 1057 |
 | v1 | 2087 / 2087 |
 | v1 optional | 287 / 287 |
-| **Total** | **11845 / 11847** |
+| **Total** | **11847 / 11847** |
 
-The 2 failures are in `draft7/optional/content`: `contentMediaType:
-application/json` would need a JSON syntax check of the string, which XPath
-cannot do without failing (feature request: tim-riep/go-xslt#21).
+All tests pass, including the optional ones; `contentMediaType:
+application/json` (draft-07) is checked by a JSON parser written in XPath.
 
 Format tests (`optional/format/`, `v1/format/`) are compiled with format
 assertion on; everywhere else `format` is an annotation.

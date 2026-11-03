@@ -189,7 +189,17 @@ func checkKnown(results []result, known map[string]string) bool {
 		}
 	}
 	if ok {
-		fmt.Println("all failures are known failures")
+		failed := 0
+		for _, r := range results {
+			if !r.passed {
+				failed++
+			}
+		}
+		if failed == 0 {
+			fmt.Println("all tests pass")
+		} else {
+			fmt.Println("all failures are known failures")
+		}
 	}
 	return ok
 }
