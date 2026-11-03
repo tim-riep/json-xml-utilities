@@ -85,9 +85,8 @@ refers to it.
 go run ./tools/jsonschema-testrunner -format elements
 ```
 
-11845 of 11847 tests pass, the same as in the W3C representation (see
-[`../json-schema-xsd`](../json-schema-xsd/README.md#results)); the 2 failures
-are the `contentMediaType` tests of `draft7/optional/content`.
+All 11847 tests pass, as in the W3C representation (see
+[`../json-schema-xsd`](../json-schema-xsd/README.md#results)).
 
 ## Regenerate
 
